@@ -715,16 +715,16 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
 
                   {/* RIGHT COLUMN (40% WIDTH): Title, Metadata, Theoretical Inquiry, Stack */}
                   <div className="col-span-12 lg:col-span-5 flex flex-col justify-between space-y-3 h-full overflow-hidden text-neutral-900">
-                    {/* Header Block & Title with Signature Dark Background & White Font */}
-                    <div className="bg-neutral-950 text-white p-3.5 rounded-xs border-l-4 border-neutral-300 shadow-xs space-y-1">
-                      <div className="text-[10px] uppercase tracking-widest text-neutral-400 font-bold">
+                    {/* Header Block & Title: Architectural Monograph Typography directly on White Canvas */}
+                    <div className="space-y-1 border-b border-neutral-200 pb-2.5">
+                      <div className="text-[10px] uppercase tracking-widest text-neutral-500 font-bold">
                         PLATE {plateNumberStr} · {art.year}
                       </div>
-                      <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white leading-snug">
+                      <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-neutral-950 leading-snug">
                         {art.title}
                       </h2>
                       {art.subtitle && (
-                        <div className="text-xs text-neutral-300 italic font-normal leading-normal pt-0.5">
+                        <div className="text-xs text-neutral-600 italic font-normal leading-normal">
                           {art.subtitle}
                         </div>
                       )}

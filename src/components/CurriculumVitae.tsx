@@ -77,16 +77,14 @@ export const CurriculumVitae: React.FC<CurriculumVitaeProps> = ({
         {isPrintLayoutMode ? (
           <div className="bg-white text-neutral-900 p-8 sm:p-12 rounded-lg shadow-xl font-sans max-w-4xl mx-auto space-y-9 border border-neutral-300">
             {/* Header info with signature dark title banner */}
-            <div className="border-b-2 border-neutral-950 pb-5 space-y-3">
-              <div className="bg-neutral-950 text-white p-5 sm:p-6 rounded-xs space-y-1.5 shadow-sm border-l-4 border-neutral-300">
-                <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white uppercase">
-                  {ARTIST_INFO.name}
-                </h1>
-                <p className="text-xs font-medium uppercase tracking-wider text-neutral-300">
-                  Installation, Physical Computing, and Media-Arts Practice
-                </p>
-              </div>
-              <p className="text-[11px] font-semibold uppercase tracking-wider text-neutral-600 pt-0.5">
+            <div className="border-b-2 border-neutral-950 pb-4 space-y-1.5">
+              <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-neutral-950 uppercase">
+                {ARTIST_INFO.name}
+              </h1>
+              <p className="text-xs font-semibold uppercase tracking-wider text-neutral-600">
+                Installation, Physical Computing, and Media-Arts Practice
+              </p>
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-neutral-500 pt-0.5">
                 SINGAPORE · +65 8608 1377 · GWENLYNN.LIM@GMAIL.COM · GWEN@EVECOUNT.COM
               </p>
             </div>

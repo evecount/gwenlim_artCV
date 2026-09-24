@@ -21,6 +21,7 @@ export const ClassicalArtworkMosaic: React.FC<ClassicalArtworkMosaicProps> = ({
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [imgError, setImgError] = useState(false);
   const [viewMode, setViewMode] = useState<'photo' | 'plate'>('photo');
+  const [imageFitMode, setImageFitMode] = useState<'fit' | 'fill'>('fill');
 
   // Sync with imageStore updates
   useEffect(() => {
@@ -103,6 +104,23 @@ export const ClassicalArtworkMosaic: React.FC<ClassicalArtworkMosaicProps> = ({
               </span>
             </div>
             <div className="flex items-center gap-2">
+              {viewMode === 'photo' && (
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setImageFitMode(m => m === 'fill' ? 'fit' : 'fill');
+                  }}
+                  className={`px-2.5 py-0.5 rounded text-[10px] font-mono-code transition-colors cursor-pointer border flex items-center gap-1 ${
+                    imageFitMode === 'fill'
+                      ? 'bg-neutral-100 text-neutral-950 font-bold border-white'
+                      : 'bg-neutral-800 text-neutral-300 border-neutral-700 hover:text-white'
+                  }`}
+                  title="Toggle between edge-to-edge frame fill and full aspect view"
+                >
+                  <span>{imageFitMode === 'fill' ? '🖼️ Fill Window' : '🔲 Fit Aspect'}</span>
+                  <span className="opacity-75">⇄</span>
+                </button>
+              )}
               <span className={`text-[9px] uppercase tracking-wider px-1.5 py-0.2 rounded font-medium ${
                 viewMode === 'photo' ? 'bg-blue-900/60 text-blue-300' : 'bg-cyan-950 text-cyan-300'
               }`}>
@@ -114,29 +132,33 @@ export const ClassicalArtworkMosaic: React.FC<ClassicalArtworkMosaicProps> = ({
             </div>
           </div>
 
-          {/* Image Display Canvas (Constrained height so lower-res images remain sharp) */}
+          {/* Image Display Canvas (Expanded height with ambient luminous backdrop) */}
           <div
-            className="relative w-full h-[300px] sm:h-[380px] bg-[#050507] cursor-pointer overflow-hidden flex items-center justify-center p-3 group select-none"
+            className="relative w-full h-[360px] sm:h-[440px] md:h-[480px] bg-[#0c0d11] cursor-pointer overflow-hidden flex items-center justify-center p-2.5 group select-none"
             onClick={() => {
               if (viewMode === 'photo') handleOpenLightbox(activeImageIndex);
             }}
             title={viewMode === 'photo' ? "Click to view high-resolution full photograph" : "Structural Plate Blueprint"}
           >
             {viewMode === 'photo' && activeImage.url && !imgError ? (
-              <div className="relative w-full h-full flex items-center justify-center">
-                {/* Soft ambient blur backdrop to frame non-16:9 images gracefully */}
+              <div className="relative w-full h-full flex items-center justify-center overflow-hidden rounded-md">
+                {/* Luminous ambient blur backdrop to eliminate dead black voids */}
                 <img
                   src={activeImage.url}
                   alt=""
                   aria-hidden="true"
-                  className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-15 scale-110 pointer-events-none"
+                  className="absolute inset-0 w-full h-full object-cover blur-3xl opacity-45 scale-125 pointer-events-none select-none"
                 />
-                {/* Original crisp photograph with object-contain */}
+                {/* Foreground photograph: Fill Frame (Cover) or Fit Aspect (Contain) */}
                 <img
                   src={activeImage.url}
                   alt={activeImage.title}
                   onError={() => setImgError(true)}
-                  className="relative max-h-full max-w-full object-contain rounded-sm shadow-lg z-10 group-hover:scale-[1.01] transition-transform duration-300"
+                  className={`relative z-10 transition-all duration-300 ${
+                    imageFitMode === 'fill'
+                      ? 'w-full h-full object-cover object-top sm:object-center shadow-xl'
+                      : 'max-h-full max-w-full object-contain rounded-sm shadow-2xl group-hover:scale-[1.01]'
+                  }`}
                 />
               </div>
             ) : (
@@ -186,7 +208,7 @@ export const ClassicalArtworkMosaic: React.FC<ClassicalArtworkMosaicProps> = ({
           <div className="space-y-3">
             {/* Era & Plate Header Badge */}
             <div className="flex items-center justify-between gap-2 pb-2.5 border-b border-neutral-200">
-              <span className="px-2.5 py-1 bg-neutral-950 text-white text-[10px] font-mono-code font-bold rounded uppercase tracking-wider">
+              <span className="px-2.5 py-1 bg-neutral-100 text-neutral-900 border border-neutral-300 text-[10px] font-mono-code font-bold rounded uppercase tracking-wider">
                 Era: {artwork.year}
               </span>
               <span className="px-2 py-0.5 bg-blue-50 text-blue-800 border border-blue-200 text-[10px] font-mono-code font-medium rounded uppercase tracking-wider">
