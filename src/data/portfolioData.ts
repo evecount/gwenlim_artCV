@@ -150,9 +150,11 @@ export const RESEARCH_AND_INSTITUTIONAL_AFFILIATIONS: InstitutionalAffiliation[]
     title: 'SCTP Advanced Professional Certificate in Data Science & Artificial Intelligence',
     organization: 'Nanyang Technological University (NTU PACE)',
     location: 'Singapore',
-    role: 'Advanced Professional Scholar',
+    role: 'Teaching Aide & SkillsFuture AI Facilitator',
     details: [
-      'Guest Lecturer & Mentor for Machine Learning & Advanced AI Systems'
+      'Collaborated with NTU PACE as a Teaching Aide enabling applied AI for participants in past and upcoming SkillsFuture Career Transition Programme (SCTP) cohorts',
+      'Announced startup roles and open hiring pipelines at Cybrdeck, connecting SCTP candidates with hands-on industry ventures',
+      'Hosted startup open houses introducing participants to building domain projects for enterprises or founding their own startups based on their existing domain expertise'
     ]
   },
   {
@@ -323,8 +325,8 @@ export const CV_DATA: CVEntry[] = [
     category: 'affiliations',
     venueOrPublisher: 'Nanyang Technological University (NTU PACE)',
     location: 'Singapore',
-    roleOrContext: 'Advanced Professional Scholar',
-    notes: 'Focus: Deep Learning, Graph Neural Networks, and Advanced AI Systems.'
+    roleOrContext: 'Teaching Aide & SkillsFuture AI Facilitator',
+    notes: 'Focus: Deep Learning, Graph Neural Networks, and Advanced AI Systems · Teaching Aide for SkillsFuture SCTP cohorts and Cybrdeck startup open house host.'
   },
   {
     id: 'affil-sp',
@@ -453,12 +455,12 @@ export const CV_DATA: CVEntry[] = [
   {
     id: 'talk-2026-1',
     year: 2026,
-    title: 'Guest Lecturer & Mentor, Machine Learning & Advanced AI Systems',
+    title: 'Teaching Aide & Startup Open House: Enabling Applied AI & Industry Ventures',
     category: 'talks',
     venueOrPublisher: 'Nanyang Technological University (NTU PACE)',
     location: 'Singapore',
-    roleOrContext: 'Guest Lecturer & Mentor',
-    notes: 'Mentoring advanced professional scholars in neural architectures, graph embeddings, and AI systems.'
+    roleOrContext: 'Teaching Aide & Startup Founder (Cybrdeck)',
+    notes: 'Supported NTU PACE SkillsFuture (SCTP) cohorts as a Teaching Aide to enable practical AI applications; hosted startup open houses presenting hiring opportunities at Cybrdeck and mentoring participants to build domain projects or start ventures leveraging their domain expertise.'
   },
   {
     id: 'talk-2013',

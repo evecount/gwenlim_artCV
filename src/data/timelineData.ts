@@ -346,12 +346,12 @@ export const TRAJECTORY_MILESTONES: TrajectoryMilestone[] = [
     categoryLabel: 'Academic Computer Science & AI Systems',
     venueOrContext: 'Singapore Institute of Technology (SIT) & NTU PACE',
     location: 'Singapore',
-    role: 'B.Sc. (Honours) Scholar & Guest Lecturer',
+    role: 'Applied Computing Honours Student & Teaching Aide',
     summary: 'Formal pivot into rigorous computational systems: Machine Learning Architectures, Graph Neural Networks, and Distributed Systems at SIT; NTU PACE Advanced Cert in Data Science & AI.',
     technicalDossier: [
       'Graph Neural Networks (GNNs), Transformer attention topologies, and PyTorch',
       'Distributed systems clustering, CUDA acceleration, and low-latency inference',
-      'Guest Lecturer & Mentor for Machine Learning & Advanced AI Systems (NTU IEEE)'
+      'Teaching Aide for NTU PACE SkillsFuture (SCTP) cohorts & Cybrdeck startup open house facilitator'
     ],
     significance: 'Grounded sixteen years of intuitive optical and hardware inquiry into rigorous mathematical foundations and computer science theory.',
     associatedLinkType: 'cv',
