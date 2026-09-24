@@ -4,17 +4,9 @@ import { ARTIST_INFO, CV_DATA } from '../data/portfolioData';
 import { PlaceholderGraphic } from './DocumentaryImagePlate';
 import {
   Printer,
-  Download,
-  Copy,
-  Check,
   X,
   ChevronLeft,
-  ChevronRight,
-  Maximize2,
-  FileText,
-  Sliders,
-  ExternalLink,
-  Layers
+  ChevronRight
 } from 'lucide-react';
 
 interface LandscapePortfolioPdfModalProps {
@@ -25,15 +17,11 @@ interface LandscapePortfolioPdfModalProps {
 
 export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProps> = ({
   isOpen,
-  onClose,
-  onOpenVerticalDossier
+  onClose
 }) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [viewMode, setViewMode] = useState<'fit' | 'full' | 'grid'>('fit');
-  const [plateVisualMode, setPlateVisualMode] = useState<'photos' | 'schematics'>('photos');
+  const [plateVisualMode] = useState<'photos' | 'schematics'>('photos');
   const [individualPlateModes, setIndividualPlateModes] = useState<Record<string, 'photos' | 'schematics'>>({});
-  const [copiedNotification, setCopiedNotification] = useState(false);
-  const [isExporting, setIsExporting] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const printRef = useRef<HTMLDivElement>(null);
 
@@ -294,135 +282,25 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
         }
       `}</style>
 
-      {/* Top Modal Chrome Toolbar (no-print) */}
+      {/* Sleek, Single Chrome Toolbar (no-print) */}
       <header className="no-print h-14 bg-[#0d0e12] border-b border-neutral-800 px-4 flex items-center justify-between gap-4 shrink-0 z-20">
-        <div className="flex items-center gap-3">
+        {/* Title */}
+        <div className="flex items-center gap-2.5 shrink-0">
           <span className="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse" />
-          <div className="flex items-baseline gap-2">
-            <span className="font-serif-display font-semibold text-white tracking-tight text-sm sm:text-base">
-              Gwendalynn Lim
-            </span>
-            <span className="text-[11px] font-mono-code text-blue-400 font-bold uppercase tracking-wider hidden sm:inline-block">
-              · 10-Page Curatorial Monograph (Landscape)
-            </span>
-          </div>
-          <span className="text-[10px] font-mono-code px-2 py-0.5 rounded bg-blue-950 border border-blue-800 text-blue-300 font-semibold hidden md:inline-block">
-            Strict Jury Specification · A4 Landscape
+          <span className="font-serif-display font-semibold text-white tracking-tight text-sm sm:text-base">
+            Gwendalynn Lim
+          </span>
+          <span className="text-[11px] font-mono-code text-blue-400 font-bold uppercase tracking-wider hidden sm:inline-block">
+            · 10-Page Portfolio (Landscape)
           </span>
         </div>
 
-        {/* Action Controls */}
-        <div className="flex items-center gap-2">
-          {/* Switch to Full Vertical CV & Dossier */}
-          {onOpenVerticalDossier && (
-            <button
-              onClick={() => {
-                onClose();
-                onOpenVerticalDossier();
-              }}
-              className="px-2.5 py-1 text-xs font-mono-code text-neutral-400 hover:text-white bg-neutral-900 hover:bg-neutral-800 border border-neutral-750 rounded transition-colors flex items-center gap-1.5 cursor-pointer hidden lg:flex"
-              title="Switch to detailed multi-section CV and research dossier"
-            >
-              <FileText className="w-3.5 h-3.5" />
-              <span>Full CV / Text Dossier</span>
-            </button>
-          )}
-
-          {/* View Mode Toggle */}
-          <div className="hidden sm:flex items-center bg-neutral-900 border border-neutral-800 rounded p-0.5 text-xs font-mono-code text-neutral-400">
-            <button
-              onClick={() => setViewMode('fit')}
-              className={`px-2 py-1 rounded transition-colors cursor-pointer ${
-                viewMode === 'fit' ? 'bg-neutral-800 text-white font-bold' : 'hover:text-white'
-              }`}
-            >
-              Single Page
-            </button>
-            <button
-              onClick={() => setViewMode('grid')}
-              className={`px-2 py-1 rounded transition-colors cursor-pointer ${
-                viewMode === 'grid' ? 'bg-neutral-800 text-white font-bold' : 'hover:text-white'
-              }`}
-            >
-              10-Page Grid
-            </button>
-          </div>
-
-          {/* Plate Visual Mode: Curatorial Photos vs Blueprint Schematic */}
-          <div className="hidden md:flex items-center bg-neutral-900 border border-neutral-800 rounded p-0.5 text-xs font-mono-code text-neutral-400">
-            <button
-              onClick={() => setPlateVisualMode('photos')}
-              className={`px-2.5 py-1 rounded transition-colors cursor-pointer flex items-center gap-1.5 ${
-                plateVisualMode === 'photos'
-                  ? 'bg-blue-700 text-white font-bold shadow-xs'
-                  : 'hover:text-white'
-              }`}
-              title="Display high-resolution archival photographs from assets"
-            >
-              <span>📷 Archival Photos</span>
-            </button>
-            <button
-              onClick={() => setPlateVisualMode('schematics')}
-              className={`px-2.5 py-1 rounded transition-colors cursor-pointer flex items-center gap-1.5 ${
-                plateVisualMode === 'schematics'
-                  ? 'bg-blue-700 text-white font-bold shadow-xs'
-                  : 'hover:text-white'
-              }`}
-              title="Display original architectural blueprint & schematic cards"
-            >
-              <span>📐 Blueprint Cards</span>
-            </button>
-          </div>
-
-          {/* Copy Summary */}
-          <button
-            onClick={handleCopySummary}
-            className="px-2.5 py-1.5 bg-neutral-900 hover:bg-neutral-800 border border-neutral-750 text-neutral-300 hover:text-white rounded text-xs font-mono-code flex items-center gap-1.5 transition-colors cursor-pointer"
-            title="Copy structural text index to clipboard"
-          >
-            {copiedNotification ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-            <span className="hidden md:inline">{copiedNotification ? 'Copied' : 'Copy Concordance'}</span>
-          </button>
-
-          {/* HTML / Offline Export */}
-          <button
-            onClick={handleExportHtml}
-            disabled={isExporting}
-            className="px-2.5 py-1.5 bg-neutral-900 hover:bg-neutral-800 border border-neutral-750 text-neutral-300 hover:text-white rounded text-xs font-mono-code flex items-center gap-1.5 transition-colors cursor-pointer"
-            title="Download complete offline HTML monograph package"
-          >
-            <Download className="w-3.5 h-3.5 text-neutral-400" />
-            <span className="hidden md:inline">Download Package</span>
-          </button>
-
-          {/* Print / Save as PDF (Primary Action) */}
-          <button
-            onClick={handlePrintPdf}
-            className="px-3.5 py-1.5 bg-blue-700 hover:bg-blue-600 active:bg-blue-800 text-white font-semibold rounded text-xs font-mono-code flex items-center gap-1.5 shadow-md shadow-blue-700/25 transition-colors cursor-pointer"
-            title="Open browser print dialog set to Landscape A4 PDF"
-          >
-            <Printer className="w-3.5 h-3.5 text-blue-200" />
-            <span>Print PDF (Landscape)</span>
-          </button>
-
-          {/* Close Modal */}
-          <button
-            onClick={onClose}
-            className="p-1.5 text-neutral-400 hover:text-white hover:bg-neutral-800 rounded transition-colors cursor-pointer ml-1"
-            title="Close viewer"
-          >
-            <X className="w-4 h-4" />
-          </button>
-        </div>
-      </header>
-
-      {/* Sub-bar Pagination Navigation (no-print) */}
-      <nav className="no-print h-11 bg-[#101117] border-b border-neutral-850 px-4 flex items-center justify-between text-xs font-mono-code text-neutral-400 shrink-0">
-        <div className="flex items-center gap-2 overflow-x-auto py-1 scrollbar-none">
+        {/* Center: Direct 10-Page Navigation */}
+        <div className="flex items-center gap-1 overflow-x-auto py-1 scrollbar-none font-mono-code">
           <button
             onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
             disabled={currentPage === 1}
-            className="p-1 text-neutral-400 hover:text-white disabled:opacity-30 disabled:hover:text-neutral-400 rounded cursor-pointer"
+            className="p-1.5 text-neutral-400 hover:text-white disabled:opacity-30 disabled:hover:text-neutral-400 rounded cursor-pointer"
             title="Previous page (ArrowLeft)"
           >
             <ChevronLeft className="w-4 h-4" />
@@ -443,10 +321,10 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
               <button
                 key={pageNum}
                 onClick={() => setCurrentPage(pageNum)}
-                className={`px-2.5 py-0.5 rounded text-[11px] whitespace-nowrap transition-all cursor-pointer ${
+                className={`px-2.5 py-1 rounded text-xs whitespace-nowrap transition-all cursor-pointer ${
                   isCurrent
                     ? 'bg-blue-700 text-white font-bold shadow-xs'
-                    : 'bg-neutral-900/80 hover:bg-neutral-800 text-neutral-400 hover:text-neutral-200'
+                    : 'bg-neutral-900/80 hover:bg-neutral-800 text-neutral-400 hover:text-neutral-200 border border-neutral-800'
                 }`}
               >
                 {label}
@@ -457,19 +335,33 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
           <button
             onClick={() => setCurrentPage(p => Math.min(10, p + 1))}
             disabled={currentPage === 10}
-            className="p-1 text-neutral-400 hover:text-white disabled:opacity-30 disabled:hover:text-neutral-400 rounded cursor-pointer"
+            className="p-1.5 text-neutral-400 hover:text-white disabled:opacity-30 disabled:hover:text-neutral-400 rounded cursor-pointer"
             title="Next page (ArrowRight)"
           >
             <ChevronRight className="w-4 h-4" />
           </button>
         </div>
 
-        <div className="hidden sm:flex items-center gap-3 text-neutral-500 text-[11px]">
-          <span>Page {currentPage} of 10</span>
-          <span>·</span>
-          <span className="text-neutral-400">297 × 210 mm Landscape</span>
+        {/* Right Actions: Print & Close */}
+        <div className="flex items-center gap-2 shrink-0">
+          <button
+            onClick={handlePrintPdf}
+            className="px-4 py-1.5 bg-blue-700 hover:bg-blue-600 active:bg-blue-800 text-white font-semibold rounded text-xs font-mono-code flex items-center gap-1.5 shadow-md shadow-blue-700/25 transition-colors cursor-pointer"
+            title="Print or Save as Landscape A4 PDF"
+          >
+            <Printer className="w-3.5 h-3.5 text-blue-200" />
+            <span>Print PDF (Landscape)</span>
+          </button>
+
+          <button
+            onClick={onClose}
+            className="p-1.5 text-neutral-400 hover:text-white hover:bg-neutral-800 rounded transition-colors cursor-pointer ml-1"
+            title="Close viewer"
+          >
+            <X className="w-4 h-4" />
+          </button>
         </div>
-      </nav>
+      </header>
 
       {/* Main Viewport */}
       <main
@@ -482,11 +374,12 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
           {/* =========================================================================
               PAGE 01: COVER / DOSSIER TITLE
               ========================================================================= */}
-          {(viewMode === 'grid' || currentPage === 1) && (
-            <section
-              id="page-01"
-              className="page-landscape w-full max-w-[1120px] aspect-[297/210] bg-white text-neutral-950 p-8 sm:p-12 md:p-14 shadow-2xl rounded-sm border border-neutral-300 flex flex-col justify-between select-text"
-            >
+          <section
+            id="page-01"
+            className={`page-landscape w-full max-w-[1120px] aspect-[297/210] bg-white text-neutral-950 p-8 sm:p-12 md:p-14 shadow-2xl rounded-sm border border-neutral-300 flex-col justify-between select-text ${
+              currentPage === 1 ? 'flex' : 'hidden print:flex'
+            }`}
+          >
               {/* Header metadata bar */}
               <div className="border-b-2 border-neutral-950 pb-4 flex items-center justify-between text-xs font-mono-code">
                 <div className="flex items-center gap-2">
@@ -581,15 +474,12 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
                 <div>PAGE 01 OF 10</div>
               </div>
             </section>
-          )}
 
           {/* =========================================================================
               PAGES 02–09: PLATES 01–08 (EXACT 60% / 40% SPLIT COLUMN ARCHITECTURE)
               ========================================================================= */}
           {ARTWORKS.map((art, idx) => {
             const pageNum = idx + 2;
-            if (viewMode !== 'grid' && currentPage !== pageNum) return null;
-
             const effectiveMode = individualPlateModes[art.id] || plateVisualMode;
             const heroImg = art.images[0];
             const detailImg1 = art.images[1];
@@ -600,7 +490,9 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
               <section
                 key={art.id}
                 id={`page-${String(pageNum).padStart(2, '0')}`}
-                className="page-landscape w-full max-w-[1120px] aspect-[297/210] bg-white text-neutral-950 p-6 sm:p-10 md:p-12 shadow-2xl rounded-sm border border-neutral-300 flex flex-col justify-between select-text"
+                className={`page-landscape w-full max-w-[1120px] aspect-[297/210] bg-white text-neutral-950 p-6 sm:p-10 md:p-12 shadow-2xl rounded-sm border border-neutral-300 flex-col justify-between select-text ${
+                  currentPage === pageNum ? 'flex' : 'hidden print:flex'
+                }`}
               >
                 {/* Top Plate Sub-Header */}
                 <div className="border-b border-neutral-900 pb-2.5 flex items-center justify-between text-xs font-mono-code">
@@ -791,11 +683,12 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
           {/* =========================================================================
               PAGE 10: DOSSIER INDEX, TECHNICAL APPENDIX & LINKS
               ========================================================================= */}
-          {(viewMode === 'grid' || currentPage === 10) && (
-            <section
-              id="page-10"
-              className="page-landscape w-full max-w-[1120px] aspect-[297/210] bg-white text-neutral-950 p-8 sm:p-12 md:p-14 shadow-2xl rounded-sm border border-neutral-300 flex flex-col justify-between select-text"
-            >
+          <section
+            id="page-10"
+            className={`page-landscape w-full max-w-[1120px] aspect-[297/210] bg-white text-neutral-950 p-8 sm:p-12 md:p-14 shadow-2xl rounded-sm border border-neutral-300 flex-col justify-between select-text ${
+              currentPage === 10 ? 'flex' : 'hidden print:flex'
+            }`}
+          >
               {/* Header */}
               <div className="border-b-2 border-neutral-950 pb-3 flex items-center justify-between text-xs font-mono-code">
                 <div className="flex items-center gap-2">
@@ -901,7 +794,6 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
                 <div>PAGE 10 OF 10</div>
               </div>
             </section>
-          )}
 
         </div>
       </main>
