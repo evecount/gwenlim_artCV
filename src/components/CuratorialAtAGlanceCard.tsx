@@ -49,17 +49,6 @@ export const CuratorialAtAGlanceCard: React.FC<CuratorialAtAGlanceCardProps> = (
         </div>
 
         <div className="flex items-center gap-2 shrink-0">
-          {onOpenPdfModal && (
-            <button
-              onClick={() => onOpenPdfModal('residency')}
-              className="px-3 py-1.5 bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-200 border border-cyan-400/40 rounded text-xs font-mono-code flex items-center gap-1.5 transition-colors cursor-pointer"
-              title="Export Formatted PDF Dossier for Committee Binder"
-            >
-              <FileDown className="w-3.5 h-3.5 text-cyan-400" />
-              <span>Export Evaluation PDF</span>
-            </button>
-          )}
-
           <button
             onClick={() => setIsExpanded(prev => !prev)}
             className="px-2.5 py-1.5 bg-neutral-800/80 hover:bg-neutral-800 text-neutral-300 border border-neutral-700 rounded text-xs font-mono-code flex items-center gap-1 transition-colors cursor-pointer"

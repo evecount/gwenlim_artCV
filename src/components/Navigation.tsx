@@ -79,37 +79,15 @@ export const Navigation: React.FC<NavigationProps> = ({
           </button>
         </nav>
 
-        {/* Zone 3: Direct Export Buttons (Either or Both) */}
+        {/* Zone 3: Single Direct Export Button */}
         <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-          {/* Export CV */}
-          <button
-            onClick={() => onTriggerPrint('cv-only')}
-            className="px-2.5 py-1.5 text-xs font-mono-code text-neutral-800 bg-neutral-100 hover:bg-neutral-200 border border-neutral-300 rounded transition-colors whitespace-nowrap cursor-pointer flex items-center gap-1.5"
-            title="Download Black & White CV (PDF)"
-          >
-            <FileText className="w-3.5 h-3.5 text-neutral-600" />
-            <span className="hidden sm:inline">Export CV</span>
-            <span className="sm:hidden">CV</span>
-          </button>
-
-          {/* Export Portfolio */}
           <button
             onClick={() => onTriggerPrint('portfolio')}
-            className="px-2.5 sm:px-3 py-1.5 text-xs font-mono-code text-neutral-800 bg-neutral-100 hover:bg-neutral-200 border border-neutral-300 rounded transition-colors whitespace-nowrap cursor-pointer flex items-center gap-1.5"
-            title="Download Portfolio Plates (PDF)"
+            className="px-3.5 py-1.5 text-xs font-mono-code text-white bg-neutral-950 hover:bg-neutral-800 active:bg-black rounded transition-all whitespace-nowrap cursor-pointer flex items-center gap-1.5 font-semibold shadow-xs"
+            title="Download 10-Page Curatorial Portfolio (PDF)"
           >
-            <Sparkles className="w-3.5 h-3.5 text-neutral-600" />
-            <span className="hidden sm:inline">Export Plates</span>
-            <span className="sm:hidden">Plates</span>
-          </button>
-
-          {/* Export Both */}
-          <button
-            onClick={() => onTriggerPrint('standard')}
-            className="px-2.5 sm:px-3 py-1.5 text-xs font-mono-code text-white bg-neutral-950 hover:bg-neutral-800 active:bg-black rounded transition-all whitespace-nowrap cursor-pointer flex items-center gap-1.5 font-semibold shadow-xs"
-            title="Download Complete Dossier (Both CV + Portfolio)"
-          >
-            <span>Export Both</span>
+            <Sparkles className="w-3.5 h-3.5 text-blue-300" />
+            <span>Export Portfolio</span>
           </button>
           {/* Mobile / Compact Menu Toggle Button */}
           <button
@@ -178,28 +156,17 @@ export const Navigation: React.FC<NavigationProps> = ({
             </button>
           </div>
 
-          {/* Quick Export Actions in Mobile Menu */}
+          {/* Quick Export Action in Mobile Menu */}
           <div className="pt-2 border-t border-neutral-200 flex flex-col gap-2">
             <button
               onClick={() => {
                 onTriggerPrint('portfolio');
                 setMobileMenuOpen(false);
               }}
-              className="w-full py-2 px-3 bg-blue-700 text-white rounded text-xs font-mono-code font-bold flex items-center justify-center gap-2 shadow-sm"
+              className="w-full py-2 px-3 bg-neutral-950 text-white rounded text-xs font-mono-code font-bold flex items-center justify-center gap-2 shadow-sm"
             >
-              <Sparkles className="w-3.5 h-3.5 text-blue-200" />
-              <span>Print / Export Portfolio Extraction (PDF)</span>
-            </button>
-
-            <button
-              onClick={() => {
-                onTriggerPrint('standard');
-                setMobileMenuOpen(false);
-              }}
-              className="w-full py-2 px-3 bg-neutral-100 border border-neutral-250 text-neutral-800 rounded text-xs font-mono-code font-semibold flex items-center justify-center gap-2"
-            >
-              <FileText className="w-3.5 h-3.5 text-neutral-500" />
-              <span>Print Curatorial Dossier & CV (PDF)</span>
+              <Sparkles className="w-3.5 h-3.5 text-blue-300" />
+              <span>Export Portfolio (PDF)</span>
             </button>
 
             <button

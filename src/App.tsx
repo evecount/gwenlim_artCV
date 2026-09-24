@@ -16,7 +16,6 @@ import { SamResidencyPanel } from './components/SamResidencyPanel';
 import { WorkDetailModal } from './components/WorkDetailModal';
 import { AppliedPracticeArchiveModal } from './components/AppliedPracticeArchiveModal';
 import { CuratorialContactModal } from './components/CuratorialContactModal';
-import { CuratorialDossierPdfModal, DossierPreset } from './components/CuratorialDossierPdfModal';
 import { LandscapePortfolioPdfModal } from './components/LandscapePortfolioPdfModal';
 import { Footer } from './components/Footer';
 
@@ -26,17 +25,10 @@ export default function App() {
   const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null);
   const [isAppliedPracticeOpen, setIsAppliedPracticeOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
-  const [isDossierPdfOpen, setIsDossierPdfOpen] = useState(false);
   const [isLandscapePdfOpen, setIsLandscapePdfOpen] = useState(false);
-  const [dossierPreset, setDossierPreset] = useState<DossierPreset>('standard');
 
-  const handleOpenDossierPdf = (preset: DossierPreset = 'standard') => {
-    if (preset === 'portfolio') {
-      setIsLandscapePdfOpen(true);
-    } else {
-      setDossierPreset(preset);
-      setIsDossierPdfOpen(true);
-    }
+  const handleOpenPortfolioPdf = () => {
+    setIsLandscapePdfOpen(true);
   };
 
   const handleSelectArtworkById = (id: string) => {
@@ -54,7 +46,7 @@ export default function App() {
         onSelectTab={setActiveTab}
         onOpenAppliedPractice={() => setIsAppliedPracticeOpen(true)}
         onOpenContact={() => setIsContactOpen(true)}
-        onTriggerPrint={(preset) => handleOpenDossierPdf(preset || 'portfolio')}
+        onTriggerPrint={() => handleOpenPortfolioPdf()}
       />
 
       {/* Main Content Area */}
@@ -65,7 +57,7 @@ export default function App() {
             <WorksGrid
               artworks={ARTWORKS}
               onSelectArtwork={setSelectedArtwork}
-              onOpenPortfolioPdf={() => handleOpenDossierPdf('portfolio')}
+              onOpenPortfolioPdf={() => handleOpenPortfolioPdf()}
             />
           </div>
         )}
@@ -74,9 +66,8 @@ export default function App() {
         {activeTab === 'cv' && (
           <div className="animate-fadeIn">
             <CurriculumVitae
-              onTriggerPrint={() => handleOpenDossierPdf('cv-only')}
+              onTriggerPrint={() => window.print()}
               onOpenAppliedPractice={() => setIsAppliedPracticeOpen(true)}
-              onOpenPdfModal={handleOpenDossierPdf}
             />
           </div>
         )}
@@ -97,7 +88,6 @@ export default function App() {
             <SamResidencyPanel
               onSelectArtworkById={handleSelectArtworkById}
               onOpenContact={() => setIsContactOpen(true)}
-              onOpenPdfModal={handleOpenDossierPdf}
               onNavigateToTab={setActiveTab}
             />
           </div>
@@ -129,19 +119,6 @@ export default function App() {
       <LandscapePortfolioPdfModal
         isOpen={isLandscapePdfOpen}
         onClose={() => setIsLandscapePdfOpen(false)}
-        onOpenVerticalDossier={() => {
-          setDossierPreset('standard');
-          setIsDossierPdfOpen(true);
-        }}
-      />
-
-      {/* Formatted Curatorial Dossier & CV PDF Generator Modal */}
-      <CuratorialDossierPdfModal
-        isOpen={isDossierPdfOpen}
-        onClose={() => setIsDossierPdfOpen(false)}
-        initialPreset={dossierPreset}
-        onSelectArtworkById={handleSelectArtworkById}
-        onOpenLandscapePortfolio={() => setIsLandscapePdfOpen(true)}
       />
 
       {/* Footer */}
@@ -149,7 +126,7 @@ export default function App() {
         onSelectTab={setActiveTab}
         onOpenAppliedPractice={() => setIsAppliedPracticeOpen(true)}
         onOpenContact={() => setIsContactOpen(true)}
-        onTriggerPrint={(preset) => handleOpenDossierPdf(preset || 'portfolio')}
+        onTriggerPrint={() => handleOpenPortfolioPdf()}
       />
     </div>
   );

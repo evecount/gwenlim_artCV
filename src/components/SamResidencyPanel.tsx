@@ -112,16 +112,6 @@ Open-Source Codebase: ${SAM_RESIDENCY_ALIGNMENT.githubUrl}
           </div>
 
           <div className="flex items-center gap-2 self-start md:self-auto">
-            {onOpenPdfModal && (
-              <button
-                onClick={() => onOpenPdfModal('residency')}
-                className="px-3.5 py-2 bg-neutral-950 hover:bg-neutral-800 text-white border border-neutral-950 rounded text-xs font-mono-code flex items-center gap-1.5 transition-colors cursor-pointer whitespace-nowrap shadow-xs"
-                title="Generate clean, formatted PDF proposal dossier"
-              >
-                <FileDown className="w-3.5 h-3.5 text-cyan-300" />
-                <span>Export Proposal Dossier (PDF)</span>
-              </button>
-            )}
             <button
               onClick={onOpenContact}
               className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-mono-code rounded font-medium transition-colors cursor-pointer whitespace-nowrap shadow-xs"

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FileDown, Printer } from 'lucide-react';
+import { Printer } from 'lucide-react';
 import {
   CV_DATA,
   ARTIST_INFO,
@@ -61,32 +61,14 @@ export const CurriculumVitae: React.FC<CurriculumVitaeProps> = ({
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex items-center gap-2">
             <button
-              onClick={() => onOpenPdfModal ? onOpenPdfModal('cv-only') : onTriggerPrint()}
+              onClick={() => window.print()}
               className="px-3.5 py-1.5 text-xs font-mono-code bg-neutral-950 hover:bg-neutral-800 text-white font-semibold rounded border border-neutral-950 transition-colors cursor-pointer flex items-center gap-1.5 shadow-xs"
-              title="Compile clean, formatted PDF dossier with statement, CV & references"
+              title="Print or save Black & White CV as clean vector PDF"
             >
-              <FileDown className="w-3.5 h-3.5 text-cyan-300" />
-              <span>Export PDF Dossier</span>
-            </button>
-            <button
-              onClick={() => setIsPrintLayoutMode(!isPrintLayoutMode)}
-              className={`px-3 py-1.5 text-xs font-mono-code rounded border transition-colors cursor-pointer shadow-xs ${
-                isPrintLayoutMode
-                  ? 'bg-neutral-950 text-white border-neutral-950 font-medium'
-                  : 'bg-white text-neutral-800 border-neutral-300 hover:bg-neutral-50'
-              }`}
-            >
-              {isPrintLayoutMode ? 'Interactive View' : 'Single-Sheet Paper View'}
-            </button>
-            <button
-              onClick={onTriggerPrint}
-              className="px-3 py-1.5 text-xs font-mono-code bg-white hover:bg-neutral-50 text-neutral-700 border border-neutral-300 rounded transition-colors cursor-pointer flex items-center gap-1.5 shadow-xs"
-              title="Quick browser print"
-            >
-              <Printer className="w-3.5 h-3.5 text-neutral-600" />
-              <span>Print</span>
+              <Printer className="w-3.5 h-3.5 text-neutral-300" />
+              <span>Export CV (PDF)</span>
             </button>
           </div>
         </div>
