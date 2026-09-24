@@ -228,7 +228,7 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
       `GWENDALYNN LIM WAN TING — SELECTED WORKS & SYSTEMS ARCHIVE (2010–2026)`,
       `Curatorial Dossier · 10-Page Structural Concordance`,
       `Track: Artist Residency · Strand: Beyond Human / Interdependence`,
-      `URL: https://gwenlim.ai.studio/ · GitHub: github.com/evecount/riemann_hypothesis`,
+      `Contact: gwenlynn.lim@gmail.com · Web: https://evecount.github.io/gwenlim_artCV/`,
       `========================================================================`,
       `PAGE 01: Cover & Curatorial Statement`,
       ...ARTWORKS.map((a, idx) => {
@@ -522,7 +522,7 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
               {/* Bottom Watermark */}
               <div className="border-t border-neutral-300 pt-3 flex items-center justify-between text-[10px] font-mono-code text-neutral-500">
                 <div>SAM RESIDENCIES CYCLE 4 (2027/2028) · APPLICATION ID: 9517668522</div>
-                <div>CONTACT: GWEN@GWENLIM.AI.STUDIO · HTTPS://GWENLIM.AI.STUDIO/</div>
+                <div>CONTACT: GWENLYNN.LIM@GMAIL.COM · GWEN@EVECOUNT.COM</div>
                 <div>PAGE 01 OF 10</div>
               </div>
             </section>
@@ -898,7 +898,7 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
                   </div>
                   <div>
                     <span className="font-bold text-neutral-950">Curatorial Contact:</span>{' '}
-                    <span className="text-neutral-700">gwen@gwenlim.ai.studio</span>
+                    <span className="text-neutral-700">gwenlynn.lim@gmail.com · gwen@evecount.com</span>
                   </div>
                 </div>
               </div>

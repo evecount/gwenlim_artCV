@@ -87,7 +87,7 @@ export const CurriculumVitae: React.FC<CurriculumVitaeProps> = ({
                 </p>
               </div>
               <p className="text-[11px] font-semibold uppercase tracking-wider text-neutral-600 pt-0.5">
-                SINGAPORE · +65 8608 1377 · GWENLYNN.LIM@GMAIL.COM · GWENLIM.AI.STUDIO
+                SINGAPORE · +65 8608 1377 · GWENLYNN.LIM@GMAIL.COM · GWEN@EVECOUNT.COM
               </p>
             </div>
 

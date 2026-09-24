@@ -1,105 +1,92 @@
 # Gwendalynn Lim Wan Ting (林婉婷)
-### Selected Installations, Physical Computing & High-Dimensional Systems (2010 — 2026)
-*Institutional Curatorial Dossier, Black & White CV, and Strict 10-Page Landscape Monograph*
+### Installations, Physical Computing & Systems Art (2010 — 2026)
 
+[![Live Web Monograph](https://img.shields.io/badge/Live%20Portfolio-GitHub%20Pages-black.svg)](https://evecount.github.io/gwenlim_artCV/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue.svg)](https://www.typescriptlang.org/)
-[![Vite](https://img.shields.io/badge/Vite-8.x-purple.svg)](https://vitejs.dev/)
 [![React](https://img.shields.io/badge/React-19.x-cyan.svg)](https://react.dev/)
-[![Live GitHub Pages](https://img.shields.io/badge/Live%20Dossier-GitHub%20Pages-brightgreen.svg)](https://evecount.github.io/gwenlim_artCV/)
-[![Institutional Review](https://img.shields.io/badge/SAM%20Residencies-Cycle%204%20(2027%2F2028)-emerald.svg)](https://www.singaporeartmuseum.org/)
-[![Applicant ID](https://img.shields.io/badge/Application%20ID-9517668522-blue.svg)](https://github.com/evecount/gwenlim_artCV)
+[![License](https://img.shields.io/badge/License-Apache--2.0-green.svg)](LICENSE)
 
 ---
 
-## 🏛️ Official Institutional Application Concordance
+## 👋 About Gwen
 
-This repository houses the digital monograph, institutional curriculum vitae, and curatorial portfolio web application submitted for institutional review:
+Hi, I'm Gwen — an artist, computational systems builder, and maker based in Singapore. 
 
-| Specification | Official Application Record |
-| :--- | :--- |
-| **Applicant** | **Gwendalynn Lim Wan Ting (林婉婷)** (`1ightray`) |
-| **Application ID** | **`9517668522`** |
-| **Programme** | **SAM Residencies Cycle 4 (2027/2028)** |
-| **Track** | **Artist Residency (Singapore-based, 6 Months)** |
-| **Primary Strand** | **Beyond Human / Interdependence** |
-| **Intersections** | **Listening/Attuning · Making/Material Cultures** |
-| **Live Monograph** | **[https://evecount.github.io/gwenlim_artCV/](https://evecount.github.io/gwenlim_artCV/)** |
-| **Studio Trajectory** | Singapore & Toronto · 2010 — 2026 (16-Year Longitudinal Practice) |
-| **Primary Codebases** | [`evecount/gwenlim_artCV`](https://github.com/evecount/gwenlim_artCV) · [`evecount/riemann_hypothesis`](https://github.com/evecount/riemann_hypothesis) · [`evecount/quantum_rotation`](https://github.com/evecount/quantum_rotation) |
-| **Curatorial Contact** | [gwen@evecount.com](mailto:gwen@evecount.com) · [gwen@gwenlim.ai.studio](mailto:gwen@gwenlim.ai.studio) |
+For the past 16 years (spanning Toronto and Singapore), my practice has lived at the intersection of photography, physical computing, custom electronics, and participatory spatial installations. 
+
+I’m interested in how cameras and surveillance systems observe people, how we interact with technology when it’s tangible rather than locked inside screens, and how grassroots artist communities build independent creative infrastructure together.
+
+* **Primary Email:** [gwenlynn.lim@gmail.com](mailto:gwenlynn.lim@gmail.com)
+* **Secondary / Studio:** [gwen@evecount.com](mailto:gwen@evecount.com)
+* **Live Portfolio & CV:** [https://evecount.github.io/gwenlim_artCV/](https://evecount.github.io/gwenlim_artCV/)
+* **Selected Repositories:** [evecount/riemann_hypothesis](https://github.com/evecount/riemann_hypothesis) · [evecount/quantum_rotation](https://github.com/evecount/quantum_rotation)
 
 ---
 
-## 🧭 Curatorial Statement & Artistic Trajectory
+## 🎨 Art & Projects Timeline (2010 — 2026)
 
-Interdisciplinary artist, computational systems architect, and media theorist working across participatory lens mechanics, critique of observer bias, physical computing, and machine interiority. For over sixteen years, Lim’s practice has deconstructed institutional observer bias—the unexamined assumption that because imaging and algorithmic capture technologies exist, authorities and systems possess an inherent right to observe. Interrogating this mechanism as voyeurism masquerading as institutional authority, Lim’s trajectory progresses from early photographic inquiries into stylized identity and the staged gaze (Noise Singapore / NAC), to tactile participatory camera rigs (TEDxToronto, |FAT|), optical sanctuaries subverting automated tracking, and zero-knowledge neural and quantum architectures.
+Here is a straightforward chronological walkthrough of my major spatial installations, community projects, and research across the past 16 years:
 
-Her work examines the structural, relational, and material dependencies between human bodies, machine observation, and sovereign computational systems.
+### 2011 · White Geisha & Silver Aurelia
+* **Venue / Context:** *Noise Singapore Festival*, National Arts Council (Singapore)
+* **What it is:** A curated photography series presented on archival pigment prints. The work investigated staged identity, high-key studio lighting, and how portraiture shapes what viewers project onto the subject.
 
-### Core Curatorial Pillars & Strands
+### 2011 · A Perfect World
+* **Venue / Context:** Kensington Market cultural corridor, Toronto
+* **What it is:** A street-level documentary and relational portraiture project shot on a medium-format mechanical Hasselblad 500C/M. It captured independent shopkeepers, buskers, and residents during a period of rapid neighborhood gentrification.
 
-1. **Beyond Human & Cosmic Substrates**  
-   Investigating pure mathematical architectures—specifically the Riemann zeta function, non-trivial zero distributions along the critical strip $\text{Re}(s) = 1/2$, and Gaussian Unitary Ensemble (GUE) quantum chaos—not as anthropocentric inventions, but as an autonomous, non-human cosmic infrastructure that human cognition observes rather than engineers.
+### 2012 · Two-Man Rule [TMR]
+* **Venue / Context:** TEDxToronto, The Sony Centre for the Performing Arts
+* **What it is:** A walk-in geodesic dome built entirely out of clear packing tape (over 12 kilometers of hand-spun tape monocoque). Inside, a custom camera rig was wired to two separate hand-held buttons placed across the dome. A photograph could only be taken when two total strangers agreed to press their triggers at the exact same moment.
+* **Collective Context:** Fabricated in collaboration with Toronto's **Akin Collective**.
 
-2. **The Human-AI Coin: Cognitive Interdependence**  
-   Dismantling the binary of synthetic versus organic cognition. Human artistic intuition and frontier generative AI models operate as entangled partners in a cybernetic studio workflow, establishing transparent provenance models for contemporary creative labor.
+### 2012 · Broadcast People
+* **Venue / Context:** |FAT| Toronto Alternative Arts & Fashion Week
+* **What it is:** A wall-sized installation made of 16 stacked vintage CRT television monitors and CCTV cameras. When visitors stepped on a hidden pressure-plate switch in the floor, their live image took over the entire video wall, making them both the audience and the broadcast subject.
 
-3. **Physical Computing & Sovereign Material Infrastructure**  
-   Rejecting cloud abstractions in favor of physical fabrication: raw silicon, optical fiber bundles, galvanically isolated optocoupler relays, low-latency serial buses, high-lumen flood arrays, and tactile floor triggers grounded in local hardware supply chains.
+### 2013 · The Ultimate Selfie & Interactive Pavilions
+* **Venue / Context:** Metro Toronto Convention Centre (Interior Design Show / IIDEX / Toronto Design Offsite)
+* **What it is:** Early physical computing photobooths built before automated selfie culture became ubiquitous. Custom optocoupler trigger boards and micro-switches let visitors trigger professional studio flashes and cameras, immediately projecting raw, unedited images onto large architectural scrims.
 
-4. **15-Year Grassroots Spatial Stewardship**  
-   Deeply rooted in longitudinal artist-run center (ARC) studio residencies:
-   - **Akin Collective (Dir. Oliver Pauk, 2011–2015, Toronto):** First collective joined; co-organized the `#LOVELOCAL` community arts & music showcase; designed and fabricated *Two-Man Rule [TMR]* for TEDxToronto at the Sony Centre.
-   - **Motion and Still Inc. (2014–2023, Toronto):** Directed a 3,200 sq.ft daylight studio facility with 3-phase 32A power drops, hosting grassroots acoustic salons (Sofar Sounds) and pro bono production spaces for indie filmmakers and queer diaspora artists.
-   - **Flick the Switch Artists' Collective (Susan Stewart, 2019–2024, Toronto):** Long-term media lead providing pro bono 4K documentation, digital archiving, and public installation proposals.
-   - **OCAD University (2019, Toronto):** Hands-on studio coursework in Foundry & Material Practice, producing lost-wax investment mold bronze castings.
+### 2020 · Deconstructing Capital
+* **Venue / Context:** 52 St. Lawrence Studio, Toronto
+* **What it is:** A site-specific spatial lighting intervention using high-powered theatrical Fresnel lights and optical scrims. The installation explored how intense light can be used both to reveal space and to create private, reflective pockets shielded from passive observation.
 
----
+### 2024 · Collective Infrastructure & Mutual Aid
+* **Venue / Context:** Akin Collective · Motion and Still · Flick the Switch (Toronto)
+* **What it is:** Over a decade of grassroots artist-run community stewardship. Between 2014 and 2023, I directed *Motion and Still*, a 3,200 sq.ft daylight studio facility in Toronto that provided affordable, shared production resources, hosted community acoustic sessions (Sofar Sounds), and supported independent queer, diaspora, and emerging artists. Also served as long-term media and documentation lead for *Flick the Switch Artists' Collective*.
 
-## 🖼️ Primary Art Trajectory: 8 Curatorial Plates (2010 — 2026)
-
-| Plate | Year | Artwork Title | Medium & Architectural Configuration | Venue & Provenance | Primary Mechanical / Computational Core |
-| :---: | :---: | :--- | :--- | :--- | :--- |
-| **PL.01** | 2011 | **White Geisha & Silver Aurelia** | Curated photographic series, archival pigment prints | Noise Singapore Festival, National Arts Council (Singapore) | High-key parabolic strobe reflector & beauty dish |
-| **PL.02** | 2011 | **A Perfect World** | Street-level relational intervention & medium-format portraiture | Kensington Market cultural corridor, Toronto | Hasselblad 500C/M medium format mechanical camera body |
-| **PL.03** | 2012 | **Two-Man Rule [TMR]** | Hand-constructed geodesic tape architecture, dual-switch shutter rig | TEDxToronto, The Sony Centre for the Performing Arts | Hand-spun structural packing tape monocoque (12 km filament) |
-| **PL.04** | 2012 | **Broadcast People** | Wall-scale CCTV matrix, tactile pressure-plate floor actuator | \|FAT\| Toronto Alternative Arts & Fashion Week | 16× Sony PVM & Trinitron 14" to 20" CRT studio monitors |
-| **PL.05** | 2013 | **The Ultimate Selfie & Interactive Pavilions** | Disassembled DSLR hardware, micro-switches, automated digital pipeline | Metro Toronto Convention Centre (IDS / IIDEX / TO DO) | Custom optocoupler electronic shutter trigger boards |
-| **PL.06** | 2020 | **Deconstructing Capital** | Site-specific spatial intervention, optical scrims, flood arrays | 52 St. Lawrence, Toronto (Motion and Still / Flick the Switch) | 6× Arri 2kW Fresnel high-directional wash lights |
-| **PL.07** | 2024 | **Collective Infrastructure & Mutual Aid** | Spatial documentation, community archiving, workspace stewardship | Akin Collective · Motion & Still · Flick the Switch | Overhead motorized studio lighting grids & 100A 3-phase drops |
-| **PL.08** | 2026 | **The Riemann Manifold: Quantum Chaos & Spectral Topology** | High-dimensional computational installation, generative spectral mapping | Independent Practice / Open Academic Repository (`evecount/riemann_hypothesis`) | Dual RTX 6000 Ada Generation compute node; GLSL shaders |
+### 2026 · The Riemann Manifold: Quantum Chaos & Spectral Topology
+* **Venue / Context:** Independent Computational Practice & Open Research Repository
+* **What it is:** An open mathematical and visual installation that maps the non-trivial zeros of the Riemann zeta function to quantum energy levels and spectral harmonics. It bridges mathematical physics, generative visualization, and non-human systemic patterns.
 
 ---
 
-## 🔬 Peer-Reviewed Technical & Open Research Repositories
+## 🔬 Collaborative Technical Research
 
-In addition to spatial installations, Lim’s computational practice encompasses mathematical physics and quantum computational architectures developed with AI pair programming collaboration:
+Alongside physical installations, my practice includes open computational and algorithmic research:
 
-1. **[Project Q-Rotate: Coordinate-Free Molecular Pose Search](https://github.com/evecount/quantum_rotation)**  
-   *Lim, G., Lim, B., & Antigravity (Google DeepMind) (2026).*  
-   Technical Whitepaper & Computational Architecture for the **Quantinuum Singapore Grand Challenge 2026**.  
-   Demonstrates coordinate-free continuous Lie algebra rotation operators $\hat{U}_{\text{tube}}(\tau)$ mapped to native trapped-ion quantum circuits (`PhasedX`, `ZZPhase`) with Repeat-Until-Success (RUS) mid-circuit measurement.
-
-2. **[The Riemann Manifold: Spectral Invariance & Quantum Chaos](https://github.com/evecount/riemann_hypothesis)**  
+1. **[The Riemann Manifold: Quantum Operator Eigenvalues](https://github.com/evecount/riemann_hypothesis)**  
    *Lim, G. & Antigravity (Google DeepMind) (2026).*  
-   SIT Applied Computing Monograph & Open Research Repository.  
-   Algorithmic investigation into the non-trivial zeros of the Riemann zeta function, prime harmonics, and GUE random matrix spectral statistics along the critical strip $\text{Re}(s) = 1/2$.
+   Open research repository analyzing prime distributions, eigenvalue statistics, and Gaussian Unitary Ensemble (GUE) quantum chaos along the critical strip $\text{Re}(s) = 1/2$.
+
+2. **[Project Q-Rotate: Coordinate-Free Molecular Pose Search](https://github.com/evecount/quantum_rotation)**  
+   *Lim, G., Lim, B., & Antigravity (Google DeepMind) (2026).*  
+   Computational architecture developed for the **Quantinuum Singapore Grand Challenge 2026**, mapping continuous Lie algebra rotation operators to native trapped-ion quantum circuits.
 
 ---
 
-## 💻 Web Application Architecture
+## 💻 About this Web Portfolio
 
-This web application is built with modern, ultra-lightweight frontend technologies engineered for high-fidelity museum and juried exhibition presentation:
+This web repository is a custom, interactive portfolio and curatorial monograph app:
 
-- **Framework:** React 19 + TypeScript
-- **Bundler:** Vite 8 (sub-second HMR & optimized production chunking)
-- **Styling:** Custom Tailwind utility system with dedicated museum print stylesheets (`@media print`)
-- **Typography:** Serif display headers with high-density monospace code indices
-- **Dossier Exporters:**
-  - **10-Page Curatorial Monograph (Landscape):** Strict 297mm × 210mm vector landscape mode with individual plate blueprint/photo toggle.
-  - **Institutional Curriculum Vitae (B&W):** Pure monochrome single-sheet typography optimized for direct PDF printing (`Ctrl+P` / `window.print()`).
+* Built with **React 19**, **TypeScript**, and **Vite**.
+* Contains two clean print modes:
+  1. **Strict 10-Page Landscape Monograph:** Clean 16:9 / A4 landscape plates with individual schematic flip and fill-window image framing.
+  2. **Monochrome Curriculum Vitae:** Clean, printer-friendly single-sheet CV.
+* Hosted live on GitHub Pages: **[https://evecount.github.io/gwenlim_artCV/](https://evecount.github.io/gwenlim_artCV/)**
 
-### Quick Start (Local Development)
+### Running Locally
 
 ```bash
 # Clone the repository
@@ -109,16 +96,22 @@ cd gwenlim_artCV
 # Install dependencies
 npm install
 
-# Run the local development server (http://localhost:3000)
+# Start local server (http://localhost:3000)
 npm run dev
 
-# Build the production bundle
+# Build production bundle
 npm run build
 ```
 
 ---
 
-## 📄 License & Attribution
+## 📬 Contact & Studio
 
-Copyright © 2010 — 2026 **Gwendalynn Lim Wan Ting (林婉婷)**. All rights reserved.  
-Open-source codebase provided under the Apache-2.0 License. Research models and mathematical formulations licensed under MIT / Open Academic Attribution.
+* **Personal Email:** [gwenlynn.lim@gmail.com](mailto:gwenlynn.lim@gmail.com)
+* **Studio Email:** [gwen@evecount.com](mailto:gwen@evecount.com)
+* **Location:** Singapore
+* **GitHub:** [@evecount](https://github.com/evecount)
+
+---
+
+*Copyright © 2010 — 2026 Gwendalynn Lim Wan Ting (林婉婷). Code licensed under Apache-2.0.*
