@@ -134,10 +134,18 @@ export const CuratorialDossierPdfModal: React.FC<CuratorialDossierPdfModalProps>
     }
   };
 
-  // Sync with initialPreset whenever opened
+  // Sync with initialPreset whenever opened and lock background scroll
   useEffect(() => {
     if (isOpen) {
       handleApplyPreset(initialPreset);
+      const origBodyOverflow = document.body.style.overflow;
+      const origHtmlOverflow = document.documentElement.style.overflow;
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = origBodyOverflow;
+        document.documentElement.style.overflow = origHtmlOverflow;
+      };
     }
   }, [isOpen, initialPreset]);
 
@@ -324,7 +332,7 @@ export const CuratorialDossierPdfModal: React.FC<CuratorialDossierPdfModalProps>
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/85 backdrop-blur-md animate-fadeIn overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/85 backdrop-blur-md animate-fadeIn overflow-hidden">
       <div className="relative w-full max-w-6xl bg-[#09090b] border border-neutral-750 rounded-xl shadow-2xl flex flex-col max-h-[94vh] overflow-hidden">
         
         {/* Top Control Bar (Modal Chrome - Hidden on Print) */}

@@ -47,10 +47,18 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
     });
   };
 
-  // Reset page when opened
+  // Reset page and lock body scroll when opened
   useEffect(() => {
     if (isOpen) {
       setCurrentPage(1);
+      const origBodyOverflow = document.body.style.overflow;
+      const origHtmlOverflow = document.documentElement.style.overflow;
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = origBodyOverflow;
+        document.documentElement.style.overflow = origHtmlOverflow;
+      };
     }
   }, [isOpen]);
 
