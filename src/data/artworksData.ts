@@ -30,7 +30,7 @@ const RAW_ARTWORKS: Artwork[] = [
     images: [
       {
         id: 'noise-sg-img-1',
-        url: '/assets/artworks/01-white-geisha-silver-aurelia/plate-01-hero.jpg',
+        url: '/assets/ART_Images/white_geisha.jpg',
         placeholderType: 'noise-sg-overview',
         viewType: 'Installation View',
         title: 'Installation View: Noise Singapore Festival Exhibition (National Arts Council)',
@@ -45,7 +45,7 @@ const RAW_ARTWORKS: Artwork[] = [
       },
       {
         id: 'noise-sg-img-2',
-        url: '/assets/artworks/01-white-geisha-silver-aurelia/plate-01-detail-1.jpg',
+        url: '/assets/ART_Images/silver_aurelia.jpg',
         placeholderType: 'noise-sg-apparatus',
         viewType: 'Apparatus Detail',
         title: 'Apparatus Detail: High-Key Strobe & Contrast Masking Rig',
@@ -60,7 +60,7 @@ const RAW_ARTWORKS: Artwork[] = [
       },
       {
         id: 'noise-sg-img-3',
-        url: '/assets/artworks/01-white-geisha-silver-aurelia/plate-01-detail-2.jpg',
+        url: '/assets/ART_Images/silver_aurelia.jpg',
         placeholderType: 'noise-sg-action',
         viewType: 'Participatory Action',
         title: 'Participatory Action: Silver Aurelia & The Public Gaze',
@@ -135,7 +135,7 @@ const RAW_ARTWORKS: Artwork[] = [
     images: [
       {
         id: 'perfect-world-img-1',
-        url: '/assets/artworks/02-a-perfect-world/plate-02-hero.jpg',
+        url: '/assets/ART_Images/In a Perfest World April 2010.jpg',
         placeholderType: 'perfectworld-overview',
         viewType: 'Installation View',
         title: 'Installation View: Kensington Market Street Installation',
@@ -150,7 +150,7 @@ const RAW_ARTWORKS: Artwork[] = [
       },
       {
         id: 'perfect-world-img-2',
-        url: '/assets/artworks/02-a-perfect-world/plate-02-detail-1.jpg',
+        url: '/assets/ART_Images/Bellwoods Studio-14.jpg',
         placeholderType: 'perfectworld-apparatus',
         viewType: 'Apparatus Detail',
         title: 'Apparatus Detail: Field Tape Recorder & 80mm Zeiss Planar',
@@ -165,7 +165,7 @@ const RAW_ARTWORKS: Artwork[] = [
       },
       {
         id: 'perfect-world-img-3',
-        url: '/assets/artworks/02-a-perfect-world/plate-02-detail-2.jpg',
+        url: '/assets/ART_Images/In a Perfest World April 2010.jpg',
         placeholderType: 'perfectworld-action',
         viewType: 'Participatory Action',
         title: 'Participatory Encounter: Kensington Market Pedestrian Dialogue',
@@ -255,11 +255,11 @@ const RAW_ARTWORKS: Artwork[] = [
       },
       {
         id: 'two-man-rule-img-2',
-        url: '/assets/artworks/03-two-man-rule/plate-03-detail-1.jpg',
+        url: '/assets/ART_Images/Two Man Rule button hardware.jpg',
         placeholderType: 'twoman-apparatus',
         viewType: 'Apparatus Detail',
         title: 'Apparatus Detail: Dual Palm Actuator & Relay Interlock',
-        caption: 'Detail of dual stainless-steel palm plates mounted at opposite perimeters, wired into a solid-state coincidence logic circuit.',
+        caption: 'Detail of machined dual brass/steel palm plates mounted at opposite perimeters, wired into a solid-state coincidence logic circuit.',
         captureMetadata: {
           camera: '50mm Prime f/1.8',
           exposure: 'ISO 400 · f/4 · 1/125s',
@@ -270,11 +270,11 @@ const RAW_ARTWORKS: Artwork[] = [
       },
       {
         id: 'two-man-rule-img-3',
-        url: '/assets/artworks/03-two-man-rule/plate-03-detail-2.jpg',
+        url: '/assets/ART_Images/TWO MAN RULE - Banner.png',
         placeholderType: 'twoman-action',
         viewType: 'Participatory Action',
-        title: 'Participatory Action: Two Strangers Actuating Consensus',
-        caption: 'Two conference attendees reaching across the spatial divide to maintain concurrent contact, fulfilling the two-man rule protocol to actuate capture.',
+        title: 'Participatory Action: Two Strangers Actuating Consensus & Banner Protocol',
+        caption: 'Exhibition protocol banner and participants reaching across the spatial divide to maintain concurrent contact, fulfilling the two-man rule protocol.',
         captureMetadata: {
           camera: '35mm Prime f/1.4',
           exposure: 'ISO 800 · f/2.0 · 1/80s',
@@ -346,10 +346,10 @@ const RAW_ARTWORKS: Artwork[] = [
     images: [
       {
         id: 'broadcast-people-img-1',
-        url: '/assets/artworks/04-broadcast-people/plate-04-hero.jpg',
+        url: '/assets/ART_Images/FAT_01.jpg',
         placeholderType: 'broadcast-overview',
         viewType: 'Installation View',
-        title: 'Installation View: 16-Screen CRT Monolith Tower',
+        title: 'Installation View: |FAT| Opening & Audience Interaction',
         caption: 'Towering structural scaffolding matrix housing 16 Sony Trinitron and PVM studio monitors pulsing with analog delay loops at Regent Park Arts Centre.',
         captureMetadata: {
           camera: 'Leica M6 (35mm Film)',
@@ -361,11 +361,11 @@ const RAW_ARTWORKS: Artwork[] = [
       },
       {
         id: 'broadcast-people-img-2',
-        url: '/assets/artworks/04-broadcast-people/plate-04-detail-1.jpg',
+        url: '/assets/ART_Images/FAT_02.jpg',
         placeholderType: 'broadcast-apparatus',
         viewType: 'Apparatus Detail',
-        title: 'Apparatus Detail: Foot Pedals & Extron Matrix Bus',
-        caption: 'Industrial aluminum floor stomp-switches linked via braided steel conduit to Extron 16×16 composite routing switcher and time-base correctors.',
+        title: 'Apparatus Detail: Real-Time Closed-Circuit Delay Feed',
+        caption: 'Participants captured within the real-time closed-circuit delay matrix and composite routing switcher.',
         captureMetadata: {
           camera: '50mm Prime f/2.0',
           exposure: 'ISO 400 · f/4 · 1/60s',
@@ -376,11 +376,11 @@ const RAW_ARTWORKS: Artwork[] = [
       },
       {
         id: 'broadcast-people-img-3',
-        url: '/assets/artworks/04-broadcast-people/plate-04-detail-2.jpg',
+        url: '/assets/ART_Images/FAT_05.jpg',
         placeholderType: 'broadcast-action',
         viewType: 'Participatory Action',
-        title: 'Participatory Action: Audience Stomp & Visual Howl-Around',
-        caption: 'Attendees stomping pedals to interrupt runway video streams with live time-delayed CCTV feedback of their own feet and faces.',
+        title: 'Participatory Action: Real-Time Delay Matrix Engagement',
+        caption: 'Participant engaging with real-time video delay matrix and feedback loops at |FAT| Arts & Fashion Week.',
         captureMetadata: {
           camera: '28mm Wide f/2.8',
           exposure: 'ISO 1600 · f/2.8 · 1/40s',
@@ -450,11 +450,11 @@ const RAW_ARTWORKS: Artwork[] = [
     images: [
       {
         id: 'ultimate-selfie-img-1',
-        url: '/assets/artworks/05-the-ultimate-selfie/plate-05-hero.jpg',
+        url: '/assets/ART_Images/Ultimate Selfie.jpg',
         placeholderType: 'selfie-overview',
         viewType: 'Installation View',
-        title: 'Installation View: MTCC Architectural Pavilion',
-        caption: 'Exterior view of the CNC-milled timber pavilion in the main hall of the Metro Toronto Convention Centre, projecting monumental inverted participant faces.',
+        title: 'Installation View: Ultimate Selfie Interactive Pavilion',
+        caption: 'Exterior view of the interactive timber pavilion and camera rig projecting monumental inverted participant faces.',
         captureMetadata: {
           camera: 'Full-Frame 28mm f/2.8',
           exposure: 'ISO 800 · f/4 · 1/60s',
@@ -465,33 +465,33 @@ const RAW_ARTWORKS: Artwork[] = [
       },
       {
         id: 'ultimate-selfie-img-2',
-        url: '/assets/artworks/05-the-ultimate-selfie/plate-05-detail-1.jpg',
+        url: '/assets/ART_Images/IIDEX Toronto event.jpg',
         placeholderType: 'selfie-apparatus',
         viewType: 'Apparatus Detail',
-        title: 'Apparatus Detail: Optocoupler Trigger & Hacked DSLRs',
-        caption: 'Interior hardware housing showing Arduino Mega controller, isolated optocoupler relay PCB, and dual Canon full-frame cameras behind two-way mirrored glass.',
+        title: 'Apparatus Detail: IIDEX Interactive Pavilion Architecture',
+        caption: 'Architectural installation and public engagement with the custom interactive pavilion housing optocoupler relays and DSLR capture rig.',
         captureMetadata: {
           camera: '50mm Macro f/2.8',
           exposure: 'ISO 400 · f/5.6 · 1/40s',
-          lightingCondition: 'Internal service LED',
-          scale: 'Controller box 40 × 30 cm'
+          lightingCondition: 'Exhibition hall ambient',
+          scale: 'Controller rig'
         },
         credit: 'Documentation: Studio Gwendalynn Lim'
       },
       {
         id: 'ultimate-selfie-img-3',
-        url: '/assets/artworks/05-the-ultimate-selfie/plate-05-detail-2.jpg',
+        url: '/assets/ART_Images/studio_20141118_112314.jpg',
         placeholderType: 'pavilions-action',
         viewType: 'Participatory Action',
-        title: 'Participatory Encounter: Public Capacitive Shutter Event',
-        caption: 'Participants placing hands upon the copper pedestal, closing the bodily circuit and triggering the automated mechanical shutter slap in front of crowds.',
+        title: 'Apparatus Bench: DSLR Shutter Actuation Bench & Custom Rig',
+        caption: 'Studio bench calibration of custom optocoupler trigger boards and remote shutter controls for automated image distribution.',
         captureMetadata: {
           camera: '35mm Prime f/1.4',
           exposure: 'ISO 1250 · f/2.8 · 1/160s',
-          lightingCondition: 'Flash discharge & projection glow',
+          lightingCondition: 'Studio bench lighting',
           scale: 'Over 18,400 recorded triggers'
         },
-        credit: 'Documentation: IDS Toronto / TO DO Festival'
+        credit: 'Documentation: Studio Gwendalynn Lim'
       }
     ],
     hardwareStack: [
@@ -555,48 +555,48 @@ const RAW_ARTWORKS: Artwork[] = [
     images: [
       {
         id: 'deconstructing-capital-img-1',
-        url: '/assets/artworks/06-deconstructing-capital/plate-06-hero.jpg',
+        url: '/assets/ART_Images/studio_20190527_201216.jpg',
         placeholderType: 'deconstruct-overview',
         viewType: 'Installation View',
-        title: 'Installation View: 52 St. Lawrence Warehouse Bay',
-        caption: 'Spatial overview of the 216-square-meter warehouse installation showing suspended retroreflective scrims and directional 2kW Fresnel wash towers.',
+        title: 'Installation View: Neon Magenta Optical Flood Array (52 St. Lawrence)',
+        caption: 'Spatial overview of the warehouse installation showing suspended retroreflective scrims and directional high-lumen optical flood array.',
         captureMetadata: {
           camera: 'Full-Frame 24mm f/2.8',
           exposure: 'ISO 200 · f/4 · 1/125s',
-          lightingCondition: '12kW Aggregate Directional Tungsten',
+          lightingCondition: '12kW Aggregate Directional Tungsten & Magenta Wash',
           scale: '18 × 12 m Bay'
         },
-        credit: 'Documentation: Charles Street Video Archive'
+        credit: 'Documentation: Studio Gwendalynn Lim'
       },
       {
         id: 'deconstructing-capital-img-2',
-        url: '/assets/artworks/06-deconstructing-capital/plate-06-detail-1.jpg',
+        url: '/assets/ART_Images/studio_20191101_201721.jpg',
         placeholderType: 'deconstruct-apparatus',
         viewType: 'Apparatus Detail',
-        title: 'Apparatus Detail: High-Lux Scrim & Brewster Angle Rig',
-        caption: 'Close-up of the 3M micro-glass bead retroreflective fabric tensioned on aircraft cable, engineered to reflect direct beam photons directly into overhead CCTV camera irises.',
+        title: 'Apparatus Detail: Optical Jamming Camera Rig & Specular Calibration',
+        caption: 'Optical jamming camera rig and specular reflection calibration engineered to reflect beam photons directly into camera irises.',
         captureMetadata: {
           camera: '85mm Prime f/1.4',
           exposure: 'ISO 100 · f/5.6 · 1/250s',
           lightingCondition: '45,000 Lux Incident Point Source',
           scale: 'Detail 1:1'
         },
-        credit: 'Documentation: Charles Street Video Archive'
+        credit: 'Documentation: Studio Gwendalynn Lim'
       },
       {
         id: 'deconstructing-capital-img-3',
-        url: '/assets/artworks/06-deconstructing-capital/plate-06-detail-2.jpg',
+        url: '/assets/ART_Images/concert_20200228_190337.jpg',
         placeholderType: 'deconstruct-action',
         viewType: 'Participatory Action',
-        title: 'Participatory Performance: Sensor Saturation & Bleach Mask',
-        caption: 'Performer traversing the boundary between camera detection and complete whiteout clipping. OpenCV diagnostic terminal in background shows 99.8% pixel blowout.',
+        title: 'Participatory Action: High-Lux Stage & Flood Counter-Optics',
+        caption: 'High-lux stage and flood lighting counter-optics research traversing the boundary between camera detection and complete whiteout clipping.',
         captureMetadata: {
           camera: '35mm Summicron',
           exposure: 'ISO 400 · f/2.8 · 1/100s',
           lightingCondition: 'Directional Chiaroscuro',
           scale: 'Live performance sanctuary'
         },
-        credit: 'Documentation: Charles Street Video Archive'
+        credit: 'Documentation: Studio Gwendalynn Lim'
       }
     ],
     hardwareStack: [
@@ -660,7 +660,7 @@ const RAW_ARTWORKS: Artwork[] = [
     images: [
       {
         id: 'collective-img-1',
-        url: '/assets/artworks/07-collective-infrastructure/plate-07-hero.jpg',
+        url: '/assets/ART_Images/studio_20141218_084153.jpg',
         placeholderType: 'collective-overview',
         viewType: 'Installation View',
         title: 'Daylight Studio Sanctuary: 90 Ontario & Industrial Rigging',
@@ -675,30 +675,30 @@ const RAW_ARTWORKS: Artwork[] = [
       },
       {
         id: 'collective-img-2',
-        url: '/assets/artworks/07-collective-infrastructure/plate-07-detail-1.jpg',
+        url: '/assets/ART_Images/motionandstill.jpg',
         placeholderType: 'collective-apparatus',
         viewType: 'Apparatus Detail',
-        title: 'Akin Collective Shared Facilities & #LOVELOCAL Fabrication',
-        caption: 'Archival view of the shared artist-run center facilities at Akin Collective (founded by Oliver Pauk), where Lim held the #LOVELOCAL showcase and fabricated the Two-Man Rule geodesic monocoque.',
+        title: 'Motion & Still Creative Collective & Studio Family',
+        caption: 'Gwendalynn Lim with the resident creative collective, collaborators, and production crew in the 90 Ontario daylight sanctuary.',
         captureMetadata: {
           camera: '35mm Prime f/2',
           exposure: 'ISO 400 · f/4 · 1/125s',
-          lightingCondition: 'Fluorescent shop illumination',
-          scale: 'Collaborative workshop bay'
+          lightingCondition: 'Studio daylight',
+          scale: 'Creative collective community'
         },
-        credit: 'Documentation: Akin Collective Archive'
+        credit: 'Documentation: Motion & Still Archive'
       },
       {
         id: 'collective-img-3',
-        url: '/assets/artworks/07-collective-infrastructure/plate-07-detail-2.jpg',
+        url: '/assets/ART_Images/Flick the Switch event.jpg',
         placeholderType: 'collective-action',
         viewType: 'Participatory Action',
-        title: 'Flick the Switch Solidarity Media Suite & 34 Stephanie St',
-        caption: 'Susan Stewart and collective members working within the pro bono media documentation suite and community salon hosted by Lim for Flick the Switch Artists\' Collective.',
+        title: 'Flick the Switch Artists Collective & Community Showcase',
+        caption: 'Community cultural gathering and mutual aid exhibition organized with Susan Stewart and collective members.',
         captureMetadata: {
           camera: '28mm f/2.8',
           exposure: 'ISO 800 · f/2.8 · 1/60s',
-          lightingCondition: 'Ambient salon halogen bounce',
+          lightingCondition: 'Natural studio ambient',
           scale: 'Collective solidarity space'
         },
         credit: 'Documentation: Flick the Switch / Gwendalynn Lim'

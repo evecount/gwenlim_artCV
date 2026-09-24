@@ -30,10 +30,22 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
 }) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [viewMode, setViewMode] = useState<'fit' | 'full' | 'grid'>('fit');
+  const [plateVisualMode, setPlateVisualMode] = useState<'photos' | 'schematics'>('photos');
+  const [individualPlateModes, setIndividualPlateModes] = useState<Record<string, 'photos' | 'schematics'>>({});
   const [copiedNotification, setCopiedNotification] = useState(false);
   const [isExporting, setIsExporting] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const printRef = useRef<HTMLDivElement>(null);
+
+  const toggleIndividualPlateMode = (artId: string) => {
+    setIndividualPlateModes(prev => {
+      const current = prev[artId] || plateVisualMode;
+      return {
+        ...prev,
+        [artId]: current === 'photos' ? 'schematics' : 'photos'
+      };
+    });
+  };
 
   // Reset page when opened
   useEffect(() => {
@@ -328,6 +340,32 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
             </button>
           </div>
 
+          {/* Plate Visual Mode: Curatorial Photos vs Blueprint Schematic */}
+          <div className="hidden md:flex items-center bg-neutral-900 border border-neutral-800 rounded p-0.5 text-xs font-mono-code text-neutral-400">
+            <button
+              onClick={() => setPlateVisualMode('photos')}
+              className={`px-2.5 py-1 rounded transition-colors cursor-pointer flex items-center gap-1.5 ${
+                plateVisualMode === 'photos'
+                  ? 'bg-blue-700 text-white font-bold shadow-xs'
+                  : 'hover:text-white'
+              }`}
+              title="Display high-resolution archival photographs from assets"
+            >
+              <span>📷 Archival Photos</span>
+            </button>
+            <button
+              onClick={() => setPlateVisualMode('schematics')}
+              className={`px-2.5 py-1 rounded transition-colors cursor-pointer flex items-center gap-1.5 ${
+                plateVisualMode === 'schematics'
+                  ? 'bg-blue-700 text-white font-bold shadow-xs'
+                  : 'hover:text-white'
+              }`}
+              title="Display original architectural blueprint & schematic cards"
+            >
+              <span>📐 Blueprint Cards</span>
+            </button>
+          </div>
+
           {/* Copy Summary */}
           <button
             onClick={handleCopySummary}
@@ -459,11 +497,14 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
               <div className="my-auto space-y-6 max-w-4xl">
                 <div className="space-y-2">
                   <div className="text-xs font-mono-code uppercase tracking-widest text-neutral-500 font-semibold">
-                    Visual Monograph & Selected Systems Archive (2010 — 2026)
+                    Curatorial Review Portfolio · Strict 10-Page Institutional Dossier
                   </div>
-                  <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif-display font-bold tracking-tight text-neutral-950 uppercase leading-none">
-                    Gwendalynn Lim
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif-display font-bold tracking-tight text-neutral-950 uppercase leading-tight">
+                    Gwendalynn Lim Wan Ting
                   </h1>
+                  <div className="text-lg sm:text-xl font-serif-display text-neutral-800 font-medium tracking-tight">
+                    Selected Works & Systems Archive (2010–2026)
+                  </div>
                   <div className="flex items-center gap-3 pt-1">
                     <span className="text-2xl sm:text-3xl font-serif-display text-neutral-700">
                       林婉婷
@@ -541,6 +582,7 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
             const pageNum = idx + 2;
             if (viewMode !== 'grid' && currentPage !== pageNum) return null;
 
+            const effectiveMode = individualPlateModes[art.id] || plateVisualMode;
             const heroImg = art.images[0];
             const detailImg1 = art.images[1];
             const detailImg2 = art.images[2];
@@ -561,6 +603,17 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
                     <span className="text-neutral-400">/</span>
                     <span className="text-neutral-500">{art.year}</span>
                   </div>
+
+                  {/* Discrete switcher for individual plate (no-print) */}
+                  <button
+                    onClick={() => toggleIndividualPlateMode(art.id)}
+                    className="no-print px-2 py-0.5 rounded text-[10px] font-mono-code bg-neutral-100 hover:bg-neutral-200 border border-neutral-300 text-neutral-800 transition-colors flex items-center gap-1 cursor-pointer"
+                    title="Toggle between archival photograph and blueprint schematic"
+                  >
+                    <span>{effectiveMode === 'photos' ? '📷 Photo View' : '📐 Blueprint View'}</span>
+                    <span className="text-[9px] text-blue-700 underline font-bold">Flip ⇄</span>
+                  </button>
+
                   <div className="text-neutral-600 text-[11px] font-medium hidden sm:block">
                     {art.category.toUpperCase()} · GWENDALYNN LIM WAN TING
                   </div>
@@ -576,27 +629,23 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
                   <div className="col-span-12 lg:col-span-7 flex flex-col justify-between gap-3 h-full">
                     {/* Primary Hero Image Plate (Upper 68%) */}
                     <div className="flex-1 bg-black rounded-xs overflow-hidden relative flex flex-col justify-between border border-neutral-800">
-                      {/* Image Canvas with graceful fallback to SVG placeholder */}
-                      <div className="relative w-full flex-1 flex items-center justify-center overflow-hidden bg-[#050508]">
-                        {heroImg?.url ? (
+                      {/* Clean flex container without overlapping absolute frames */}
+                      <div className="relative flex flex-col items-center justify-center w-full h-full overflow-hidden bg-neutral-950 border border-neutral-800">
+                        {effectiveMode === 'photos' && heroImg?.url ? (
                           <img
                             src={heroImg.url}
                             alt={heroImg.title || art.title}
-                            onError={(e) => {
-                              // Hide broken image and fall back to SVG
-                              (e.target as HTMLElement).style.display = 'none';
-                            }}
-                            className="w-full h-full object-cover"
+                            className="max-h-[75vh] w-auto max-w-full object-contain mx-auto transition-transform"
                           />
-                        ) : null}
-                        {/* Always mount SVG fallback underneath */}
-                        <div className="absolute inset-0 -z-0">
-                          <PlaceholderGraphic plateType={heroImg?.placeholderType || 'riemann-overview'} />
-                        </div>
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center">
+                            <PlaceholderGraphic plateType={heroImg?.placeholderType || 'riemann-overview'} />
+                          </div>
+                        )}
 
-                        {/* Museum Camera / Metadata Badge Overlay */}
-                        {heroImg?.captureMetadata && (
-                          <div className="absolute top-2 left-2 bg-black/80 backdrop-blur-xs text-[9px] font-mono-code text-neutral-300 px-2 py-0.5 rounded-xs border border-white/10">
+                        {/* Metadata HUD tag cleanly docked at top-left inside container */}
+                        {effectiveMode === 'photos' && heroImg?.captureMetadata && (
+                          <div className="absolute top-3 left-3 z-10 bg-black/80 backdrop-blur-xs text-[9px] font-mono-code text-neutral-300 px-2 py-0.5 rounded-xs border border-white/10 pointer-events-none">
                             {heroImg.captureMetadata.camera} · {heroImg.captureMetadata.exposure}
                           </div>
                         )}
@@ -605,11 +654,11 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
                       {/* Hero Image Caption Bar */}
                       <div className="bg-neutral-950 p-2 text-white border-t border-neutral-800 flex items-center justify-between text-[10px] font-mono-code shrink-0">
                         <div className="truncate pr-2">
-                          <strong className="text-white font-bold">{heroImg?.viewType || 'Installation View'}:</strong>{' '}
-                          <span className="text-neutral-300">{heroImg?.title || art.title}</span>
+                          <strong className="text-white font-bold">{effectiveMode === 'photos' ? (heroImg?.viewType || 'Installation View') : 'Structural Schematic'}:</strong>{' '}
+                          <span className="text-neutral-300">{effectiveMode === 'photos' ? (heroImg?.title || art.title) : `${art.title} — Blueprint`}</span>
                         </div>
                         <div className="text-neutral-400 text-[9px] shrink-0">
-                          {heroImg?.credit || 'Documentation: Studio Gwendalynn Lim'}
+                          {effectiveMode === 'photos' ? (heroImg?.credit || 'Documentation: Studio Gwendalynn Lim') : 'Technical Diagram: Studio Archive'}
                         </div>
                       </div>
                     </div>
@@ -618,44 +667,40 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
                     <div className="grid grid-cols-2 gap-3 h-28 sm:h-32 shrink-0">
                       {/* Inset Detail 1: Apparatus / Mechanical Core */}
                       <div className="bg-black rounded-xs overflow-hidden border border-neutral-800 flex flex-col justify-between relative">
-                        <div className="relative w-full flex-1 bg-[#050508] overflow-hidden">
-                          {detailImg1?.url ? (
+                        <div className="relative flex flex-col items-center justify-center w-full h-full overflow-hidden bg-neutral-950">
+                          {effectiveMode === 'photos' && detailImg1?.url ? (
                             <img
                               src={detailImg1.url}
                               alt={detailImg1.title || 'Apparatus Detail'}
-                              onError={(e) => {
-                                (e.target as HTMLElement).style.display = 'none';
-                              }}
-                              className="w-full h-full object-cover"
+                              className="max-h-full w-auto max-w-full object-contain mx-auto"
                             />
-                          ) : null}
-                          <div className="absolute inset-0 -z-0">
-                            <PlaceholderGraphic plateType={detailImg1?.placeholderType || 'riemann-apparatus'} />
-                          </div>
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center">
+                              <PlaceholderGraphic plateType={detailImg1?.placeholderType || 'riemann-apparatus'} />
+                            </div>
+                          )}
                         </div>
-                        <div className="p-1 bg-neutral-900 text-white text-[8px] font-mono-code border-t border-neutral-800 truncate">
+                        <div className="p-1 bg-neutral-900 text-white text-[8px] font-mono-code border-t border-neutral-800 truncate shrink-0">
                           <span className="font-bold text-neutral-300">INSET 1:</span> {detailImg1?.title || 'Apparatus Detail'}
                         </div>
                       </div>
 
                       {/* Inset Detail 2: Action / Relational Co-presence */}
                       <div className="bg-black rounded-xs overflow-hidden border border-neutral-800 flex flex-col justify-between relative">
-                        <div className="relative w-full flex-1 bg-[#050508] overflow-hidden">
-                          {detailImg2?.url ? (
+                        <div className="relative flex flex-col items-center justify-center w-full h-full overflow-hidden bg-neutral-950">
+                          {effectiveMode === 'photos' && detailImg2?.url ? (
                             <img
                               src={detailImg2.url}
                               alt={detailImg2.title || 'Participatory Action'}
-                              onError={(e) => {
-                                (e.target as HTMLElement).style.display = 'none';
-                              }}
-                              className="w-full h-full object-cover"
+                              className="max-h-full w-auto max-w-full object-contain mx-auto"
                             />
-                          ) : null}
-                          <div className="absolute inset-0 -z-0">
-                            <PlaceholderGraphic plateType={detailImg2?.placeholderType || 'riemann-action'} />
-                          </div>
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center">
+                              <PlaceholderGraphic plateType={detailImg2?.placeholderType || 'riemann-action'} />
+                            </div>
+                          )}
                         </div>
-                        <div className="p-1 bg-neutral-900 text-white text-[8px] font-mono-code border-t border-neutral-800 truncate">
+                        <div className="p-1 bg-neutral-900 text-white text-[8px] font-mono-code border-t border-neutral-800 truncate shrink-0">
                           <span className="font-bold text-neutral-300">INSET 2:</span> {detailImg2?.title || 'Participatory Action'}
                         </div>
                       </div>

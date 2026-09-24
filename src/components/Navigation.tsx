@@ -57,7 +57,7 @@ export const Navigation: React.FC<NavigationProps> = ({
               activeTab === 'works' || activeTab === 'statement' ? 'text-neutral-950 font-bold border-b-2 border-neutral-950' : 'hover:text-neutral-950'
             }`}
           >
-            <span>Portfolio of Plates</span>
+            <span>Portfolio</span>
           </button>
           
           <button
