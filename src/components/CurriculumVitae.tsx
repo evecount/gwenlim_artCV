@@ -175,7 +175,7 @@ export const CurriculumVitae: React.FC<CurriculumVitaeProps> = ({
                 </span>
               </div>
               <div className="p-2.5 bg-neutral-50 border border-neutral-250 rounded text-[11px] font-sans text-neutral-700 italic">
-                Note on Artistic Provenance: All spatial installations and physical apparatuses throughout Lim's career were produced independently during studio residencies with Akin Collective, Flick the Switch, or independent studio time at Motion and Still (distinct from foundry & material practice coursework attended at OCAD University, through which no artistic installations were produced).
+                Note on Artistic Provenance: All spatial installations and physical apparatuses throughout Lim's career were produced independently during studio residencies with Akin Collective, Flick the Switch, or independent studio time at Motion and Still, alongside sculptural bronze casting and foundry practice at OCAD University.
               </div>
               <div className="space-y-4 font-sans text-xs">
                 {/* 2026 */}
@@ -549,7 +549,7 @@ export const CurriculumVitae: React.FC<CurriculumVitaeProps> = ({
               <div className="text-[11px] font-mono-code text-neutral-700 bg-white border border-neutral-250 px-3 py-1.5 rounded-lg shadow-2xs">
                 <span className="font-semibold text-neutral-950">Studio Lineage:</span> Akin Collective · Motion & Still · Flick the Switch
                 <span className="text-neutral-400 mx-2">·</span>
-                <span className="text-neutral-500 italic">All installations produced via studio tenures (OCAD attended for foundry coursework)</span>
+                <span className="text-neutral-500 italic">Spatial installations produced via studio tenures; sculptural bronze casting at OCAD University</span>
               </div>
             </div>
 
