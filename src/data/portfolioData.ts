@@ -46,7 +46,11 @@ export const EDUCATION_CREDENTIALS: AcademicCredential[] = [
     degreeOrCert: 'B.Sc. (Honours) in Applied Computing',
     institution: 'Singapore Institute of Technology (SIT)',
     location: 'Singapore',
-    focus: 'Machine Learning Architectures, Distributed Systems, Graph Neural Networks'
+    focus: 'Machine Learning Architectures, Distributed Systems, Graph Neural Networks',
+    honorsAndRoles: [
+      'Undergraduate Honours Student, Applied Computing',
+      'Part of the Delegate Team leading the ICT Student Delegation to Singapore FinTech Festival (SFF 2026)'
+    ]
   },
   {
     id: 'ntu-pace-sctp',
@@ -74,6 +78,14 @@ export const EDUCATION_CREDENTIALS: AcademicCredential[] = [
 ];
 
 export const RESEARCH_AND_TECHNICAL_LEADERSHIP: TechnicalLeadershipRole[] = [
+  {
+    id: 'sff-ict-delegation-lead',
+    role: 'Student Delegate Lead',
+    organization: 'ICT Student Delegation, Singapore FinTech Festival (SFF 2026)',
+    location: 'Singapore',
+    year: '2026',
+    details: 'Part of the delegate team leading the Singapore Institute of Technology (SIT) ICT student delegation to Singapore FinTech Festival 2026 as an Applied Computing Honours student.'
+  },
   {
     id: 'eve-count-leadership',
     role: 'Chief Executive Officer & Chief Technology Officer',
@@ -106,8 +118,9 @@ export const RESEARCH_AND_INSTITUTIONAL_AFFILIATIONS: InstitutionalAffiliation[]
     title: 'B.Sc. (Honours) in Applied Computing',
     organization: 'Singapore Institute of Technology (SIT)',
     location: 'Singapore',
-    role: 'Honours Researcher',
+    role: 'Undergraduate Honours Student',
     details: [
+      'Part of the Delegate Team leading the ICT Student Delegation to Singapore FinTech Festival (SFF 2026)',
       'Focus: Machine Learning Architectures, Distributed Systems, Graph Neural Networks'
     ]
   },
@@ -185,8 +198,8 @@ export const CV_DATA: CVEntry[] = [
     category: 'education',
     venueOrPublisher: 'Singapore Institute of Technology (SIT)',
     location: 'Singapore',
-    roleOrContext: 'Honours Degree & Research',
-    notes: 'Focus: Machine Learning Architectures, Distributed Systems, Graph Neural Networks.'
+    roleOrContext: 'Undergraduate Honours Student',
+    notes: 'Focus: Machine Learning Architectures, Distributed Systems, Graph Neural Networks · Part of the delegate team leading the ICT student delegation to Singapore FinTech Festival (SFF 2026).'
   },
   {
     id: 'edu-ntu',
@@ -220,6 +233,16 @@ export const CV_DATA: CVEntry[] = [
   },
 
   // RESEARCH & TECHNICAL LEADERSHIP
+  {
+    id: 'lead-sff-delegation',
+    year: 2026,
+    title: 'ICT Student Delegation Lead',
+    category: 'leadership',
+    venueOrPublisher: 'Singapore FinTech Festival 2026 (SFF)',
+    location: 'Singapore',
+    roleOrContext: 'Delegate Team Leader (SIT ICT Delegation)',
+    notes: 'Part of the delegate team leading the Singapore Institute of Technology (SIT) ICT student delegation to Singapore FinTech Festival 2026 as an Applied Computing Honours student.'
+  },
   {
     id: 'lead-eve',
     year: 2026,
@@ -259,8 +282,8 @@ export const CV_DATA: CVEntry[] = [
     category: 'affiliations',
     venueOrPublisher: 'Singapore Institute of Technology (SIT)',
     location: 'Singapore',
-    roleOrContext: 'Honours Researcher',
-    notes: 'Focus: Machine Learning Architectures, Distributed Systems, Graph Neural Networks.'
+    roleOrContext: 'Undergraduate Honours Student',
+    notes: 'Focus: Machine Learning Architectures, Distributed Systems · Part of the delegate team leading the ICT student delegation to Singapore FinTech Festival (2026).'
   },
   {
     id: 'affil-2',
@@ -597,7 +620,7 @@ export const SAM_RESIDENCY_ALIGNMENT = {
       },
       {
         heading: 'V. Civic Lineage & De-Risked Museum Execution',
-        content: `This proposal is built on a 16-year trajectory of physical computing, spatial fabrication, and artist-run solidarity. From co-engineering the dual-presence cooperative rig Two-Man Rule at Akin Collective (2012) and directing the 10-year facility infrastructure of Motion and Still Inc. (2014–2023), to ongoing archival and video solidarity with Flick the Switch Artists’ Collective (2019–2024), my practice has consistently demonstrated that high-stakes technical ambition and deep community accountability reinforce one another. Supported by academic research honours in Applied Computing at the Singapore Institute of Technology (SIT), this proposed body of work delivers a fully de-risked, museum-grade installation that invites public audiences to contemplate the cosmic order uniting human curiosity, machine intelligence, and the timeless laws of nature.`
+        content: `This proposal is built on a 16-year trajectory of physical computing, spatial fabrication, and artist-run solidarity. From co-engineering the dual-presence cooperative rig Two-Man Rule at Akin Collective (2012) and directing the 10-year facility infrastructure of Motion and Still Inc. (2014–2023), to ongoing archival and video solidarity with Flick the Switch Artists’ Collective (2019–2024), my practice has consistently demonstrated that high-stakes technical ambition and deep community accountability reinforce one another. Supported by academic honours standing as an Applied Computing student at the Singapore Institute of Technology (SIT), this proposed body of work delivers a fully de-risked, museum-grade installation that invites public audiences to contemplate the cosmic order uniting human curiosity, machine intelligence, and the timeless laws of nature.`
       }
     ],
     fullText: `RESEARCH PROPOSAL & STATEMENT OF INTENT: THE RIEMANN MANIFOLD (2026)
@@ -617,7 +640,7 @@ IV. Spatial Physicalization: The Obsidian Plinth & Somatic Resonance
 In this studio research cycle, this computational inquiry is physicalized as a sensory and architectural sanctuary. The center of the installation features a monolithic, matte-black obsidian plinth embedded with low-frequency piezoelectric transducers. These transducers convert the calculated energy states of the Riemann zeros into deep, sub-audible physical vibrations (38Hz–94Hz), conducted directly through the plinth and the floating gallery floor. Suspended overhead, a 4,096-strand bare multimode optical fiber matrix catches real-time 4K laser projections, rendering 4096-dimensional manifold deformations as fluctuating geometric caustics in physical space. Visitors do not merely watch data on a flat screen; they absorb the vibrational resonance of prime numbers through their skeletal frame, experiencing pure mathematics as a somatic, shared physical presence.
 
 V. Civic Lineage & De-Risked Museum Execution
-This proposal is built on a 16-year trajectory of physical computing, spatial fabrication, and artist-run solidarity. From co-engineering the dual-presence cooperative rig Two-Man Rule at Akin Collective (2012) and directing the 10-year facility infrastructure of Motion and Still Inc. (2014–2023), to ongoing archival and video solidarity with Flick the Switch Artists’ Collective (2019–2024), my practice has consistently demonstrated that high-stakes technical ambition and deep community accountability reinforce one another. Supported by academic research honours in Applied Computing at the Singapore Institute of Technology (SIT), this proposed body of work delivers a fully de-risked, museum-grade installation that invites public audiences to contemplate the cosmic order uniting human curiosity, machine intelligence, and the timeless laws of nature.`
+This proposal is built on a 16-year trajectory of physical computing, spatial fabrication, and artist-run solidarity. From co-engineering the dual-presence cooperative rig Two-Man Rule at Akin Collective (2012) and directing the 10-year facility infrastructure of Motion and Still Inc. (2014–2023), to ongoing archival and video solidarity with Flick the Switch Artists’ Collective (2019–2024), my practice has consistently demonstrated that high-stakes technical ambition and deep community accountability reinforce one another. Supported by academic honours standing as an Applied Computing student at the Singapore Institute of Technology (SIT), this proposed body of work delivers a fully de-risked, museum-grade installation that invites public audiences to contemplate the cosmic order uniting human curiosity, machine intelligence, and the timeless laws of nature.`
   },
   phases: [
     { quarter: 'Q1', title: 'Spectral Simulation & Proofs', focus: 'Formulating Hamiltonian operator eigenvalues and GUE random matrix models (evecount/riemann_hypothesis).' },
@@ -737,23 +760,6 @@ export const ARTISTIC_REFEREES: CommunityReferee[] = [
     ],
     institutionalStatement:
       'Susan Stewart can speak directly to Gwenlynn Lim’s artistic character, peer generosity, 5-year collaborative reliability, and capacity to deliver high-stakes visual and spatial projects within community-grounded frameworks.'
-  },
-  {
-    id: 'ref-sit-academic',
-    name: 'Faculty Academic Supervisor',
-    role: 'Programme Lead & Research Supervisor',
-    affiliation: 'Singapore Institute of Technology (SIT), Applied Computing',
-    address: 'Singapore',
-    relationship: 'Undergraduate Honours Thesis & Research Supervisor',
-    period: '2024 — Present',
-    endorsementPillars: [
-      'Mathematical Rigour & Formal Computer Science Honours Research',
-      'Riemann Zeta Function Spectral Topology & Hamiltonian Operators',
-      'Quantum Trapped-Ion Benchmarking & High-Performance Hardware Pipelines',
-      'Academic Integrity & Reproducible Open-Source Computational Engineering'
-    ],
-    institutionalStatement:
-      'Available upon institutional request to substantiate Lim’s theoretical rigor, academic honours standing in Applied Computing, and mathematical modeling along the critical strip Re(s) = 1/2.'
   }
 ];
 

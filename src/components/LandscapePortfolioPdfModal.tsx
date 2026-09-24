@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ARTWORKS } from '../data/artworksData';
-import { ARTIST_INFO, CV_DATA, ARTISTIC_REFEREES } from '../data/portfolioData';
+import { ARTIST_INFO, CV_DATA } from '../data/portfolioData';
 import { PlaceholderGraphic } from './DocumentaryImagePlate';
 import {
   Printer,
