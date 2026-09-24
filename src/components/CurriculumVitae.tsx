@@ -462,7 +462,7 @@ export const CurriculumVitae: React.FC<CurriculumVitaeProps> = ({
               <h3 className="text-xs font-mono-code uppercase tracking-widest text-neutral-600 font-semibold">
                 Research, Technical & Studio Leadership
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                 {RESEARCH_AND_TECHNICAL_LEADERSHIP.map(lead => (
                   <div
                     key={lead.id}

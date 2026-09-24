@@ -302,6 +302,13 @@ export const CuratorialDossierPdfModal: React.FC<CuratorialDossierPdfModalProps>
       );
     }
 
+    if (includeTalks) {
+      lines.push(
+        `\n[TALKS, KEYNOTES & GUEST LECTURES]`,
+        ...talks.map(t => `• ${t.year}: "${t.title}" - ${t.venueOrPublisher}, ${t.location}${t.notes ? ` (${t.notes})` : ''}`)
+      );
+    }
+
     if (includeReferees) {
       lines.push(
         `\n[INSTITUTIONAL & ARTISTIC REFERENCES]`,

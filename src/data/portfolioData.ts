@@ -87,6 +87,14 @@ export const RESEARCH_AND_TECHNICAL_LEADERSHIP: TechnicalLeadershipRole[] = [
     details: 'Part of the delegate team leading the Singapore Institute of Technology (SIT) ICT student delegation to Singapore FinTech Festival 2026 as an Applied Computing Honours student.'
   },
   {
+    id: 'ntu-wit-ieee-mentorship',
+    role: 'Technical Mentor & Workshop Facilitator (Guest Lecturer)',
+    organization: 'NTU Women In Tech (WIT) & IEEE Student Branch',
+    location: 'Singapore',
+    year: 'October 2026',
+    details: 'Invited by NTU WIT & IEEE to design and facilitate Coding Nights (Night 1: Data Structures & Algorithms). Authored and open-sourced interactive Python curriculum, deconstructing Big-O complexity, HashMaps, and algorithmic intuition from first principles for undergraduate cohorts.'
+  },
+  {
     id: 'eve-count-leadership',
     role: 'Chief Executive Officer & Chief Technology Officer',
     organization: 'Eve Count Quantum Systems',
@@ -122,6 +130,19 @@ export const RESEARCH_AND_INSTITUTIONAL_AFFILIATIONS: InstitutionalAffiliation[]
     details: [
       'Part of the Delegate Team leading the ICT Student Delegation to Singapore FinTech Festival (SFF 2026)',
       'Focus: Machine Learning Architectures, Distributed Systems, Graph Neural Networks'
+    ]
+  },
+  {
+    id: 'ntu-wit-ieee-affiliation',
+    title: 'Coding Nights (Night 1: Data Structures & Algorithms)',
+    organization: 'NTU Women In Tech (WIT) & IEEE Student Branch',
+    location: 'Singapore',
+    period: 'October 2026',
+    role: 'Technical Mentor & Workshop Facilitator (Guest Lecturer)',
+    details: [
+      'Curriculum Design & Facilitation: Invited to lead Night 1 of NTU WIT & IEEE Coding Nights, authoring and delivering a hands-on Python Data Structures & Algorithms curriculum focused on Big-O analysis, HashMaps, and Two-Pointer patterns',
+      'Technical Instruction & Mentorship: Mentored undergraduate engineering students through live algorithmic problem deconstruction, interactive complexity benchmarks, and technical interview problem frameworks',
+      'Resource Architecture: Built and open-sourced self-contained interactive workbooks with problem templates, optimal reference solutions, and step-by-step traces for self-paced reinforcement'
     ]
   },
   {
@@ -242,6 +263,16 @@ export const CV_DATA: CVEntry[] = [
     location: 'Singapore',
     roleOrContext: 'Delegate Team Leader (SIT ICT Delegation)',
     notes: 'Part of the delegate team leading the Singapore Institute of Technology (SIT) ICT student delegation to Singapore FinTech Festival 2026 as an Applied Computing Honours student.'
+  },
+  {
+    id: 'lead-ntu-wit-mentorship',
+    year: 'October 2026',
+    title: 'Technical Mentor & Workshop Facilitator — Data Structures & Algorithms',
+    category: 'leadership',
+    venueOrPublisher: 'NTU Women In Tech (WIT) & IEEE Student Branch',
+    location: 'Singapore',
+    roleOrContext: 'Guest Lecturer & Technical Mentor',
+    notes: 'Invited by NTU WIT & IEEE to design and lead Night 1 of Coding Nights; authored open-source interactive Python curriculum covering algorithmic intuition, Big-O complexity, and data structures for undergraduate cohorts.'
   },
   {
     id: 'lead-eve',
@@ -410,24 +441,24 @@ export const CV_DATA: CVEntry[] = [
 
   // TALKS, LECTURES & PRESENTATIONS
   {
+    id: 'talk-2026-wit-ieee',
+    year: 'October 2026',
+    title: 'Guest Lecturer & Workshop Facilitator: Coding Nights (Night 1: Data Structures & Algorithms)',
+    category: 'talks',
+    venueOrPublisher: 'NTU Women In Tech (WIT) & IEEE Student Branch',
+    location: 'Singapore',
+    roleOrContext: 'Invited Guest Lecturer & Technical Mentor',
+    notes: 'Curriculum Design & Facilitation: Invited to lead Night 1 of Coding Nights, authoring hands-on Python Data Structures & Algorithms curriculum focused on Big-O analysis, HashMaps, and Two-Pointer patterns; mentored undergraduate cohorts through live code teardowns and open-sourced interactive workbooks.'
+  },
+  {
     id: 'talk-2026-1',
     year: 2026,
     title: 'Guest Lecturer & Mentor, Machine Learning & Advanced AI Systems',
     category: 'talks',
-    venueOrPublisher: 'Nanyang Technological University (NTU)',
+    venueOrPublisher: 'Nanyang Technological University (NTU PACE)',
     location: 'Singapore',
     roleOrContext: 'Guest Lecturer & Mentor',
-    notes: 'Mentoring graduate and advanced scholars in neural architectures, graph embeddings, and AI systems.'
-  },
-  {
-    id: 'talk-2026-2',
-    year: 2026,
-    title: 'Lead Workshop Instructor, Python Data Structures & Algorithmic Foundations',
-    category: 'talks',
-    venueOrPublisher: 'NTU IEEE & Women in Tech',
-    location: 'Singapore',
-    roleOrContext: 'Lead Workshop Instructor',
-    notes: 'Instructing algorithmic foundations, memory complexity, and graph data structures for women in computing.'
+    notes: 'Mentoring advanced professional scholars in neural architectures, graph embeddings, and AI systems.'
   },
   {
     id: 'talk-2013',
