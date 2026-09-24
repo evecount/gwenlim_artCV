@@ -11,7 +11,7 @@ export const ARTIST_INFO = {
   statement: `Interdisciplinary artist, computational systems architect, and media theorist working across participatory lens mechanics, critique of observer bias, physical computing, and machine interiority. For over sixteen years, Lim’s practice has deconstructed institutional observer bias—the unexamined assumption that because imaging and algorithmic capture technologies exist, authorities and systems possess an inherent right to observe. Interrogating this mechanism as voyeurism masquerading as institutional authority, Lim’s trajectory progresses from early photographic inquiries into stylized identity and the staged gaze (Noise Singapore / NAC), to tactile participatory camera rigs (TEDxToronto, |FAT|), optical sanctuaries subverting automated tracking, and zero-knowledge neural architectures.
 
 Her work examines the structural, relational, and material dependencies between human bodies, machine observation, and sovereign data systems.`,
-  statementOfInterdependence: `My commitment to spatial interdependence began within Toronto’s grassroots artist-run ecosystem—joining my first art collective, Akin Collective (founded by Oliver Pauk), in the early 2010s, where we collaborated to hold the #LOVELOCAL community arts & music showcase and fabricated Two-Man Rule. This directly informed my subsequent decade directing independent daylight studios (Motion and Still), hosting community salons, and providing pro bono media resources for local artist collectives like Flick the Switch. All spatial installations throughout my career were developed during tenures with Akin Collective, Flick the Switch, or my own independent studio time at Motion and Still (distinct from academic coursework such as courses attended at OCAD University, through which no artistic installations or institutional works were produced).`,
+  statementOfInterdependence: `My commitment to spatial interdependence began within Toronto’s grassroots artist-run ecosystem—joining my first art collective, Akin Collective (founded by Oliver Pauk), in the early 2010s, where we collaborated to hold the #LOVELOCAL community arts & music showcase and fabricated Two-Man Rule. This directly informed my subsequent decade directing independent daylight studios (Motion and Still), hosting community salons, and providing pro bono media resources for local artist collectives like Flick the Switch. All spatial installations throughout my career were developed during tenures with Akin Collective, Flick the Switch, or my own independent studio time at Motion and Still (distinct from studio coursework in foundry and bronze casting attended at OCAD University, through which no spatial installations or institutional works were produced).`,
   researchVectors: [
     {
       id: 'vector-1',
@@ -69,11 +69,11 @@ export const EDUCATION_CREDENTIALS: AcademicCredential[] = [
     ]
   },
   {
-    id: 'ocad-coursework',
-    degreeOrCert: 'Coursework in Photography & Studio Optics (Continuing Studies)',
+    id: 'ocad-foundry',
+    degreeOrCert: 'Foundry & Material Practice (Continuing Studies)',
     institution: 'OCAD University',
     location: 'Toronto, Canada',
-    focus: 'Technical studio and photography coursework (Note: Non-degree coursework only; all installations and spatial works were developed independently during tenures with Akin Collective, Flick the Switch, or independent studio time at Motion and Still)'
+    focus: 'Studio coursework in Bronze Casting: investment mold making, foundry pouring, metal finishing, and sculptural fabrication (2019)'
   }
 ];
 
@@ -246,13 +246,13 @@ export const CV_DATA: CVEntry[] = [
   },
   {
     id: 'edu-ocad',
-    year: '2010 — 2011',
-    title: 'Studio Coursework in Photography & Optics (Continuing Studies)',
+    year: '2019',
+    title: 'Foundry & Material Practice (Continuing Studies)',
     category: 'education',
     venueOrPublisher: 'OCAD University',
     location: 'Toronto, Canada',
-    roleOrContext: 'Technical & Studio Coursework',
-    notes: 'Attended photography and studio coursework. Note: Did not produce installation or institutional artistic works with OCAD; all spatial installations were developed independently during tenures with Akin Collective, Flick the Switch, or independent studio time at Motion and Still.'
+    roleOrContext: 'Studio Coursework in Bronze Casting',
+    notes: 'Studio coursework in Bronze Casting: investment mold making, foundry pouring, metal finishing, and sculptural fabrication.'
   },
 
   // RESEARCH & TECHNICAL LEADERSHIP

@@ -101,7 +101,7 @@ export const CuratorialAtAGlanceCard: React.FC<CuratorialAtAGlanceCardProps> = (
                 <li><strong className="text-neutral-900 font-mono-code">Primary:</strong> SIT Applied Computing (Hons)</li>
                 <li><strong className="text-neutral-900 font-mono-code">AI & Data:</strong> NTU PACE (Advanced Cert in AI)</li>
                 <li><strong className="text-neutral-900 font-mono-code">Studio Lineage:</strong> Akin Collective · Motion & Still · Flick the Switch</li>
-                <li><strong className="text-neutral-900 font-mono-code">Note:</strong> Attended OCAD courses; all installations produced independently via studio collectives</li>
+                <li><strong className="text-neutral-900 font-mono-code">Foundry:</strong> OCAD University (Bronze Casting & Material Practice) · All installations produced via studio collectives</li>
               </ul>
             </div>
 
