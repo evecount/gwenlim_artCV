@@ -606,9 +606,14 @@ Concurrently, the physical studio at 90 Ontario operated as a physical sanctuary
 };
 
 export const SAM_RESIDENCY_ALIGNMENT = {
-  institution: 'Institutional Research & Exhibition Proposal',
-  track: 'Art & Technological Inquiry / Contemporary Practice (Beyond Human / Interdependence)',
-  cycle: '2026 — 2027 Research & Studio Cycle',
+  institution: 'Singapore Art Museum (SAM) Residencies',
+  programme: 'SAM Residencies Cycle 4 (2027/2028)',
+  applicant: 'Gwendalynn Lim Wan Ting',
+  applicationId: '9517668522',
+  track: 'Artist Residency (Singapore-based, 6 Months)',
+  primaryStrand: 'Beyond Human / Interdependence',
+  intersections: 'Listening/Attuning · Making/Material Cultures',
+  cycle: 'Cycle 4 (2027/2028)',
   githubUrl: 'https://github.com/evecount/riemann_hypothesis',
   proposalTitle: 'The Riemann Manifold: Quantum Chaos, Spectral Invariance & Non-Human Interdependence',
   proposedProjectTitle: 'The Riemann Manifold: Quantum Chaos & Spectral Topology',

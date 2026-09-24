@@ -40,7 +40,7 @@ export const CuratorialAtAGlanceCard: React.FC<CuratorialAtAGlanceCardProps> = (
             </span>
             <span className="text-neutral-500 hidden sm:inline">|</span>
             <span className="text-[10px] font-mono-code text-blue-200 hidden sm:inline">
-              Cycle 2026/2027 Review Docket
+              SAM Residencies Cycle 4 (2027/2028) · Application ID: 9517668522
             </span>
           </div>
           <h2 className="text-lg sm:text-xl font-serif-display font-medium text-white tracking-tight">

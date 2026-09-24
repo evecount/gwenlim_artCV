@@ -384,13 +384,13 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
               <div className="border-b-2 border-neutral-950 pb-4 flex items-center justify-between text-xs font-mono-code">
                 <div className="flex items-center gap-2">
                   <span className="font-bold text-neutral-950 uppercase tracking-wider">
-                    SAM RESIDENCY 2026 · CURATORIAL DOSSIER
+                    SAM RESIDENCIES CYCLE 4 (2027/2028) · CURATORIAL DOSSIER
                   </span>
                   <span className="text-neutral-400">/</span>
                   <span className="text-neutral-600">STRICT 10-PAGE JURY PORTFOLIO</span>
                 </div>
                 <div className="text-right font-bold text-blue-800">
-                  APPLICANT ID: SAM-RES-2026-GLW
+                  APPLICATION ID: 9517668522
                 </div>
               </div>
 
@@ -416,12 +416,35 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
                   </div>
                 </div>
 
-                {/* Subtitle / Headline */}
-                <div className="p-4 bg-neutral-50 border-l-4 border-blue-700 space-y-1">
-                  <div className="text-sm font-serif-display font-medium text-neutral-900 leading-snug">
-                    Strand: <span className="font-semibold text-blue-900 italic">Beyond Human / Interdependence</span> · Track: <span className="font-semibold text-neutral-950">Artist Residency</span>
+                {/* Official Application Identity Block */}
+                <div className="p-4 bg-neutral-50 border-l-4 border-blue-700 space-y-2">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1.5 text-xs font-mono-code">
+                    <div>
+                      <span className="text-neutral-500 uppercase text-[10px] font-bold block">Programme</span>
+                      <span className="font-semibold text-neutral-950">SAM Residencies Cycle 4 (2027/2028)</span>
+                    </div>
+                    <div>
+                      <span className="text-neutral-500 uppercase text-[10px] font-bold block">Application ID</span>
+                      <span className="font-bold text-blue-800">9517668522</span>
+                    </div>
+                    <div>
+                      <span className="text-neutral-500 uppercase text-[10px] font-bold block">Applicant</span>
+                      <span className="font-semibold text-neutral-950">Gwendalynn Lim Wan Ting (林婉婷)</span>
+                    </div>
+                    <div>
+                      <span className="text-neutral-500 uppercase text-[10px] font-bold block">Track</span>
+                      <span className="font-semibold text-neutral-950">Artist Residency (Singapore-based, 6 Months)</span>
+                    </div>
+                    <div>
+                      <span className="text-neutral-500 uppercase text-[10px] font-bold block">Primary Strand</span>
+                      <span className="font-semibold text-blue-900 italic">Beyond Human / Interdependence</span>
+                    </div>
+                    <div>
+                      <span className="text-neutral-500 uppercase text-[10px] font-bold block">Intersections</span>
+                      <span className="font-medium text-neutral-800">Listening/Attuning · Making/Material Cultures</span>
+                    </div>
                   </div>
-                  <p className="text-xs font-sans text-neutral-700 leading-relaxed">
+                  <p className="text-xs font-sans text-neutral-700 leading-relaxed pt-2 border-t border-neutral-250">
                     A 16-year arc tracking the transition from early optical mechanics and street portraiture to participatory closed-circuit architectures, artist-run spatial mutual aid, and high-dimensional quantum computational topology.
                   </p>
                 </div>
@@ -469,7 +492,7 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
 
               {/* Bottom Watermark */}
               <div className="border-t border-neutral-300 pt-3 flex items-center justify-between text-[10px] font-mono-code text-neutral-500">
-                <div>SINGAPORE ART MUSEUM · RESIDENCIES 2026 · APPLICANT DOSSIER</div>
+                <div>SAM RESIDENCIES CYCLE 4 (2027/2028) · APPLICATION ID: 9517668522</div>
                 <div>CONTACT: GWEN@GWENLIM.AI.STUDIO · HTTPS://GWENLIM.AI.STUDIO/</div>
                 <div>PAGE 01 OF 10</div>
               </div>
@@ -777,8 +800,16 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
                     <span className="text-blue-800 underline">https://gwenlim.ai.studio/</span>
                   </div>
                   <div>
-                    <span className="font-bold text-neutral-950">Applicant ID:</span>{' '}
-                    <span className="text-neutral-700">SAM-RES-2026-GLW</span>
+                    <span className="font-bold text-neutral-950">Applicant:</span>{' '}
+                    <span className="text-neutral-800 font-semibold">Gwendalynn Lim Wan Ting</span>
+                  </div>
+                  <div>
+                    <span className="font-bold text-neutral-950">Application ID:</span>{' '}
+                    <span className="text-blue-800 font-bold">9517668522</span>
+                  </div>
+                  <div>
+                    <span className="font-bold text-neutral-950">Programme:</span>{' '}
+                    <span className="text-neutral-700">SAM Residencies Cycle 4 (2027/2028)</span>
                   </div>
                   <div>
                     <span className="font-bold text-neutral-950">Curatorial Contact:</span>{' '}
@@ -790,7 +821,7 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
               {/* Bottom Watermark */}
               <div className="border-t border-neutral-300 pt-3 flex items-center justify-between text-[10px] font-mono-code text-neutral-500">
                 <div>GWENDALYNN LIM WAN TING · 10-PAGE DOSSIER CONCORDANCE COMPLETE</div>
-                <div>APPLICANT ID: SAM-RES-2026-GLW · ALL RIGHTS RESERVED (2010–2026)</div>
+                <div>APPLICATION ID: 9517668522 · SAM RESIDENCIES CYCLE 4 (2027/2028)</div>
                 <div>PAGE 10 OF 10</div>
               </div>
             </section>
