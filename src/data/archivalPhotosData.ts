@@ -1,4 +1,5 @@
 import { ArchivalStudioPhoto } from '../types/portfolio';
+import { resolveAsset } from '../utils/resolveAsset';
 
 export interface ArtworkArchivalCollection {
   artworkId: string;
@@ -901,5 +902,9 @@ export const ARCHIVAL_COLLECTIONS: Record<string, ArchivalStudioPhoto[]> = {
 };
 
 export function getArchivalPhotosForArtwork(artworkId: string): ArchivalStudioPhoto[] {
-  return ARCHIVAL_COLLECTIONS[artworkId] || [];
+  const list = ARCHIVAL_COLLECTIONS[artworkId] || [];
+  return list.map(photo => ({
+    ...photo,
+    url: resolveAsset(photo.url)
+  }));
 }

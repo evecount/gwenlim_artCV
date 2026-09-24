@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { ArchivalStudioPhoto } from '../types/portfolio';
 import { getLocalImage } from '../utils/localImageStore';
+import { resolveAsset } from '../utils/resolveAsset';
 
 interface ArchivalPhotoGridProps {
   artworkId: string;
@@ -191,14 +192,14 @@ const ArchivalPhotoCard: React.FC<ArchivalPhotoCardProps> = ({
     }
     const cleanName = photo.filename.trim();
     return [
-      displayUrl,
-      `/assets/ART_Images/${cleanName}.jpg`,
-      `/assets/ART_Images/${cleanName}.JPG`,
-      `/assets/ART_Images/${cleanName}.png`,
-      `/assets/ART_Images/${cleanName}.PNG`,
-      `/assets/ART_Images/${cleanName}.jpeg`,
-      `/assets/ART_Images/${cleanName}`,
-      photo.url
+      resolveAsset(displayUrl),
+      resolveAsset(`/assets/ART_Images/${cleanName}.jpg`),
+      resolveAsset(`/assets/ART_Images/${cleanName}.JPG`),
+      resolveAsset(`/assets/ART_Images/${cleanName}.png`),
+      resolveAsset(`/assets/ART_Images/${cleanName}.PNG`),
+      resolveAsset(`/assets/ART_Images/${cleanName}.jpeg`),
+      resolveAsset(`/assets/ART_Images/${cleanName}`),
+      resolveAsset(photo.url)
     ].filter((v, i, a) => Boolean(v) && a.indexOf(v) === i);
   }, [displayUrl, hasCustomUpload, photo.filename, photo.url]);
 

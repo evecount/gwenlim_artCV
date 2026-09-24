@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight, Calendar, MapPin, Camera, Download, HardDrive } from 'lucide-react';
 import { ArchivalStudioPhoto } from '../types/portfolio';
+import { resolveAsset } from '../utils/resolveAsset';
 
 interface ArchivalPhotoLightboxModalProps {
   photo: ArchivalStudioPhoto | null;
@@ -154,14 +155,14 @@ const LightboxImage: React.FC<{ photo: ArchivalStudioPhoto; displayUrl: string }
   const candidates = React.useMemo(() => {
     const cleanName = photo.filename.trim();
     return [
-      displayUrl,
-      `/assets/ART_Images/${cleanName}.jpg`,
-      `/assets/ART_Images/${cleanName}.JPG`,
-      `/assets/ART_Images/${cleanName}.png`,
-      `/assets/ART_Images/${cleanName}.PNG`,
-      `/assets/ART_Images/${cleanName}.jpeg`,
-      `/assets/ART_Images/${cleanName}`,
-      photo.url
+      resolveAsset(displayUrl),
+      resolveAsset(`/assets/ART_Images/${cleanName}.jpg`),
+      resolveAsset(`/assets/ART_Images/${cleanName}.JPG`),
+      resolveAsset(`/assets/ART_Images/${cleanName}.png`),
+      resolveAsset(`/assets/ART_Images/${cleanName}.PNG`),
+      resolveAsset(`/assets/ART_Images/${cleanName}.jpeg`),
+      resolveAsset(`/assets/ART_Images/${cleanName}`),
+      resolveAsset(photo.url)
     ].filter((v, i, a) => Boolean(v) && a.indexOf(v) === i);
   }, [displayUrl, photo.filename, photo.url]);
 

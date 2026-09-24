@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ARTWORKS } from '../data/artworksData';
 import { ARTIST_INFO, CV_DATA } from '../data/portfolioData';
 import { PlaceholderGraphic } from './DocumentaryImagePlate';
+import { resolveAsset } from '../utils/resolveAsset';
 import {
   Printer,
   X,
@@ -556,7 +557,7 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
                       <div className="relative flex flex-col items-center justify-center w-full h-full overflow-hidden bg-neutral-950 border border-neutral-800">
                         {effectiveMode === 'photos' && heroImg?.url ? (
                           <img
-                            src={heroImg.url}
+                            src={resolveAsset(heroImg.url)}
                             alt={heroImg.title || art.title}
                             className="max-h-[75vh] w-auto max-w-full object-contain mx-auto transition-transform"
                           />
@@ -593,7 +594,7 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
                         <div className="relative flex flex-col items-center justify-center w-full h-full overflow-hidden bg-neutral-950">
                           {effectiveMode === 'photos' && detailImg1?.url ? (
                             <img
-                              src={detailImg1.url}
+                              src={resolveAsset(detailImg1.url)}
                               alt={detailImg1.title || 'Apparatus Detail'}
                               className="max-h-full w-auto max-w-full object-contain mx-auto"
                             />
@@ -613,7 +614,7 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
                         <div className="relative flex flex-col items-center justify-center w-full h-full overflow-hidden bg-neutral-950">
                           {effectiveMode === 'photos' && detailImg2?.url ? (
                             <img
-                              src={detailImg2.url}
+                              src={resolveAsset(detailImg2.url)}
                               alt={detailImg2.title || 'Participatory Action'}
                               className="max-h-full w-auto max-w-full object-contain mx-auto"
                             />

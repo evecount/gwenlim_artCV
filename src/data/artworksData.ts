@@ -1,5 +1,6 @@
 import { Artwork } from '../types/portfolio';
 import { getArchivalPhotosForArtwork } from './archivalPhotosData';
+import { resolveAsset } from '../utils/resolveAsset';
 
 /**
  * Canon of 8 Selected Works for Curatorial Review & 10-Page Landscape Monograph (2010–2026)
@@ -861,6 +862,10 @@ const RAW_ARTWORKS: Artwork[] = [
 
 export const ARTWORKS: Artwork[] = RAW_ARTWORKS.map(art => ({
   ...art,
+  images: art.images.map(img => ({
+    ...img,
+    url: resolveAsset(img.url)
+  })),
   archivalPhotos: getArchivalPhotosForArtwork(art.id)
 }));
 

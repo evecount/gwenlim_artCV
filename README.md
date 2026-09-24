@@ -5,6 +5,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue.svg)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-8.x-purple.svg)](https://vitejs.dev/)
 [![React](https://img.shields.io/badge/React-19.x-cyan.svg)](https://react.dev/)
+[![Live GitHub Pages](https://img.shields.io/badge/Live%20Dossier-GitHub%20Pages-brightgreen.svg)](https://evecount.github.io/gwenlim_artCV/)
 [![Institutional Review](https://img.shields.io/badge/SAM%20Residencies-Cycle%204%20(2027%2F2028)-emerald.svg)](https://www.singaporeartmuseum.org/)
 [![Applicant ID](https://img.shields.io/badge/Application%20ID-9517668522-blue.svg)](https://github.com/evecount/gwenlim_artCV)
 
@@ -22,6 +23,7 @@ This repository houses the digital monograph, institutional curriculum vitae, an
 | **Track** | **Artist Residency (Singapore-based, 6 Months)** |
 | **Primary Strand** | **Beyond Human / Interdependence** |
 | **Intersections** | **Listening/Attuning · Making/Material Cultures** |
+| **Live Monograph** | **[https://evecount.github.io/gwenlim_artCV/](https://evecount.github.io/gwenlim_artCV/)** |
 | **Studio Trajectory** | Singapore & Toronto · 2010 — 2026 (16-Year Longitudinal Practice) |
 | **Primary Codebases** | [`evecount/gwenlim_artCV`](https://github.com/evecount/gwenlim_artCV) · [`evecount/riemann_hypothesis`](https://github.com/evecount/riemann_hypothesis) · [`evecount/quantum_rotation`](https://github.com/evecount/quantum_rotation) |
 | **Curatorial Contact** | [gwen@evecount.com](mailto:gwen@evecount.com) · [gwen@gwenlim.ai.studio](mailto:gwen@gwenlim.ai.studio) |
