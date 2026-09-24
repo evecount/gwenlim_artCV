@@ -50,13 +50,13 @@ export const CurriculumVitae: React.FC<CurriculumVitaeProps> = ({
         {/* Header & View Mode Switcher */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-neutral-250 pb-5">
           <div>
-            <span className="text-xs font-mono-code uppercase tracking-widest text-neutral-600 block mb-1 font-semibold">
+            <span className="text-xs uppercase tracking-widest text-neutral-600 block mb-1 font-bold">
               Curriculum Vitae · Institutional Record
             </span>
-            <h2 className="text-2xl sm:text-3xl font-serif-display font-medium text-neutral-950">
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-neutral-950">
               Curriculum Vitae
             </h2>
-            <p className="text-xs text-neutral-600 font-mono-code mt-1">
+            <p className="text-xs text-neutral-600 mt-1">
               Singapore · Pure Art, Research & Institutional Trajectory (2010–2026)
             </p>
           </div>
@@ -64,7 +64,7 @@ export const CurriculumVitae: React.FC<CurriculumVitaeProps> = ({
           <div className="flex items-center gap-2">
             <button
               onClick={() => window.print()}
-              className="px-3.5 py-1.5 text-xs font-mono-code bg-neutral-950 hover:bg-neutral-800 text-white font-semibold rounded border border-neutral-950 transition-colors cursor-pointer flex items-center gap-1.5 shadow-xs"
+              className="px-3.5 py-1.5 text-xs bg-neutral-950 hover:bg-neutral-800 text-white font-bold rounded border border-neutral-950 transition-colors cursor-pointer flex items-center gap-1.5 shadow-xs"
               title="Print or save Black & White CV as clean vector PDF"
             >
               <Printer className="w-3.5 h-3.5 text-neutral-300" />
@@ -75,23 +75,25 @@ export const CurriculumVitae: React.FC<CurriculumVitaeProps> = ({
 
         {/* Paper / Print Layout View (Museum Jury Clean White Paper Mode) */}
         {isPrintLayoutMode ? (
-          <div className="bg-white text-neutral-900 p-8 sm:p-12 rounded-lg shadow-xl font-serif-display max-w-4xl mx-auto space-y-9 border border-neutral-300">
-            {/* Header info */}
-            <div className="border-b border-neutral-400 pb-5">
-              <h1 className="text-3xl font-bold tracking-tight text-neutral-950 uppercase">
-                {ARTIST_INFO.name}
-              </h1>
-              <p className="text-xs font-mono-code font-bold uppercase tracking-wider text-neutral-800 mt-1">
-                Installation, Physical Computing, and Media-Arts Practice
-              </p>
-              <p className="text-xs font-mono-code text-neutral-600 mt-0.5">
+          <div className="bg-white text-neutral-900 p-8 sm:p-12 rounded-lg shadow-xl font-sans max-w-4xl mx-auto space-y-9 border border-neutral-300">
+            {/* Header info with signature dark title banner */}
+            <div className="border-b-2 border-neutral-950 pb-5 space-y-3">
+              <div className="bg-neutral-950 text-white p-5 sm:p-6 rounded-xs space-y-1.5 shadow-sm border-l-4 border-neutral-300">
+                <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white uppercase">
+                  {ARTIST_INFO.name}
+                </h1>
+                <p className="text-xs font-medium uppercase tracking-wider text-neutral-300">
+                  Installation, Physical Computing, and Media-Arts Practice
+                </p>
+              </div>
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-neutral-600 pt-0.5">
                 SINGAPORE · +65 8608 1377 · GWENLYNN.LIM@GMAIL.COM · GWENLIM.AI.STUDIO
               </p>
             </div>
 
             {/* ARTIST & RESEARCH PROFILE */}
             <div className="space-y-2 border-b border-neutral-300 pb-5">
-              <h3 className="text-sm font-bold uppercase tracking-wider font-sans text-neutral-900">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-neutral-950 border-b border-neutral-900 pb-1">
                 Artist & Research Profile
               </h3>
               <p className="text-xs font-serif-display text-neutral-800 leading-relaxed">

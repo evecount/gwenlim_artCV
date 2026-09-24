@@ -34,23 +34,23 @@ export const Navigation: React.FC<NavigationProps> = ({
           className="text-left group cursor-pointer focus:outline-none shrink-0"
         >
           <div className="flex items-baseline gap-2 whitespace-nowrap">
-            <span className="text-base sm:text-lg font-serif-display font-semibold tracking-tight text-neutral-950 group-hover:text-neutral-700 transition-colors">
+            <span className="text-base sm:text-lg font-bold tracking-tight text-neutral-950 group-hover:text-neutral-700 transition-colors">
               Gwendalynn Lim
             </span>
-            <span className="text-xs font-serif-display text-neutral-500 hidden sm:inline-block">
+            <span className="text-xs font-medium text-neutral-500 hidden sm:inline-block">
               林婉婷
             </span>
-            <span className="text-[11px] font-mono-code text-neutral-400 tracking-wider hidden lg:inline-block">
+            <span className="text-[11px] text-neutral-400 tracking-wider hidden lg:inline-block font-medium">
               · 2010—2026
             </span>
           </div>
-          <div className="text-[10px] font-mono-code text-neutral-500 tracking-wider uppercase block">
+          <div className="text-[10px] text-neutral-500 tracking-wider uppercase block font-medium">
             Installation, Physical Computing, and Media-Arts Practice
           </div>
         </button>
 
         {/* Zone 2: Three Main Elements Navigation Links */}
-        <nav className="hidden md:flex items-center gap-6 text-xs tracking-wider uppercase font-mono-code text-neutral-600">
+        <nav className="hidden md:flex items-center gap-6 text-xs tracking-wider uppercase text-neutral-600 font-medium">
           <button
             onClick={() => handleTabClick('works')}
             className={`transition-colors py-1 cursor-pointer flex items-center gap-1.5 ${

@@ -287,17 +287,17 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
       <header className="no-print h-14 bg-[#0d0e12] border-b border-neutral-800 px-4 flex items-center justify-between gap-4 shrink-0 z-20">
         {/* Title */}
         <div className="flex items-center gap-2.5 shrink-0">
-          <span className="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse" />
-          <span className="font-serif-display font-semibold text-white tracking-tight text-sm sm:text-base">
+          <span className="w-2.5 h-2.5 rounded-full bg-white/80" />
+          <span className="font-bold text-white tracking-tight text-sm sm:text-base">
             Gwendalynn Lim
           </span>
-          <span className="text-[11px] font-mono-code text-blue-400 font-bold uppercase tracking-wider hidden sm:inline-block">
+          <span className="text-[11px] text-neutral-400 font-semibold uppercase tracking-wider hidden sm:inline-block">
             · 10-Page Portfolio (Landscape)
           </span>
         </div>
 
         {/* Center: Direct 10-Page Navigation */}
-        <div className="flex items-center gap-1 overflow-x-auto py-1 scrollbar-none font-mono-code">
+        <div className="flex items-center gap-1 overflow-x-auto py-1 scrollbar-none">
           <button
             onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
             disabled={currentPage === 1}
@@ -324,8 +324,8 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
                 onClick={() => setCurrentPage(pageNum)}
                 className={`px-2.5 py-1 rounded text-xs whitespace-nowrap transition-all cursor-pointer ${
                   isCurrent
-                    ? 'bg-blue-700 text-white font-bold shadow-xs'
-                    : 'bg-neutral-900/80 hover:bg-neutral-800 text-neutral-400 hover:text-neutral-200 border border-neutral-800'
+                    ? 'bg-white text-neutral-950 font-bold shadow-xs'
+                    : 'bg-neutral-900/80 hover:bg-neutral-800 text-neutral-400 hover:text-white border border-neutral-800 font-medium'
                 }`}
               >
                 {label}
@@ -347,10 +347,10 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
         <div className="flex items-center gap-2 shrink-0">
           <button
             onClick={handlePrintPdf}
-            className="px-4 py-1.5 bg-blue-700 hover:bg-blue-600 active:bg-blue-800 text-white font-semibold rounded text-xs font-mono-code flex items-center gap-1.5 shadow-md shadow-blue-700/25 transition-colors cursor-pointer"
+            className="px-4 py-1.5 bg-white hover:bg-neutral-200 active:bg-neutral-300 text-neutral-950 font-bold rounded text-xs flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer"
             title="Print or Save as Landscape A4 PDF"
           >
-            <Printer className="w-3.5 h-3.5 text-blue-200" />
+            <Printer className="w-3.5 h-3.5 text-neutral-900" />
             <span>Print PDF (Landscape)</span>
           </button>
 
@@ -382,94 +382,98 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
             }`}
           >
               {/* Header metadata bar */}
-              <div className="border-b-2 border-neutral-950 pb-4 flex items-center justify-between text-xs font-mono-code">
+              <div className="border-b-2 border-neutral-950 pb-4 flex items-center justify-between text-xs">
                 <div className="flex items-center gap-2">
                   <span className="font-bold text-neutral-950 uppercase tracking-wider">
                     SAM RESIDENCIES CYCLE 4 (2027/2028) · CURATORIAL DOSSIER
                   </span>
-                  <span className="text-neutral-400">/</span>
-                  <span className="text-neutral-600">STRICT 10-PAGE JURY PORTFOLIO</span>
+                  <span className="text-neutral-300">/</span>
+                  <span className="text-neutral-600 font-medium">STRICT 10-PAGE JURY PORTFOLIO</span>
                 </div>
-                <div className="text-right font-bold text-blue-800">
+                <div className="text-right font-bold text-neutral-950 tracking-wider">
                   APPLICATION ID: 9517668522
                 </div>
               </div>
 
               {/* Monograph Title & Core Identity */}
               <div className="my-auto space-y-6 max-w-4xl">
-                <div className="space-y-2">
-                  <div className="text-xs font-mono-code uppercase tracking-widest text-neutral-500 font-semibold">
+                <div className="space-y-3">
+                  <div className="text-xs uppercase tracking-widest text-neutral-500 font-bold">
                     Curatorial Review Portfolio · Strict 10-Page Institutional Dossier
                   </div>
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif-display font-bold tracking-tight text-neutral-950 uppercase leading-tight">
-                    Gwendalynn Lim Wan Ting
-                  </h1>
-                  <div className="text-lg sm:text-xl font-serif-display text-neutral-800 font-medium tracking-tight">
-                    Selected Works & Systems Archive (2010–2026)
-                  </div>
-                  <div className="flex items-center gap-3 pt-1">
-                    <span className="text-2xl sm:text-3xl font-serif-display text-neutral-700">
-                      林婉婷
-                    </span>
-                    <span className="text-xs font-mono-code text-neutral-500 tracking-wider uppercase">
-                      · Installation, Physical Computing, and Media-Arts Practice
-                    </span>
+
+                  {/* Signature Dark Title Block with Crisp White Typography */}
+                  <div className="bg-neutral-950 text-white p-6 sm:p-7 rounded-xs space-y-2.5 shadow-sm border-l-4 border-neutral-300">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight uppercase leading-tight text-white">
+                      Gwendalynn Lim Wan Ting
+                    </h1>
+                    <div className="text-lg sm:text-xl text-neutral-200 font-medium tracking-tight">
+                      Selected Works & Systems Archive (2010–2026)
+                    </div>
+                    <div className="flex items-center gap-3 pt-2.5 border-t border-neutral-700/60">
+                      <span className="text-xl sm:text-2xl font-bold text-neutral-300">
+                        林婉婷
+                      </span>
+                      <span className="text-xs text-neutral-400 tracking-wider uppercase font-medium">
+                        · Installation, Physical Computing & Media-Arts Practice
+                      </span>
+                    </div>
                   </div>
                 </div>
 
                 {/* Official Application Identity Block */}
-                <div className="p-4 bg-neutral-50 border-l-4 border-blue-700 space-y-2">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1.5 text-xs font-mono-code">
+                <div className="p-4 bg-neutral-50 border border-neutral-250 border-l-4 border-l-neutral-950 space-y-2">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1.5 text-xs">
                     <div>
-                      <span className="text-neutral-500 uppercase text-[10px] font-bold block">Programme</span>
+                      <span className="text-neutral-500 uppercase text-[10px] font-bold block tracking-wider">Programme</span>
                       <span className="font-semibold text-neutral-950">SAM Residencies Cycle 4 (2027/2028)</span>
                     </div>
                     <div>
-                      <span className="text-neutral-500 uppercase text-[10px] font-bold block">Application ID</span>
-                      <span className="font-bold text-blue-800">9517668522</span>
+                      <span className="text-neutral-500 uppercase text-[10px] font-bold block tracking-wider">Application ID</span>
+                      <span className="font-bold text-neutral-950">9517668522</span>
                     </div>
                     <div>
-                      <span className="text-neutral-500 uppercase text-[10px] font-bold block">Applicant</span>
+                      <span className="text-neutral-500 uppercase text-[10px] font-bold block tracking-wider">Applicant</span>
                       <span className="font-semibold text-neutral-950">Gwendalynn Lim Wan Ting (林婉婷)</span>
                     </div>
                     <div>
-                      <span className="text-neutral-500 uppercase text-[10px] font-bold block">Track</span>
+                      <span className="text-neutral-500 uppercase text-[10px] font-bold block tracking-wider">Track</span>
                       <span className="font-semibold text-neutral-950">Artist Residency (Singapore-based, 6 Months)</span>
                     </div>
                     <div>
-                      <span className="text-neutral-500 uppercase text-[10px] font-bold block">Primary Strand</span>
-                      <span className="font-semibold text-blue-900 italic">Beyond Human / Interdependence</span>
+                      <span className="text-neutral-500 uppercase text-[10px] font-bold block tracking-wider">Primary Strand</span>
+                      <span className="font-bold text-neutral-950 italic">Beyond Human / Interdependence</span>
                     </div>
                     <div>
-                      <span className="text-neutral-500 uppercase text-[10px] font-bold block">Intersections</span>
+                      <span className="text-neutral-500 uppercase text-[10px] font-bold block tracking-wider">Intersections</span>
                       <span className="font-medium text-neutral-800">Listening/Attuning · Making/Material Cultures</span>
                     </div>
                   </div>
-                  <p className="text-xs font-sans text-neutral-700 leading-relaxed pt-2 border-t border-neutral-250">
+                  <p className="text-xs text-neutral-700 leading-relaxed pt-2 border-t border-neutral-250">
                     A 16-year arc tracking the transition from early optical mechanics and street portraiture to participatory closed-circuit architectures, artist-run spatial mutual aid, and high-dimensional quantum computational topology.
                   </p>
                 </div>
 
                 {/* Core Institutional Credentials Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-neutral-200 text-xs font-mono-code">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-neutral-200 text-xs">
                   <div>
-                    <div className="text-neutral-400 uppercase text-[10px] font-bold">Studio Trajectory</div>
-                    <div className="text-neutral-900 font-medium">Singapore · Toronto</div>
+                    <div className="text-neutral-400 uppercase text-[10px] font-bold tracking-wider">Studio Trajectory</div>
+                    <div className="text-neutral-900 font-bold">Singapore · Toronto</div>
                     <div className="text-neutral-500 text-[11px]">2010 — 2026 (16 Years)</div>
                   </div>
                   <div>
-                    <div className="text-neutral-400 uppercase text-[10px] font-bold">Formative Continuum</div>
-                    <div className="text-neutral-900 font-medium">Akin Collective (Dir. Pauk)</div>
+                    <div className="text-neutral-400 uppercase text-[10px] font-bold tracking-wider">Formative Continuum</div>
+                    <div className="text-neutral-900 font-bold">Akin Collective (Dir. Pauk)</div>
                     <div className="text-neutral-500 text-[11px]">Motion & Still · Flick Switch</div>
                   </div>
                   <div>
-                    <div className="text-neutral-400 uppercase text-[10px] font-bold">Live AI Studio Dossier</div>
-                    <div className="text-blue-700 font-bold underline">gwenlim.ai.studio</div>
-                    <div className="text-neutral-500 text-[11px]">Interactive Registry</div>
+                    <div className="text-neutral-400 uppercase text-[10px] font-bold tracking-wider">Live Web Monograph</div>
+                    <div className="text-neutral-900 font-bold underline">evecount.github.io</div>
+                    <div className="text-neutral-500 text-[11px]">gwenlim_artCV</div>
                   </div>
                   <div>
-                    <div className="text-neutral-400 uppercase text-[10px] font-bold">Open Code Repositories</div>
-                    <div className="text-neutral-900 font-medium">evecount (GitHub)</div>
+                    <div className="text-neutral-400 uppercase text-[10px] font-bold tracking-wider">Open Code Repositories</div>
+                    <div className="text-neutral-900 font-bold">evecount (GitHub)</div>
                     <div className="text-neutral-500 text-[11px]">riemann_hypothesis</div>
                   </div>
                 </div>
@@ -519,29 +523,29 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
                 }`}
               >
                 {/* Top Plate Sub-Header */}
-                <div className="border-b border-neutral-900 pb-2.5 flex items-center justify-between text-xs font-mono-code">
+                <div className="border-b-2 border-neutral-950 pb-2.5 flex items-center justify-between text-xs tracking-tight">
                   <div className="flex items-center gap-2">
-                    <span className="font-bold text-neutral-950">PLATE {plateNumberStr}</span>
-                    <span className="text-neutral-400">/</span>
+                    <span className="font-bold text-neutral-950 uppercase tracking-wider">PLATE {plateNumberStr}</span>
+                    <span className="text-neutral-300">/</span>
                     <span className="text-neutral-700 font-semibold">{art.accessionId}</span>
-                    <span className="text-neutral-400">/</span>
+                    <span className="text-neutral-300">/</span>
                     <span className="text-neutral-500">{art.year}</span>
                   </div>
 
                   {/* Discrete switcher for individual plate (no-print) */}
                   <button
                     onClick={() => toggleIndividualPlateMode(art.id)}
-                    className="no-print px-2 py-0.5 rounded text-[10px] font-mono-code bg-neutral-100 hover:bg-neutral-200 border border-neutral-300 text-neutral-800 transition-colors flex items-center gap-1 cursor-pointer"
+                    className="no-print px-2.5 py-1 rounded-xs text-[10px] bg-neutral-100 hover:bg-neutral-200 border border-neutral-300 text-neutral-800 transition-colors flex items-center gap-1.5 cursor-pointer font-medium"
                     title="Toggle between archival photograph and blueprint schematic"
                   >
                     <span>{effectiveMode === 'photos' ? '📷 Photo View' : '📐 Blueprint View'}</span>
-                    <span className="text-[9px] text-blue-700 underline font-bold">Flip ⇄</span>
+                    <span className="text-[10px] text-neutral-900 font-bold border-b border-neutral-900">Flip ⇄</span>
                   </button>
 
-                  <div className="text-neutral-600 text-[11px] font-medium hidden sm:block">
-                    {art.category.toUpperCase()} · GWENDALYNN LIM WAN TING
+                  <div className="text-neutral-500 text-[11px] font-medium hidden sm:block uppercase tracking-wider">
+                    {art.category.toUpperCase().replace(/-/g, ' ')} · GWENDALYNN LIM WAN TING
                   </div>
-                  <div className="font-bold text-blue-800 text-[11px]">
+                  <div className="font-bold text-neutral-950 text-[11px] tracking-wider">
                     PAGE {String(pageNum).padStart(2, '0')} OF 10
                   </div>
                 </div>
@@ -633,69 +637,71 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
 
                   {/* RIGHT COLUMN (40% WIDTH): Title, Metadata, Theoretical Inquiry, Stack */}
                   <div className="col-span-12 lg:col-span-5 flex flex-col justify-between space-y-3 h-full overflow-hidden text-neutral-900">
-                    {/* Header Block & Title */}
-                    <div className="space-y-1">
-                      <div className="text-[10px] font-mono-code uppercase tracking-wider text-blue-700 font-bold">
+                    {/* Header Block & Title with Signature Dark Background & White Font */}
+                    <div className="bg-neutral-950 text-white p-3.5 rounded-xs border-l-4 border-neutral-300 shadow-xs space-y-1">
+                      <div className="text-[10px] uppercase tracking-widest text-neutral-400 font-bold">
                         PLATE {plateNumberStr} · {art.year}
                       </div>
-                      <h2 className="text-xl sm:text-2xl font-serif-display font-bold tracking-tight text-neutral-950 leading-tight">
+                      <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white leading-snug">
                         {art.title}
                       </h2>
-                      <div className="text-xs font-serif-display text-neutral-600 italic">
-                        {art.subtitle}
-                      </div>
+                      {art.subtitle && (
+                        <div className="text-xs text-neutral-300 italic font-normal leading-normal pt-0.5">
+                          {art.subtitle}
+                        </div>
+                      )}
                     </div>
 
                     {/* Metadata Registry Box */}
-                    <div className="p-2.5 bg-neutral-50 border border-neutral-250 rounded-xs space-y-1 text-[11px] font-mono-code">
+                    <div className="p-3 bg-neutral-50 border border-neutral-250 rounded-xs space-y-1 text-xs">
                       <div>
-                        <strong className="text-neutral-950">Medium:</strong>{' '}
+                        <strong className="text-neutral-950 font-bold">Medium:</strong>{' '}
                         <span className="text-neutral-700">{art.medium}</span>
                       </div>
                       <div>
-                        <strong className="text-neutral-950">Dimensions:</strong>{' '}
+                        <strong className="text-neutral-950 font-bold">Dimensions:</strong>{' '}
                         <span className="text-neutral-700">{art.dimensions}</span>
                       </div>
                       <div>
-                        <strong className="text-neutral-950">Provenance:</strong>{' '}
-                        <span className="text-neutral-700 font-semibold">{art.provenance || art.venue}</span>
+                        <strong className="text-neutral-950 font-bold">Provenance:</strong>{' '}
+                        <span className="text-neutral-800 font-semibold">{art.provenance || art.venue}</span>
                       </div>
                       <div>
-                        <strong className="text-neutral-950">Focus:</strong>{' '}
-                        <span className="text-blue-900">{art.focus || art.summary}</span>
+                        <strong className="text-neutral-950 font-bold">Focus:</strong>{' '}
+                        <span className="text-neutral-800 italic">{art.focus || art.summary}</span>
                       </div>
                     </div>
 
                     {/* Conceptual Text (100–150 words) */}
                     <div className="space-y-1">
-                      <div className="text-[10px] font-mono-code uppercase tracking-wider text-neutral-500 font-bold">
+                      <div className="text-[10px] uppercase tracking-wider text-neutral-500 font-bold border-b border-neutral-200 pb-0.5">
                         Curatorial Inquiry & Apparatus Mechanics
                       </div>
-                      <p className="text-xs font-serif-display text-neutral-800 leading-relaxed text-justify">
+                      <p className="text-xs text-neutral-800 leading-relaxed text-justify">
                         {art.curatorialStatement}
                       </p>
                     </div>
 
                     {/* Material & Technical Stack */}
-                    <div className="space-y-1 pt-1 border-t border-neutral-200 text-[10px] font-mono-code">
+                    <div className="space-y-1 pt-1.5 border-t border-neutral-200 text-[10px]">
                       <div>
-                        <strong className="text-neutral-900 uppercase">Hardware & Optics:</strong>{' '}
+                        <strong className="text-neutral-900 font-bold uppercase tracking-wider">Hardware & Optics:</strong>{' '}
                         <span className="text-neutral-700">{art.hardwareStack.slice(0, 3).join('; ')}</span>
                       </div>
                       <div>
-                        <strong className="text-neutral-900 uppercase">Software & Logic:</strong>{' '}
+                        <strong className="text-neutral-900 font-bold uppercase tracking-wider">Software & Logic:</strong>{' '}
                         <span className="text-neutral-700">{art.softwareStack.slice(0, 3).join('; ')}</span>
                       </div>
                       <div>
-                        <strong className="text-neutral-900 uppercase">Studio Lineage:</strong>{' '}
-                        <span className="text-neutral-600">{art.studioLineage || 'Independent Studio Practice'}</span>
+                        <strong className="text-neutral-900 font-bold uppercase tracking-wider">Studio Lineage:</strong>{' '}
+                        <span className="text-neutral-600 italic">{art.studioLineage || 'Independent Studio Practice'}</span>
                       </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Footer Watermark */}
-                <div className="border-t border-neutral-300 pt-2 flex items-center justify-between text-[9px] font-mono-code text-neutral-500">
+                <div className="border-t border-neutral-250 pt-2 flex items-center justify-between text-[9px] uppercase tracking-wider text-neutral-500 font-medium">
                   <div>GWENDALYNN LIM WAN TING · SELECTED WORKS & SYSTEMS ARCHIVE</div>
                   <div>PLATE {plateNumberStr} · {art.title.toUpperCase()} ({art.year})</div>
                   <div>PAGE {String(pageNum).padStart(2, '0')} OF 10</div>
@@ -714,13 +720,13 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
             }`}
           >
               {/* Header */}
-              <div className="border-b-2 border-neutral-950 pb-3 flex items-center justify-between text-xs font-mono-code">
+              <div className="border-b-2 border-neutral-950 pb-3 flex items-center justify-between text-xs">
                 <div className="flex items-center gap-2">
                   <span className="font-bold text-neutral-950 uppercase tracking-wider">
                     PAGE 10 · DOSSIER INDEX, TECHNICAL APPENDIX & VERIFICATION LINKS
                   </span>
                 </div>
-                <div className="font-bold text-blue-800">
+                <div className="font-bold text-neutral-950 tracking-wider">
                   PAGE 10 OF 10 · CONCORDANCE REGISTRY
                 </div>
               </div>
@@ -728,32 +734,32 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
               {/* Master 8-Plate Concordance Registry Table */}
               <div className="my-auto space-y-5">
                 <div>
-                  <div className="text-xs font-mono-code uppercase tracking-wider text-neutral-950 font-bold mb-2">
+                  <div className="text-xs uppercase tracking-wider text-neutral-950 font-bold mb-2">
                     Complete Artwork Metadata Concordance (2010 — 2026)
                   </div>
                   <div className="overflow-x-auto border border-neutral-300 rounded-xs">
-                    <table className="w-full text-left text-[10px] font-mono-code border-collapse">
+                    <table className="w-full text-left text-[10px] border-collapse">
                       <thead>
-                        <tr className="bg-neutral-100 border-b border-neutral-300 text-neutral-900 font-bold">
-                          <th className="p-2 border-r border-neutral-250">Plate</th>
-                          <th className="p-2 border-r border-neutral-250">Year</th>
-                          <th className="p-2 border-r border-neutral-250">Artwork Title</th>
-                          <th className="p-2 border-r border-neutral-250">Medium & Architecture</th>
-                          <th className="p-2 border-r border-neutral-250">Provenance</th>
+                        <tr className="bg-neutral-950 text-white font-bold uppercase tracking-wider">
+                          <th className="p-2 border-r border-neutral-800">Plate</th>
+                          <th className="p-2 border-r border-neutral-800">Year</th>
+                          <th className="p-2 border-r border-neutral-800">Artwork Title</th>
+                          <th className="p-2 border-r border-neutral-800">Medium & Architecture</th>
+                          <th className="p-2 border-r border-neutral-800">Provenance</th>
                           <th className="p-2">Primary Mechanical / Computational Core</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-neutral-200 text-neutral-800">
                         {ARTWORKS.map((art, idx) => (
                           <tr key={art.id} className="hover:bg-neutral-50/80">
-                            <td className="p-1.5 border-r border-neutral-250 font-bold text-blue-800">
+                            <td className="p-1.5 border-r border-neutral-250 font-bold text-neutral-950">
                               PL.{String(idx + 1).padStart(2, '0')}
                             </td>
-                            <td className="p-1.5 border-r border-neutral-250 text-neutral-600">{art.year}</td>
-                            <td className="p-1.5 border-r border-neutral-250 font-medium text-neutral-950">{art.title}</td>
+                            <td className="p-1.5 border-r border-neutral-250 text-neutral-600 font-medium">{art.year}</td>
+                            <td className="p-1.5 border-r border-neutral-250 font-semibold text-neutral-950">{art.title}</td>
                             <td className="p-1.5 border-r border-neutral-250 text-neutral-700">{art.medium}</td>
-                            <td className="p-1.5 border-r border-neutral-250 text-neutral-600">{art.provenance || art.venue}</td>
-                            <td className="p-1.5 text-neutral-700 font-mono text-[9px]">
+                            <td className="p-1.5 border-r border-neutral-250 text-neutral-600 italic">{art.provenance || art.venue}</td>
+                            <td className="p-1.5 text-neutral-800 text-[9px]">
                               {art.hardwareStack[0] || art.softwareStack[0]}
                             </td>
                           </tr>
@@ -767,25 +773,25 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                   {/* Technical Appendix */}
                   <div className="p-3 bg-neutral-50 border border-neutral-250 rounded-xs space-y-1.5">
-                    <div className="text-[10px] font-mono-code font-bold uppercase tracking-wider text-neutral-950">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-neutral-950 border-b border-neutral-200 pb-0.5">
                       Technical Appendix & Sovereign Computation
                     </div>
-                    <p className="text-[11px] font-sans text-neutral-700 leading-relaxed">
+                    <p className="text-[11px] text-neutral-700 leading-relaxed">
                       All computational installations feature zero-cloud, client-side or on-premises execution. 
                       <em>The Riemann Manifold</em> calculates Hilbert-Pólya operator eigenvalues via PyTorch and GLSL shaders at 60fps.
                       Physical computing installations deploy galvanically isolated optocoupler relays, hardware debounce suppression, and low-latency serial buses.
                     </p>
-                    <div className="text-[10px] font-mono-code text-blue-900 font-semibold pt-1">
+                    <div className="text-[10px] text-neutral-900 font-bold pt-1">
                       Code Repositories: github.com/evecount/riemann_hypothesis
                     </div>
                   </div>
 
                   {/* Spatial Stewardship & Collective Continuum */}
                   <div className="p-3 bg-neutral-50 border border-neutral-250 rounded-xs space-y-1.5">
-                    <div className="text-[10px] font-mono-code font-bold uppercase tracking-wider text-neutral-950">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-neutral-950 border-b border-neutral-200 pb-0.5">
                       Longitudinal Collective Continuum & Mutual Aid
                     </div>
-                    <ul className="text-[10px] font-mono-code text-neutral-700 space-y-1">
+                    <ul className="text-[10px] text-neutral-700 space-y-1">
                       <li>• <strong>Akin Collective (Dir. Oliver Pauk, 2011–15):</strong> First collective joined; co-held #LOVELOCAL; Two-Man Rule fabrication.</li>
                       <li>• <strong>Motion and Still Daylight Sanctuary (2014–23):</strong> 3,200 sq.ft facility; 3-phase power; pro bono community residencies.</li>
                       <li>• <strong>Flick the Switch (Susan Stewart, 2019–24):</strong> Pro bono 4K video documentation suite & material aid.</li>
@@ -795,10 +801,10 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
                 </div>
 
                 {/* Institutional Verification & Contact Credentials */}
-                <div className="p-3 bg-neutral-100 border border-neutral-300 rounded-xs flex flex-wrap items-center justify-between gap-3 text-xs font-mono-code">
+                <div className="p-3 bg-neutral-100 border border-neutral-300 rounded-xs flex flex-wrap items-center justify-between gap-3 text-xs">
                   <div>
-                    <span className="font-bold text-neutral-950">Live Studio Archive:</span>{' '}
-                    <span className="text-blue-800 underline">https://gwenlim.ai.studio/</span>
+                    <span className="font-bold text-neutral-950">Live Web Monograph:</span>{' '}
+                    <span className="text-neutral-950 font-bold underline">https://evecount.github.io/gwenlim_artCV/</span>
                   </div>
                   <div>
                     <span className="font-bold text-neutral-950">Applicant:</span>{' '}
@@ -806,7 +812,7 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
                   </div>
                   <div>
                     <span className="font-bold text-neutral-950">Application ID:</span>{' '}
-                    <span className="text-blue-800 font-bold">9517668522</span>
+                    <span className="text-neutral-950 font-bold">9517668522</span>
                   </div>
                   <div>
                     <span className="font-bold text-neutral-950">Programme:</span>{' '}
@@ -820,7 +826,7 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
               </div>
 
               {/* Bottom Watermark */}
-              <div className="border-t border-neutral-300 pt-3 flex items-center justify-between text-[10px] font-mono-code text-neutral-500">
+              <div className="border-t border-neutral-250 pt-3 flex items-center justify-between text-[10px] uppercase tracking-wider text-neutral-500 font-medium">
                 <div>GWENDALYNN LIM WAN TING · 10-PAGE DOSSIER CONCORDANCE COMPLETE</div>
                 <div>APPLICATION ID: 9517668522 · SAM RESIDENCIES CYCLE 4 (2027/2028)</div>
                 <div>PAGE 10 OF 10</div>

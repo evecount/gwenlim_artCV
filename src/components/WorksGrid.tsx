@@ -18,10 +18,10 @@ export const WorksGrid: React.FC<WorksGridProps> = ({
         
         {/* Section Header */}
         <div className="border-b border-neutral-250 pb-5">
-          <span className="text-xs font-mono-code uppercase tracking-widest text-neutral-600 block mb-1 font-semibold">
+          <span className="text-xs uppercase tracking-widest text-neutral-600 block mb-1 font-bold">
             Primary Art Trajectory · Chronological Index
           </span>
-          <h2 className="text-2xl sm:text-3xl font-serif-display font-medium text-neutral-950">
+          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-neutral-950">
             Selected Installations & Computational Works
           </h2>
         </div>
@@ -43,14 +43,14 @@ export const WorksGrid: React.FC<WorksGridProps> = ({
                 {/* Card Content & Metadata (Museum Monograph Plate Format - Less Wordy) */}
                 <div className="p-4 space-y-2 bg-white text-neutral-900">
                   {/* Clean unboxed metadata with typographic separators */}
-                  <div className="flex flex-wrap items-center gap-1.5 text-[11px] font-mono-code text-neutral-500">
+                  <div className="flex flex-wrap items-center gap-1.5 text-[11px] text-neutral-500 font-medium">
                     <span className="text-neutral-950 font-bold">{artwork.year}</span>
                     <span aria-hidden="true">·</span>
                     <span>{artwork.city}</span>
                     {artwork.year === 2026 && (
                       <>
                         <span aria-hidden="true">·</span>
-                        <span className="text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.2 rounded font-bold uppercase text-[9px]">
+                        <span className="text-neutral-950 bg-neutral-100 border border-neutral-300 px-1.5 py-0.2 rounded-xs font-bold uppercase text-[9px]">
                           Future Work
                         </span>
                       </>
@@ -59,7 +59,7 @@ export const WorksGrid: React.FC<WorksGridProps> = ({
                     <span className="text-neutral-500">{artwork.accessionId}</span>
                   </div>
 
-                  <h3 className="text-lg font-serif-display font-medium text-neutral-950 group-hover:text-neutral-700 leading-snug">
+                  <h3 className="text-lg font-bold text-neutral-950 group-hover:text-neutral-700 leading-snug">
                     {artwork.title}
                   </h3>
 

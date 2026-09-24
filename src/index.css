@@ -9,11 +9,11 @@
 }
 
 .font-serif-display {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
 }
 
 .font-mono-code {
-  font-family: 'JetBrains Mono', Menlo, monospace;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
 }
 
 @media print {
