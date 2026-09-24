@@ -23,6 +23,8 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [plateVisualMode] = useState<'photos' | 'schematics'>('photos');
   const [individualPlateModes, setIndividualPlateModes] = useState<Record<string, 'photos' | 'schematics'>>({});
+  const [imageFitMode, setImageFitMode] = useState<'fit' | 'fill'>('fill');
+  const [individualFitModes, setIndividualFitModes] = useState<Record<string, 'fit' | 'fill'>>({});
   const containerRef = useRef<HTMLDivElement>(null);
   const printRef = useRef<HTMLDivElement>(null);
 
@@ -32,6 +34,20 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
       return {
         ...prev,
         [artId]: current === 'photos' ? 'schematics' : 'photos'
+      };
+    });
+  };
+
+  const getEffectiveFitMode = (artId: string) => {
+    return individualFitModes[artId] || imageFitMode;
+  };
+
+  const toggleIndividualFitMode = (artId: string) => {
+    setIndividualFitModes(prev => {
+      const current = prev[artId] || imageFitMode;
+      return {
+        ...prev,
+        [artId]: current === 'fill' ? 'fit' : 'fill'
       };
     });
   };
@@ -343,8 +359,16 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
           </button>
         </div>
 
-        {/* Right Actions: Print & Close */}
+        {/* Right Actions: Fit Mode Toggle, Print & Close */}
         <div className="flex items-center gap-2 shrink-0">
+          <button
+            onClick={() => setImageFitMode(prev => prev === 'fill' ? 'fit' : 'fill')}
+            className="px-3 py-1.5 bg-neutral-900 hover:bg-neutral-800 text-neutral-200 border border-neutral-700 text-xs rounded font-medium flex items-center gap-1.5 transition-colors cursor-pointer"
+            title="Toggle between edge-to-edge window fill and full-document containment"
+          >
+            <span>{imageFitMode === 'fill' ? '🖼️ Fill Window' : '🔲 Fit Aspect'}</span>
+          </button>
+
           <button
             onClick={handlePrintPdf}
             className="px-4 py-1.5 bg-white hover:bg-neutral-200 active:bg-neutral-300 text-neutral-950 font-bold rounded text-xs flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer"
@@ -509,6 +533,7 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
           {ARTWORKS.map((art, idx) => {
             const pageNum = idx + 2;
             const effectiveMode = individualPlateModes[art.id] || plateVisualMode;
+            const effectiveFit = getEffectiveFitMode(art.id);
             const heroImg = art.images[0];
             const detailImg1 = art.images[1];
             const detailImg2 = art.images[2];
@@ -533,14 +558,29 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
                   </div>
 
                   {/* Discrete switcher for individual plate (no-print) */}
-                  <button
-                    onClick={() => toggleIndividualPlateMode(art.id)}
-                    className="no-print px-2.5 py-1 rounded-xs text-[10px] bg-neutral-100 hover:bg-neutral-200 border border-neutral-300 text-neutral-800 transition-colors flex items-center gap-1.5 cursor-pointer font-medium"
-                    title="Toggle between archival photograph and blueprint schematic"
-                  >
-                    <span>{effectiveMode === 'photos' ? '📷 Photo View' : '📐 Blueprint View'}</span>
-                    <span className="text-[10px] text-neutral-900 font-bold border-b border-neutral-900">Flip ⇄</span>
-                  </button>
+                  <div className="flex items-center gap-2 no-print">
+                    <button
+                      onClick={() => toggleIndividualPlateMode(art.id)}
+                      className="px-2.5 py-1 rounded-xs text-[10px] bg-neutral-100 hover:bg-neutral-200 border border-neutral-300 text-neutral-800 transition-colors flex items-center gap-1.5 cursor-pointer font-medium"
+                      title="Toggle between archival photograph and blueprint schematic"
+                    >
+                      <span>{effectiveMode === 'photos' ? '📷 Photo' : '📐 Blueprint'}</span>
+                      <span className="text-[10px] text-neutral-900 font-bold border-b border-neutral-900">Flip ⇄</span>
+                    </button>
+
+                    <button
+                      onClick={() => toggleIndividualFitMode(art.id)}
+                      className={`px-2.5 py-1 rounded-xs text-[10px] border transition-colors flex items-center gap-1 cursor-pointer font-medium ${
+                        effectiveFit === 'fill'
+                          ? 'bg-neutral-900 text-white border-neutral-900 hover:bg-neutral-800'
+                          : 'bg-neutral-100 text-neutral-800 border-neutral-300 hover:bg-neutral-200'
+                      }`}
+                      title={effectiveFit === 'fill' ? 'Switch to Fit Aspect (full uncropped document)' : 'Switch to Fill Window (edge-to-edge frame)'}
+                    >
+                      <span>{effectiveFit === 'fill' ? '🖼️ Fill Window' : '🔲 Fit Aspect'}</span>
+                      <span className="text-[9px] opacity-75">⇄</span>
+                    </button>
+                  </div>
 
                   <div className="text-neutral-500 text-[11px] font-medium hidden sm:block uppercase tracking-wider">
                     {art.category.toUpperCase().replace(/-/g, ' ')} · GWENDALYNN LIM WAN TING
@@ -560,11 +600,25 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
                       {/* Clean flex container without overlapping absolute frames */}
                       <div className="relative flex flex-col items-center justify-center w-full h-full overflow-hidden bg-neutral-950 border border-neutral-800">
                         {effectiveMode === 'photos' && heroImg?.url ? (
-                          <img
-                            src={resolveAsset(heroImg.url)}
-                            alt={heroImg.title || art.title}
-                            className="max-h-[75vh] w-auto max-w-full object-contain mx-auto transition-transform"
-                          />
+                          <>
+                            {/* Ambient blurred backdrop to eliminate pitch-black dead space */}
+                            <img
+                              src={resolveAsset(heroImg.url)}
+                              alt=""
+                              aria-hidden="true"
+                              className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-35 scale-110 pointer-events-none select-none"
+                            />
+                            {/* Crisp Foreground Hero Image */}
+                            <img
+                              src={resolveAsset(heroImg.url)}
+                              alt={heroImg.title || art.title}
+                              className={`relative z-1 transition-all duration-300 ${
+                                effectiveFit === 'fill'
+                                  ? 'w-full h-full object-cover object-top'
+                                  : 'max-h-[75vh] w-auto max-w-full object-contain mx-auto shadow-2xl'
+                              }`}
+                            />
+                          </>
                         ) : (
                           <div className="w-full h-full flex items-center justify-center">
                             <PlaceholderGraphic plateType={heroImg?.placeholderType || 'riemann-overview'} />
@@ -580,7 +634,7 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
                       </div>
 
                       {/* Hero Image Caption Bar */}
-                      <div className="bg-neutral-950 p-2 text-white border-t border-neutral-800 flex items-center justify-between text-[10px] font-mono-code shrink-0">
+                      <div className="bg-neutral-950 p-2 text-white border-t border-neutral-800 flex items-center justify-between text-[10px] font-mono-code shrink-0 z-10">
                         <div className="truncate pr-2">
                           <strong className="text-white font-bold">{effectiveMode === 'photos' ? (heroImg?.viewType || 'Installation View') : 'Structural Schematic'}:</strong>{' '}
                           <span className="text-neutral-300">{effectiveMode === 'photos' ? (heroImg?.title || art.title) : `${art.title} — Blueprint`}</span>
@@ -597,18 +651,30 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
                       <div className="bg-black rounded-xs overflow-hidden border border-neutral-800 flex flex-col justify-between relative">
                         <div className="relative flex flex-col items-center justify-center w-full h-full overflow-hidden bg-neutral-950">
                           {effectiveMode === 'photos' && detailImg1?.url ? (
-                            <img
-                              src={resolveAsset(detailImg1.url)}
-                              alt={detailImg1.title || 'Apparatus Detail'}
-                              className="max-h-full w-auto max-w-full object-contain mx-auto"
-                            />
+                            <>
+                              <img
+                                src={resolveAsset(detailImg1.url)}
+                                alt=""
+                                aria-hidden="true"
+                                className="absolute inset-0 w-full h-full object-cover blur-xl opacity-30 scale-110 pointer-events-none select-none"
+                              />
+                              <img
+                                src={resolveAsset(detailImg1.url)}
+                                alt={detailImg1.title || 'Apparatus Detail'}
+                                className={`relative z-1 ${
+                                  effectiveFit === 'fill'
+                                    ? 'w-full h-full object-cover object-center'
+                                    : 'max-h-full w-auto max-w-full object-contain mx-auto'
+                                }`}
+                              />
+                            </>
                           ) : (
                             <div className="w-full h-full flex items-center justify-center">
                               <PlaceholderGraphic plateType={detailImg1?.placeholderType || 'riemann-apparatus'} />
                             </div>
                           )}
                         </div>
-                        <div className="p-1 bg-neutral-900 text-white text-[8px] font-mono-code border-t border-neutral-800 truncate shrink-0">
+                        <div className="p-1 bg-neutral-900 text-white text-[8px] font-mono-code border-t border-neutral-800 truncate shrink-0 z-10">
                           <span className="font-bold text-neutral-300">INSET 1:</span> {detailImg1?.title || 'Apparatus Detail'}
                         </div>
                       </div>
@@ -617,18 +683,30 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
                       <div className="bg-black rounded-xs overflow-hidden border border-neutral-800 flex flex-col justify-between relative">
                         <div className="relative flex flex-col items-center justify-center w-full h-full overflow-hidden bg-neutral-950">
                           {effectiveMode === 'photos' && detailImg2?.url ? (
-                            <img
-                              src={resolveAsset(detailImg2.url)}
-                              alt={detailImg2.title || 'Participatory Action'}
-                              className="max-h-full w-auto max-w-full object-contain mx-auto"
-                            />
+                            <>
+                              <img
+                                src={resolveAsset(detailImg2.url)}
+                                alt=""
+                                aria-hidden="true"
+                                className="absolute inset-0 w-full h-full object-cover blur-xl opacity-30 scale-110 pointer-events-none select-none"
+                              />
+                              <img
+                                src={resolveAsset(detailImg2.url)}
+                                alt={detailImg2.title || 'Participatory Action'}
+                                className={`relative z-1 ${
+                                  effectiveFit === 'fill'
+                                    ? 'w-full h-full object-cover object-center'
+                                    : 'max-h-full w-auto max-w-full object-contain mx-auto'
+                                }`}
+                              />
+                            </>
                           ) : (
                             <div className="w-full h-full flex items-center justify-center">
                               <PlaceholderGraphic plateType={detailImg2?.placeholderType || 'riemann-action'} />
                             </div>
                           )}
                         </div>
-                        <div className="p-1 bg-neutral-900 text-white text-[8px] font-mono-code border-t border-neutral-800 truncate shrink-0">
+                        <div className="p-1 bg-neutral-900 text-white text-[8px] font-mono-code border-t border-neutral-800 truncate shrink-0 z-10">
                           <span className="font-bold text-neutral-300">INSET 2:</span> {detailImg2?.title || 'Participatory Action'}
                         </div>
                       </div>
