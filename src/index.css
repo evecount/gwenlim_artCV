@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #fafaf9;
+    color: #18181b;
+  }
+}
+
+.font-serif-display {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-mono-code {
+  font-family: 'JetBrains Mono', Menlo, monospace;
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 14mm 14mm 14mm 14mm;
+  }
+
+  html, body {
+    background: white !important;
+    color: #111827 !important;
+    font-size: 10pt !important;
+    line-height: 1.45 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* When the printable dossier is active, hide everything else */
+  .no-print,
+  nav,
+  footer,
+  header,
+  aside,
+  button,
+  .modal-overlay,
+  .modal-chrome {
+    display: none !important;
+  }
+
+  /* Keep printable dossier pristine */
+  #printable-curatorial-dossier {
+    display: block !important;
+    visibility: visible !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    color: #111827 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  .print-page-break {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+
+  .print-avoid-break {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  a {
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+}
+
+@keyframes nudge-left {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-4px);
+  }
+}
+
+@keyframes nudge-right {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+}
+
+@keyframes beacon-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(29, 78, 216, 0.75), 0 4px 14px 0 rgba(29, 78, 216, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgba(29, 78, 216, 0), 0 4px 18px 0 rgba(29, 78, 216, 0.6);
+  }
+}
+
+.animate-nudge-left {
+  animation: nudge-left 1.5s ease-in-out infinite;
+}
+
+.animate-nudge-right {
+  animation: nudge-right 1.5s ease-in-out infinite;
+}
+
+.animate-beacon-blue {
+  animation: beacon-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
