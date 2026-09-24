@@ -2,16 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { Artwork, ArtworkImage } from '../types/portfolio';
 import { DocumentaryImagePlate } from './DocumentaryImagePlate';
 import { ImageLightboxModal } from './ImageLightboxModal';
-import { getArtworkImages, subscribeToImageUpdates, resetArtworkImages } from '../utils/imageStore';
+import { getArtworkImages, subscribeToImageUpdates } from '../utils/imageStore';
 
 interface ArtworkImageGalleryProps {
   artwork: Artwork;
   compact?: boolean;
+  preferPlateGraphic?: boolean;
 }
 
 export const ArtworkImageGallery: React.FC<ArtworkImageGalleryProps> = ({
   artwork,
-  compact = false
+  compact = false,
+  preferPlateGraphic
 }) => {
   const [images, setImages] = useState<ArtworkImage[]>(() =>
     getArtworkImages(artwork.id, artwork.images)
@@ -30,17 +32,8 @@ export const ArtworkImageGallery: React.FC<ArtworkImageGalleryProps> = ({
 
   const activeImage = images[activeImageIndex] || images[0];
 
-  const handleResetAll = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (confirm('Revert all replaced images for this artwork back to default archival placeholders?')) {
-      resetArtworkImages(artwork.id);
-    }
-  };
-
-  const hasCustomImages = images.some(img => img.isCustom);
-
   if (compact) {
-    // Compact card preview with 1-3 image thumbnail cycle
+    // Compact card preview with 1-3 image thumbnail cycle (uses structural plate graphics on grid)
     return (
       <div className="relative group">
         <DocumentaryImagePlate
@@ -50,16 +43,17 @@ export const ArtworkImageGallery: React.FC<ArtworkImageGalleryProps> = ({
           totalImages={images.length}
           compact={true}
           allowReplace={false}
+          preferPlateGraphic={preferPlateGraphic !== undefined ? preferPlateGraphic : true}
           onOpenLightbox={(idx) => setLightboxIndex(idx)}
         />
 
         {/* Thumbnail switcher pills on card */}
-        {images.length > 1 && (
-          <div
-            className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between pointer-events-auto"
-            onClick={e => e.stopPropagation()}
-          >
-            <div className="flex items-center gap-1.5 bg-black/75 backdrop-blur-sm px-2 py-1 rounded border border-neutral-800 text-[10px] font-mono-code text-neutral-300">
+        <div
+          className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between pointer-events-auto"
+          onClick={e => e.stopPropagation()}
+        >
+          {images.length > 1 ? (
+            <div className="flex items-center gap-1.5 bg-black/85 backdrop-blur-sm px-2 py-1 rounded border border-neutral-800 text-[10px] font-mono-code text-neutral-300">
               <span className="text-neutral-400">Plate:</span>
               {images.map((_, i) => (
                 <button
@@ -70,7 +64,7 @@ export const ArtworkImageGallery: React.FC<ArtworkImageGalleryProps> = ({
                   }}
                   className={`w-4 h-4 rounded text-[9px] flex items-center justify-center transition-all cursor-pointer ${
                     i === activeImageIndex
-                      ? 'bg-white text-black font-bold'
+                      ? 'bg-cyan-400 text-black font-bold'
                       : 'bg-neutral-800 text-neutral-400 hover:text-white'
                   }`}
                   aria-label={`View plate 0${i + 1}`}
@@ -79,12 +73,17 @@ export const ArtworkImageGallery: React.FC<ArtworkImageGalleryProps> = ({
                 </button>
               ))}
             </div>
-
-            <span className="bg-black/75 backdrop-blur-sm px-2 py-1 rounded border border-neutral-800 text-[9px] font-mono-code text-neutral-400 uppercase tracking-wider">
-              {activeImage.viewType}
+          ) : (
+            <span className="bg-black/85 backdrop-blur-sm px-2 py-0.5 rounded border border-neutral-800 text-[9px] font-mono-code text-cyan-300">
+              Structural Plate 01
             </span>
-          </div>
-        )}
+          )}
+
+          <span className="bg-black/85 backdrop-blur-sm px-2 py-1 rounded border border-neutral-800 text-[9px] font-mono-code text-neutral-300 flex items-center gap-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
+            <span>Photos Inside →</span>
+          </span>
+        </div>
 
         {lightboxIndex !== null && (
           <ImageLightboxModal
@@ -109,14 +108,6 @@ export const ArtworkImageGallery: React.FC<ArtworkImageGalleryProps> = ({
           <span className="text-xs font-mono-code uppercase tracking-widest text-neutral-400">
             Documentary Image Archive ({images.length} Plates)
           </span>
-          {hasCustomImages && (
-            <button
-              onClick={handleResetAll}
-              className="text-[10px] font-mono-code text-amber-400 hover:text-amber-300 underline cursor-pointer ml-2"
-            >
-              Revert to Default Plates
-            </button>
-          )}
         </div>
 
         <div className="text-xs font-mono-code text-neutral-400">
@@ -131,7 +122,7 @@ export const ArtworkImageGallery: React.FC<ArtworkImageGalleryProps> = ({
         index={activeImageIndex}
         totalImages={images.length}
         compact={false}
-        allowReplace={true}
+        allowReplace={false}
         onOpenLightbox={(idx) => setLightboxIndex(idx)}
       />
 

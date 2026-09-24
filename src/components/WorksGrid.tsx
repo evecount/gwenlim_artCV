@@ -103,7 +103,7 @@ export const WorksGrid: React.FC<WorksGridProps> = ({
                 title="Print or export complete visual portfolio monograph with photographic plates"
               >
                 <Printer className="w-3.5 h-3.5 text-blue-200" />
-                <span>Print Portfolio Extraction (PDF)</span>
+                <span>Export Portfolio (PDF)</span>
               </button>
             )}
 
@@ -221,41 +221,46 @@ export const WorksGrid: React.FC<WorksGridProps> = ({
               className="group bg-white border border-neutral-250 hover:border-neutral-400 hover:shadow-md rounded-lg overflow-hidden transition-all duration-200 cursor-pointer flex flex-col justify-between shadow-xs"
             >
               <div>
-                {/* Visual Documentary Image Plates Preview (Remains Deep Black Plate) */}
+                {/* Visual Documentary Image Plates Preview (Restores structural plate diagrams on grid) */}
                 <div className="relative bg-black border-b border-neutral-900">
-                  <ArtworkImageGallery artwork={artwork} compact={true} />
+                  <ArtworkImageGallery artwork={artwork} compact={true} preferPlateGraphic={true} />
                 </div>
 
-                {/* Card Content & Metadata */}
-                <div className="p-5 space-y-3 bg-white text-neutral-900">
-                  {/* Clean unboxed metadata with typographic separators (Zero-Pill discipline) */}
-                  <div className="flex items-center gap-2 text-xs font-mono-code text-neutral-500">
-                    <span className="text-neutral-900 font-semibold">{artwork.year}</span>
+                {/* Card Content & Metadata (Museum Monograph Plate Format - Less Wordy) */}
+                <div className="p-4 space-y-2 bg-white text-neutral-900">
+                  {/* Clean unboxed metadata with typographic separators */}
+                  <div className="flex flex-wrap items-center gap-1.5 text-[11px] font-mono-code text-neutral-500">
+                    <span className="text-neutral-950 font-bold">{artwork.year}</span>
                     <span aria-hidden="true">·</span>
                     <span>{artwork.city}</span>
+                    {artwork.year === 2026 && (
+                      <>
+                        <span aria-hidden="true">·</span>
+                        <span className="text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.2 rounded font-bold uppercase text-[9px]">
+                          Future Work
+                        </span>
+                      </>
+                    )}
                     <span aria-hidden="true">·</span>
                     <span className="text-neutral-500">{artwork.accessionId}</span>
                   </div>
 
-                  <h3 className="text-xl font-serif-display font-medium text-neutral-950 group-hover:text-neutral-700 leading-snug">
+                  <h3 className="text-lg font-serif-display font-medium text-neutral-950 group-hover:text-neutral-700 leading-snug">
                     {artwork.title}
                   </h3>
 
-                  <p className="text-xs font-serif-display italic text-neutral-600 line-clamp-2">
+                  <p className="text-xs text-neutral-600 font-sans line-clamp-2 leading-relaxed">
                     {artwork.subtitle}
                   </p>
 
-                  <p className="text-xs text-neutral-700 font-sans line-clamp-3 leading-relaxed pt-1">
-                    {artwork.summary}
-                  </p>
-
-                  {artwork.studioLineage && (
-                    <div className="pt-1">
-                      <span className="text-[10px] font-mono-code text-neutral-700 bg-neutral-100 border border-neutral-250 px-2 py-0.5 rounded inline-block">
-                        Studio: {artwork.studioLineage}
+                  <div className="pt-1 flex items-center justify-between text-[10px] font-mono-code text-neutral-500">
+                    <span className="truncate max-w-[200px]">{artwork.medium}</span>
+                    {artwork.studioLineage && (
+                      <span className="text-neutral-600 italic">
+                        {artwork.studioLineage.split('(')[0].trim()}
                       </span>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </div>
               </div>
 

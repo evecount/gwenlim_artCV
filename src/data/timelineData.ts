@@ -76,8 +76,8 @@ export const TRAJECTORY_EPOCHS: TrajectoryEpoch[] = [
     period: '2024 — 2026',
     startYear: 2024,
     endYear: 2026,
-    tagline: 'Zero-knowledge neural architectures, non-human syntax & quantum systems',
-    description: 'Formal academic computer science honours at SIT, investigating high-dimensional latent space representations, Klingon syntax alignment, and trapped-ion benchmarking.'
+    tagline: 'Riemann spectral topology, quantum chaos & quantum computing',
+    description: 'Formal academic computer science honours at SIT, investigating high-dimensional latent space representations, the Riemann hypothesis (evecount/riemann_hypothesis), and trapped-ion quantum benchmarking.'
   }
 ];
 
@@ -125,23 +125,25 @@ export const TRAJECTORY_MILESTONES: TrajectoryMilestone[] = [
     badgeColor: 'border-amber-500/40 text-amber-400 bg-amber-950/20'
   },
   {
-    id: 'm-2011-akin-collective',
-    year: 2011,
+    id: 'm-2012-akin-collective',
+    year: 2012,
     yearDisplay: '2011 — 2015',
-    title: 'Akin Collective Residency & Shared Infrastructure',
+    title: 'First Art Collective: Akin Collective & #LOVELOCAL',
     category: 'studio-infrastructure',
-    categoryLabel: 'Artist-Run Shared Studio & Solidarity',
-    venueOrContext: 'Akin Collective (Co-Founder Oliver Pauk)',
+    categoryLabel: 'First Art Collective & Community Collaboration',
+    venueOrContext: 'Akin Collective (Founder: Oliver Pauk)',
     location: 'Toronto, Canada',
     role: 'Studio Resident & Community Collaborator',
-    summary: 'Participated in early artist-run shared studio space programming, peer critiques, and community initiatives including the #LoveLocal arts fundraiser (2013).',
+    summary: 'The first art collective Lim joined, founded by Oliver Pauk. Held the collaborative community showcase #LOVELOCAL (2013), participated in early shared studio residency and peer critiques, and fabricated Two-Man Rule [TMR] for TEDxToronto (2012).',
     technicalDossier: [
-      'Dismantling economic barriers for working visual artists',
-      'Shared darkroom, fabrication bench, and communal critique cycles',
-      'Grassroots cultural fundraising (#LoveLocal arts auction 2013)'
+      'First art collective joined (2011–2015), providing early shared studio residency and peer critiques',
+      'Co-organized and held the collaborative community showcase #LOVELOCAL with founder Oliver Pauk (2013)',
+      'Fabrication and circuit testing of Two-Man Rule [TMR] debuting at TEDxToronto (Sony Centre, 2012)',
+      'Community space-sharing ethics establishing 15-year ARC lineage'
     ],
     significance: 'Formative immersion in Canadian artist-run centers (ARCs), establishing the solidarity economics that anchored Lim’s next 15 years of space-sharing.',
-    associatedLinkType: 'cv',
+    associatedArtworkId: 'two-man-rule',
+    associatedLinkType: 'artwork',
     badgeColor: 'border-emerald-500/40 text-emerald-400 bg-emerald-950/20'
   },
   {
@@ -269,7 +271,7 @@ export const TRAJECTORY_MILESTONES: TrajectoryMilestone[] = [
       'Collaborative large-scale public art proposals for Toronto Nuit Blanche',
       '5-year longitudinal partnership sustaining grassroots peer arts ecosystems'
     ],
-    significance: 'Demonstrated enduring commitment to peer artist solidarity and public-art collaboration through COVID-19 closures, serving as a core institutional referee anchor for SAM.',
+    significance: 'Demonstrated enduring commitment to peer artist solidarity and public-art collaboration through COVID-19 closures, serving as a core institutional referee anchor for museum and residency juries.',
     associatedLinkType: 'sam',
     badgeColor: 'border-purple-500/40 text-purple-400 bg-purple-950/20'
   },
@@ -356,23 +358,24 @@ export const TRAJECTORY_MILESTONES: TrajectoryMilestone[] = [
     badgeColor: 'border-cyan-500/40 text-cyan-400 bg-cyan-950/20'
   },
   {
-    id: 'm-2026-klingon-topology',
+    id: 'm-2026-riemann-manifold',
     year: 2026,
     yearDisplay: '2026',
-    title: 'The Klingon Topology: Zero-Knowledge LLM Training',
+    title: 'The Riemann Manifold: Quantum Chaos & Spectral Topology',
     category: 'computational-research',
-    categoryLabel: 'Frontier AI Research & Machine Interiority',
-    venueOrContext: 'Independent Computational Research & Systems Installation',
+    categoryLabel: 'Quantum Computing & Spectral Topology',
+    venueOrContext: 'Computational Systems Installation / High-Dimensional Generative Topology',
     location: 'Singapore',
     role: 'Chief Architect & Computational Artist',
-    summary: 'Investigation into non-human linguistic structures (tlhIngan Hol syntax), distributional semantics, and neural representation alignment under deliberate informational obscurity.',
+    summary: 'Algorithmic investigation into the non-trivial zeros of the Riemann zeta function and prime distribution along the critical strip (Re(s) = 1/2). Bridges quantum operator eigenvalues, random matrix statistics (GUE), and algorithmic interference patterns to interrogate deterministic chaos, machine-mediated mathematical observation, and non-human systemic harmony. (Repo: evecount/riemann_hypothesis)',
     technicalDossier: [
-      'Object-Verb-Subject (OVS) synthetic grammar corpus parsing',
-      'Zero-knowledge latent vector projection and geometric token curvature analysis',
-      'Electromagnetic speaker transducers transducing synthetic phoneme tokens into physical plinth resonance'
+      'Hilbert-Pólya conjecture spectral operator simulation mapping Riemann zeta zeros',
+      'Gaussian Unitary Ensemble (GUE) random matrix eigenvalue distribution engine',
+      '4096-dimensional Riemannian manifold projection and real-time critical strip interference (Repo: evecount/riemann_hypothesis)',
+      'Sub-bass acoustic transducers converting prime resonances into 38Hz–94Hz spatial vibrations'
     ],
-    significance: 'Lim’s magnum opus in machine interiority: proving non-human linguistic topologies can break the semantic hegemony of corporate Anglo-American LLM models.',
-    associatedArtworkId: 'klingon-topology',
+    significance: 'Bridges quantum computing theory with high-dimensional generative installation: establishing mathematical truth as an autonomous, non-human infrastructure of relational frequencies and cosmic interdependence.',
+    associatedArtworkId: 'riemann-manifold',
     associatedLinkType: 'artwork',
     badgeColor: 'border-cyan-500/40 text-cyan-400 bg-cyan-950/20'
   },
@@ -400,21 +403,21 @@ export const TRAJECTORY_MILESTONES: TrajectoryMilestone[] = [
     id: 'm-2026-sam-proposal',
     year: 2026,
     yearDisplay: '2026 — 2027',
-    title: 'Singapore Art Museum (SAM) Residencies Proposal',
+    title: 'Future Work: The Riemann Manifold Proposal',
     category: 'artwork',
-    categoryLabel: 'Institutional Residency & Public Exhibition',
-    venueOrContext: 'Singapore Art Museum (SAM) Residencies Cycle',
-    location: 'Tanjong Pagar Distripark, Singapore',
-    role: 'Resident Artist Candidate',
-    summary: 'The Malayan Topology: Sub-Surface Token Distribution in Singaporean Dialect Manifolds. Proposes a black-box multi-operator spatial installation deconstructing Southeast Asian linguistic ecologies.',
+    categoryLabel: 'Future Work · Research Proposal',
+    venueOrContext: 'Research & Studio Residency Cycle (Beyond Human / Interdependence)',
+    location: 'Singapore',
+    role: 'Lead Artist & Researcher',
+    summary: 'The Riemann Manifold: Quantum Chaos & Spectral Topology (evecount/riemann_hypothesis). Proposes a spatial black-box installation investigating non-human mathematical infrastructure and human-AI cognitive interdependence.',
     technicalDossier: [
-      '120 sqm black-box gallery footprint, 3-phase 32A power, acoustic isolation',
-      'Hokkien, Teochew, Malay, and Singlish vernacular audio token manifolds',
-      'Cooperative multi-operator capacitive optical triggers rooted in Two-Man Rule',
-      'Backed by 15-year ARC lineage (Akin, Motion & Still, Flick the Switch)'
+      '100 — 140 sqm black-box gallery footprint, 3-phase 32A power, acoustic isolation',
+      '4,096-strand bare multimode optical fiber matrix with 4K laser caustic projection',
+      'Piezoelectric surface transducers conducting 38Hz–94Hz Riemann zero vibrational harmonics',
+      'Open-source reproducible mathematical engine (evecount/riemann_hypothesis) with sovereign local GPU inference'
     ],
-    significance: 'Synthesizes sixteen years of practice—participatory optics, spatial infrastructure, mutual aid, and frontier neural architectures—into a definitive museum installation.',
-    associatedArtworkId: 'klingon-topology',
+    significance: 'Synthesizes sixteen years of spatial and physical computing practice into a museum-grade inquiry exploring human intuition and machine intelligence as two sides of the same coin.',
+    associatedArtworkId: 'riemann-manifold',
     associatedLinkType: 'sam',
     badgeColor: 'border-blue-500/40 text-blue-400 bg-blue-950/20'
   }

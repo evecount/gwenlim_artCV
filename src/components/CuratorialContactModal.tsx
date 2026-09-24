@@ -98,7 +98,7 @@ export const CuratorialContactModal: React.FC<CuratorialContactModalProps> = ({
                     required
                     value={formData.institution}
                     onChange={e => setFormData({ ...formData, institution: e.target.value })}
-                    placeholder="e.g. Singapore Art Museum (SAM)"
+                    placeholder="e.g. Museum, Gallery, or Residency Program"
                     className="w-full bg-neutral-50 border border-neutral-300 rounded px-3 py-2 text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:border-neutral-900 focus:bg-white"
                   />
                 </div>
@@ -127,7 +127,7 @@ export const CuratorialContactModal: React.FC<CuratorialContactModalProps> = ({
                     onChange={e => setFormData({ ...formData, type: e.target.value })}
                     className="w-full bg-neutral-50 border border-neutral-300 rounded px-3 py-2 text-neutral-900 focus:outline-none focus:border-neutral-900 focus:bg-white cursor-pointer"
                   >
-                    <option value="residency">Residency Selection / SAM Panel</option>
+                    <option value="residency">Residency Selection / Curatorial Review</option>
                     <option value="studio-visit">Studio Visit (Singapore / Toronto)</option>
                     <option value="exhibition">Exhibition Loan / Commission</option>
                     <option value="academic">Academic & Technical Paper Inquiry</option>

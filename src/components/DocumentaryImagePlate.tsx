@@ -1,6 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { ArtworkImage } from '../types/portfolio';
-import { updateArtworkImage, resetArtworkImages } from '../utils/imageStore';
 
 interface DocumentaryImagePlateProps {
   image: ArtworkImage;
@@ -10,55 +9,18 @@ interface DocumentaryImagePlateProps {
   compact?: boolean;
   onOpenLightbox?: (index: number) => void;
   allowReplace?: boolean;
+  preferPlateGraphic?: boolean;
 }
 
 export const DocumentaryImagePlate: React.FC<DocumentaryImagePlateProps> = ({
   image,
-  artworkId,
   index,
-  totalImages,
   compact = false,
   onOpenLightbox,
-  allowReplace = true
+  preferPlateGraphic = false
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const [showUploadModal, setShowUploadModal] = useState(false);
-  const [customUrlInput, setCustomUrlInput] = useState('');
-  const fileInputRef = useRef<HTMLInputElement | null>(null);
-
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    // Check size limit (< 4MB for localStorage)
-    if (file.size > 4 * 1024 * 1024) {
-      alert('Image file size should be under 4MB for browser storage.');
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const dataUrl = event.target?.result as string;
-      if (dataUrl) {
-        updateArtworkImage(artworkId, image.id, { url: dataUrl });
-        setShowUploadModal(false);
-      }
-    };
-    reader.readAsDataURL(file);
-  };
-
-  const handleApplyUrl = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!customUrlInput.trim()) return;
-    updateArtworkImage(artworkId, image.id, { url: customUrlInput.trim() });
-    setCustomUrlInput('');
-    setShowUploadModal(false);
-  };
-
-  const handleReset = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    updateArtworkImage(artworkId, image.id, { url: undefined });
-  };
+  const [, setIsHovered] = useState(false);
+  const [imgError, setImgError] = useState(false);
 
   return (
     <div
@@ -81,28 +43,16 @@ export const DocumentaryImagePlate: React.FC<DocumentaryImagePlateProps> = ({
         </div>
 
         <div className="flex items-center gap-2.5">
-          {image.isCustom ? (
-            <span className="text-emerald-400 text-[9px] uppercase tracking-wider flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              Custom File
+          {preferPlateGraphic ? (
+            <span className="text-cyan-400/90 text-[9px] uppercase tracking-wider flex items-center gap-1 font-medium">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+              Structural Plate
             </span>
           ) : (
-            <span className="text-neutral-500 text-[9px] uppercase tracking-wider">
-              Archival Plate
+            <span className="text-blue-400/90 text-[9px] uppercase tracking-wider flex items-center gap-1 font-medium">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
+              Curatorial Archive
             </span>
-          )}
-
-          {allowReplace && !compact && (
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setShowUploadModal(true);
-              }}
-              className="text-[10px] font-mono-code text-neutral-400 hover:text-white px-2 py-0.5 bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 rounded transition-colors cursor-pointer"
-              title="Replace or upload photo for this plate"
-            >
-              {image.isCustom ? 'Replace' : 'Upload Photo'}
-            </button>
           )}
         </div>
       </div>
@@ -112,18 +62,27 @@ export const DocumentaryImagePlate: React.FC<DocumentaryImagePlateProps> = ({
         className="relative w-full aspect-[16/10] sm:aspect-[16/9] bg-[#050507] cursor-pointer overflow-hidden flex items-center justify-center select-none"
         onClick={() => onOpenLightbox && onOpenLightbox(index)}
       >
-        {image.url ? (
-          /* Real Image Display */
-          <div className="relative w-full h-full">
+        {!preferPlateGraphic && image.url && !imgError ? (
+          /* Real Image Display with Archival Mount (Prevents low-res stretching) */
+          <div className="relative w-full h-full flex items-center justify-center bg-[#060608] p-1 sm:p-2 overflow-hidden">
+            {/* Soft blurred background to frame non-16:9 images gracefully without harsh black bars */}
+            <img
+              src={image.url}
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-15 scale-110 pointer-events-none"
+            />
+            {/* The crisp, un-stretched original photograph */}
             <img
               src={image.url}
               alt={image.title}
-              className="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-300"
+              onError={() => setImgError(true)}
+              className="relative max-h-full max-w-full object-contain z-10 rounded shadow-md group-hover:scale-[1.01] transition-transform duration-300"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none z-20" />
           </div>
         ) : (
-          /* Museum-Grade Documentary Technical Graphic Placeholder */
+          /* Museum-Grade Documentary Technical Graphic Placeholder (Provides Portfolio Structure) */
           <PlaceholderGraphic plateType={image.placeholderType} />
         )}
 
@@ -194,115 +153,15 @@ export const DocumentaryImagePlate: React.FC<DocumentaryImagePlateProps> = ({
           )}
         </div>
       )}
-
-      {/* Upload/Replace Modal */}
-      {showUploadModal && (
-        <div
-          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
-          onClick={() => setShowUploadModal(false)}
-        >
-          <div
-            className="w-full max-w-md bg-[#0e0e11] border border-neutral-700 rounded-lg p-5 space-y-4 shadow-2xl text-neutral-200"
-            onClick={e => e.stopPropagation()}
-          >
-            <div className="flex items-center justify-between border-b border-neutral-800 pb-3">
-              <div>
-                <span className="text-[10px] font-mono-code text-neutral-400 uppercase tracking-wider block">
-                  Plate 0{index + 1} Image Source
-                </span>
-                <h3 className="text-sm font-mono-code font-semibold text-white">
-                  Upload Real Photo or Specify Image URL
-                </h3>
-              </div>
-              <button
-                onClick={() => setShowUploadModal(false)}
-                className="text-neutral-400 hover:text-white p-1"
-              >
-                ✕
-              </button>
-            </div>
-
-            <p className="text-xs text-neutral-400 leading-relaxed font-sans">
-              You can upload your own installation documentary photograph or link to a web image. It will replace this placeholder in your portfolio.
-            </p>
-
-            {/* Option 1: File Upload */}
-            <div className="space-y-2">
-              <label className="text-[11px] font-mono-code text-neutral-300 uppercase block">
-                Option A: Local Image File (.jpg, .png, .webp)
-              </label>
-              <input
-                type="file"
-                ref={fileInputRef}
-                accept="image/png, image/jpeg, image/webp"
-                onChange={handleFileUpload}
-                className="w-full text-xs font-mono-code text-neutral-400 file:mr-3 file:py-1.5 file:px-3 file:rounded file:border-0 file:text-xs file:font-mono-code file:bg-neutral-800 file:text-neutral-200 hover:file:bg-neutral-700 cursor-pointer"
-              />
-            </div>
-
-            {/* Divider */}
-            <div className="flex items-center gap-3 text-[10px] font-mono-code text-neutral-600">
-              <div className="flex-1 h-[1px] bg-neutral-800" />
-              <span>OR</span>
-              <div className="flex-1 h-[1px] bg-neutral-800" />
-            </div>
-
-            {/* Option 2: Image URL */}
-            <form onSubmit={handleApplyUrl} className="space-y-3">
-              <div>
-                <label className="text-[11px] font-mono-code text-neutral-300 uppercase block mb-1">
-                  Option B: Direct Image URL
-                </label>
-                <input
-                  type="url"
-                  placeholder="https://example.com/installation-doc.jpg"
-                  value={customUrlInput}
-                  onChange={e => setCustomUrlInput(e.target.value)}
-                  className="w-full bg-neutral-900 border border-neutral-700 rounded px-3 py-2 text-xs font-mono-code text-white placeholder:text-neutral-600 focus:outline-none focus:border-neutral-400"
-                />
-              </div>
-
-              <div className="flex items-center justify-between pt-2">
-                {image.isCustom ? (
-                  <button
-                    type="button"
-                    onClick={handleReset}
-                    className="text-xs font-mono-code text-red-400 hover:text-red-300 cursor-pointer underline"
-                  >
-                    Revert to Default
-                  </button>
-                ) : (
-                  <div />
-                )}
-
-                <div className="flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={() => setShowUploadModal(false)}
-                    className="px-3 py-1.5 text-xs font-mono-code text-neutral-400 hover:text-white"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="submit"
-                    className="px-4 py-1.5 bg-neutral-200 hover:bg-white text-neutral-950 font-semibold text-xs font-mono-code rounded"
-                  >
-                    Save Image
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
 
 /* SVG Documentary Artwork Visuals representing each specific installation setting */
-const PlaceholderGraphic: React.FC<{ plateType: ArtworkImage['placeholderType'] }> = ({ plateType }) => {
+export const PlaceholderGraphic: React.FC<{ plateType: ArtworkImage['placeholderType'] }> = ({ plateType }) => {
   switch (plateType) {
-    /* 1. Klingon Topology */
+    /* 1. Riemann Manifold & Quantum Chaos */
+    case 'riemann-overview':
     case 'klingon-overview':
       return (
         <svg viewBox="0 0 640 360" className="w-full h-full object-cover">
@@ -351,6 +210,7 @@ const PlaceholderGraphic: React.FC<{ plateType: ArtworkImage['placeholderType'] 
         </svg>
       );
 
+    case 'riemann-apparatus':
     case 'klingon-apparatus':
       return (
         <svg viewBox="0 0 640 360" className="w-full h-full object-cover">
@@ -374,11 +234,12 @@ const PlaceholderGraphic: React.FC<{ plateType: ArtworkImage['placeholderType'] 
           <circle cx="495" cy="225" r="4" fill="#22c55e" />
           <circle cx="475" cy="225" r="4" fill="#3b82f6" />
           <text x="450" y="270" textAnchor="middle" fill="#64748b" fontSize="10" fontFamily="monospace">
-            RTX 6000 INFERENCE NODE
+            RTX 6000 INFERENCE NODE (evecount/riemann_hypothesis)
           </text>
         </svg>
       );
 
+    case 'riemann-action':
     case 'klingon-action':
       return (
         <svg viewBox="0 0 640 360" className="w-full h-full object-cover">
@@ -983,6 +844,95 @@ const PlaceholderGraphic: React.FC<{ plateType: ArtworkImage['placeholderType'] 
 
           <text x="320" y="325" textAnchor="middle" fill="#e2e8f0" fontSize="10" fontFamily="monospace">
             SILVER AURELIA · THE PERFORMATIVE BOUNDARY BETWEEN PERSONA & SUBJECTHOOD
+          </text>
+        </svg>
+      );
+
+    /* 9. Collective Infrastructure & Mutual Aid (2011–2024) */
+    case 'collective-overview':
+      return (
+        <svg viewBox="0 0 640 360" className="w-full h-full object-cover">
+          <rect width="640" height="360" fill="#0c0a09" />
+          {/* Architectural industrial daylight studio space (90 Ontario / Motion and Still) */}
+          <polygon points="40,30 600,30 540,310 100,310" fill="#1c1917" stroke="#44403c" strokeWidth="1" />
+          {/* Large multi-pane south industrial daylight windows */}
+          <g transform="translate(140, 50)">
+            {[0, 1, 2, 3].map(col => (
+              <g key={col}>
+                <rect x={col * 90} y="0" width="80" height="120" fill="#fef3c7" opacity="0.15" stroke="#78716c" strokeWidth="1.5" />
+                <line x1={col * 90 + 40} y1="0" x2={col * 90 + 40} y2="120" stroke="#78716c" strokeWidth="1" />
+                <line x1={col * 90} y1="60" x2={col * 90 + 80} y2="60" stroke="#78716c" strokeWidth="1" />
+              </g>
+            ))}
+          </g>
+          {/* Sunlight beam washing across polished concrete studio floor */}
+          <polygon points="140,170 500,170 580,310 60,310" fill="#fffbeb" opacity="0.08" />
+          {/* Overhead motorized studio lighting grid */}
+          <line x1="80" y1="40" x2="560" y2="40" stroke="#d97706" strokeWidth="2" strokeDasharray="6,4" />
+          <line x1="100" y1="70" x2="540" y2="70" stroke="#d97706" strokeWidth="1.5" strokeDasharray="6,4" />
+          {/* Shared community worktable and salon staging */}
+          <rect x="220" y="240" width="200" height="45" fill="#292524" stroke="#a8a29e" strokeWidth="1" />
+          <text x="320" y="265" textAnchor="middle" fill="#fbbf24" fontSize="9" fontFamily="monospace">
+            COMMUNITY SALON & PRO BONO SUITE
+          </text>
+          <text x="320" y="335" textAnchor="middle" fill="#d6d3d1" fontSize="10" fontFamily="monospace">
+            DAYLIGHT STUDIO SANCTUARY & COLLECTIVE MUTUAL AID (2011–2024)
+          </text>
+        </svg>
+      );
+
+    case 'collective-apparatus':
+      return (
+        <svg viewBox="0 0 640 360" className="w-full h-full object-cover">
+          <rect width="640" height="360" fill="#0c0a09" />
+          {/* Heavy electrical distribution panel and studio grid rigging */}
+          <rect x="100" y="50" width="180" height="230" fill="#1c1917" stroke="#78716c" strokeWidth="1.5" rx="4" />
+          <text x="190" y="80" textAnchor="middle" fill="#fbbf24" fontSize="10" fontFamily="monospace">
+            100A 3-PHASE CAM-LOK
+          </text>
+          <rect x="130" y="100" width="120" height="15" fill="#ef4444" opacity="0.8" rx="2" />
+          <rect x="130" y="125" width="120" height="15" fill="#3b82f6" opacity="0.8" rx="2" />
+          <rect x="130" y="150" width="120" height="15" fill="#22c55e" opacity="0.8" rx="2" />
+          <rect x="130" y="175" width="120" height="15" fill="#eab308" opacity="0.8" rx="2" />
+          {/* Pro Bono Video Editing & Archival Node */}
+          <rect x="340" y="80" width="200" height="130" fill="#171717" stroke="#60a5fa" strokeWidth="1.5" rx="4" />
+          <text x="440" y="110" textAnchor="middle" fill="#93c5fd" fontSize="9" fontFamily="monospace">
+            PRO BONO MEDIA ARCHIVE
+          </text>
+          <line x1="360" y1="140" x2="520" y2="140" stroke="#3b82f6" strokeWidth="3" />
+          <text x="440" y="170" textAnchor="middle" fill="#e2e8f0" fontSize="8" fontFamily="monospace">
+            FLICK THE SWITCH & AKIN CONTINUUM
+          </text>
+          <text x="320" y="325" textAnchor="middle" fill="#d6d3d1" fontSize="10" fontFamily="monospace">
+            SPATIAL STEWARDSHIP: 3-PHASE MAINS & OPEN MEDIA SUITE
+          </text>
+        </svg>
+      );
+
+    case 'collective-action':
+      return (
+        <svg viewBox="0 0 640 360" className="w-full h-full object-cover">
+          <rect width="640" height="360" fill="#0a0a0a" />
+          {/* Community Salon Encounter: Artists gathered in solidarity circle */}
+          <circle cx="320" cy="180" r="130" fill="none" stroke="#44403c" strokeWidth="1" strokeDasharray="4,4" />
+          {/* Center collaborative table with archival rolls and blueprints */}
+          <rect x="250" y="145" width="140" height="70" fill="#1c1917" stroke="#78716c" strokeWidth="1.5" rx="4" />
+          <line x1="270" y1="165" x2="370" y2="165" stroke="#fbbf24" strokeWidth="2" />
+          <line x1="270" y1="185" x2="350" y2="185" stroke="#a8a29e" strokeWidth="1.5" />
+          {/* Artist figures around circle */}
+          {[0, 1, 2, 3, 4, 5].map(idx => {
+            const angle = (idx * Math.PI) / 3;
+            const cx = 320 + Math.cos(angle) * 125;
+            const cy = 180 + Math.sin(angle) * 95;
+            return (
+              <g key={idx}>
+                <ellipse cx={cx} cy={cy} rx="14" ry="18" fill="#292524" stroke="#d97706" strokeWidth="1.5" />
+                <line x1={cx} y1={cy} x2={320} y2={180} stroke="#78716c" strokeWidth="0.8" strokeDasharray="3,3" opacity="0.4" />
+              </g>
+            );
+          })}
+          <text x="320" y="330" textAnchor="middle" fill="#fbbf24" fontSize="10" fontFamily="monospace">
+            GRASSROOTS ARTIST CRITIQUE & MUTUAL-AID ARCHIVING (2011–2024)
           </text>
         </svg>
       );

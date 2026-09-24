@@ -58,7 +58,7 @@ export const HeroStatement: React.FC<HeroStatementProps> = ({
                 className="px-4 py-2.5 bg-blue-50 hover:bg-blue-100 text-blue-800 border border-blue-200 rounded transition-colors cursor-pointer flex items-center gap-2 shadow-xs font-medium"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-                SAM Residencies Dossier View
+                Future Work & Proposal View
               </button>
               {onOpenPdfModal && (
                 <button
@@ -125,7 +125,7 @@ export const HeroStatement: React.FC<HeroStatementProps> = ({
                 </span>
               </div>
               <p className="text-[11px] text-neutral-750 font-serif-display leading-relaxed">
-                “My commitment to spatial interdependence began within Toronto’s grassroots artist-run ecosystem—working out of Oliver Pauk’s Akin Collective in the early 2010s, which directly informed my subsequent decade directing independent daylight studios (Motion and Still), hosting community salons, and providing pro bono media resources for local artist collectives like Flick the Switch.”
+                “My commitment to spatial interdependence began within Toronto’s grassroots artist-run ecosystem—joining my first art collective, Akin Collective (founded by Oliver Pauk), in the early 2010s, where we collaborated to hold the #LOVELOCAL community showcase and fabricated Two-Man Rule. This directly informed my subsequent decade directing independent daylight studios (Motion and Still), hosting community salons, and providing pro bono media resources for local artist collectives like Flick the Switch.”
               </p>
               <div className="flex items-center justify-between pt-1 text-[10px]">
                 <span className="text-neutral-500 italic">
@@ -186,7 +186,7 @@ export const HeroStatement: React.FC<HeroStatementProps> = ({
           </div>
         </div>
 
-        {/* Curatorial At-a-Glance Institutional Evaluation Card (Contextual Rubric for SAM Jurors) */}
+        {/* Curatorial At-a-Glance Institutional Evaluation Card (Contextual Rubric for Institutional Jurors) */}
         <div className="pt-4 border-t border-neutral-250">
           <CuratorialAtAGlanceCard
             onNavigateToTab={onNavigateToTab || ((tab) => {

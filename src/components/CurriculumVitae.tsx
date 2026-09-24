@@ -21,7 +21,7 @@ export const CurriculumVitae: React.FC<CurriculumVitaeProps> = ({
   onOpenPdfModal
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const [isPrintLayoutMode, setIsPrintLayoutMode] = useState<boolean>(false);
+  const [isPrintLayoutMode, setIsPrintLayoutMode] = useState<boolean>(true);
 
   const categories = [
     { id: 'all', label: 'Complete Dossier (2010 — 2026)' },
@@ -99,8 +99,11 @@ export const CurriculumVitae: React.FC<CurriculumVitaeProps> = ({
               <h1 className="text-3xl font-bold tracking-tight text-neutral-950 uppercase">
                 {ARTIST_INFO.name}
               </h1>
-              <p className="text-sm font-sans text-neutral-700 mt-1">
-                {ARTIST_INFO.location}
+              <p className="text-xs font-mono-code font-bold uppercase tracking-wider text-neutral-800 mt-1">
+                Installation, Physical Computing, and Media-Arts Practice
+              </p>
+              <p className="text-xs font-mono-code text-neutral-600 mt-0.5">
+                SINGAPORE · +65 8608 1377 · GWENLYNN.LIM@GMAIL.COM · GWENLIM.AI.STUDIO
               </p>
             </div>
 
@@ -180,14 +183,14 @@ export const CurriculumVitae: React.FC<CurriculumVitaeProps> = ({
                   <h4 className="font-mono font-bold text-neutral-900 text-xs mb-1.5">2026</h4>
                   <div className="space-y-1 pl-3 border-l border-neutral-300">
                     <p className="font-semibold text-neutral-950">
-                      • The Klingon Topology: Zero-Knowledge LLM Training on Obscured Datasets
+                      • The Riemann Manifold: Quantum Chaos & Spectral Topology
                     </p>
-                    <p className="italic text-neutral-700">Computational Research / Interactive System (ICA Singapore / Research Pavilion)</p>
+                    <p className="italic text-neutral-700">Computational Systems Installation / High-Dimensional Generative Topology</p>
                     <p className="text-neutral-750 leading-relaxed">
-                      Investigation into non-human linguistic structures (tlhIngan Hol syntax), distributional semantics, and neural representation alignment under deliberate informational obscurity and machine interiority.
+                      Algorithmic investigation into the non-trivial zeros of the Riemann zeta function and prime distribution along the critical strip (Re(s) = 1/2). Bridges quantum operator eigenvalues, random matrix statistics (GUE), and algorithmic interference patterns to explore deterministic chaos, machine-mediated mathematical observation, and non-human systemic harmony. (Repo: evecount/riemann_hypothesis)
                     </p>
                     <p className="text-[11px] text-neutral-600 font-mono-code">
-                      Production: Independent Sovereign Computational Practice (Singapore)
+                      Production: Independent Computational & Quantum Systems Practice (Singapore)
                     </p>
                   </div>
                 </div>
@@ -340,7 +343,7 @@ export const CurriculumVitae: React.FC<CurriculumVitaeProps> = ({
                 </div>
                 <div className="space-y-0.5">
                   <p className="font-semibold text-neutral-950">
-                    • Lim, G. (2026). <span className="font-normal italic">The Klingon Topology: Vector Embeddings and Representational Invariance Across Synthetic Grammars</span>. SIT Architecture Series.
+                    • Lim, G. (2026). <span className="font-normal italic">The Riemann Manifold: Quantum Operator Eigenvalues and Spectral Invariance Along the Critical Strip</span>. SIT Architecture Series / evecount/riemann_hypothesis.
                   </p>
                 </div>
               </div>
@@ -356,7 +359,7 @@ export const CurriculumVitae: React.FC<CurriculumVitaeProps> = ({
                   <span className="font-semibold text-neutral-950">• Media Lead & Collective Member, Flick the Switch Artists’ Collective (2019–2024):</span> 34 Stephanie St, Toronto. Collaborated alongside founder Susan Stewart to provide ongoing media production, digital archiving, exhibition video documentation, and Nuit Blanche public installation proposals in support of local Toronto artists and collective workspace initiatives.
                 </p>
                 <p>
-                  <span className="font-semibold text-neutral-950">• Studio Resident & Community Collaborator, Akin Collective (2011–2015):</span> Dir. Oliver Pauk, Toronto. Participated in early artist-run shared studio space programming, peer critiques, and community initiatives including the #LoveLocal arts fundraiser (2013).
+                  <span className="font-semibold text-neutral-950">• First Art Collective: Akin Collective (Founder: Oliver Pauk, 2011–2015):</span> Toronto. The first art collective Lim joined; participated in early artist-run shared studio space programming, peer critiques, fabricated Two-Man Rule [TMR] for TEDxToronto (2012), and collaborated with founder Oliver Pauk to hold the community arts & music showcase #LOVELOCAL (2013).
                 </p>
                 <p>
                   <span className="font-semibold text-neutral-950">• Grassroots Cultural & Performance Sanctuary (2014–2023):</span> Hosted and facilitated autonomous creative environments, independent acoustic salon series (Sofar Sounds), and pro bono production facilities for indie filmmakers, queer diaspora performers, and displaced creatives.
@@ -626,7 +629,7 @@ export const CurriculumVitae: React.FC<CurriculumVitaeProps> = ({
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="text-xs font-mono-code uppercase tracking-widest text-neutral-800 font-semibold">
-                    Artistic & Community Character References (Institutional Juries & SAM Residencies)
+                    Artistic & Community Character References (Institutional Juries & Residency Panels)
                   </h3>
                   <p className="text-xs text-neutral-600 mt-1">
                     Firsthand testimony to artistic dedication, peer generosity, collective stewardship, and production reliability.
@@ -676,12 +679,22 @@ export const CurriculumVitae: React.FC<CurriculumVitaeProps> = ({
                   </div>
                 ))}
               </div>
+
+              {/* Formative Collective Affiliation Note */}
+              <div className="p-3.5 bg-amber-50/70 border border-amber-200 rounded-lg text-xs space-y-1">
+                <span className="text-[10px] font-mono-code text-amber-900 uppercase tracking-wider font-bold block">
+                  First Art Collective Joined (Formative Lineage):
+                </span>
+                <p className="text-neutral-800">
+                  <strong className="font-semibold text-neutral-950">Akin Collective (Founder: Oliver Pauk) · 2011–2015:</strong> The very first art collective Gwendalynn Lim joined. Together with founder Oliver Pauk, they co-organized and held the collaborative community showcase <strong className="font-semibold text-neutral-950">#LOVELOCAL</strong> (2013), and engineered and fabricated the cooperative camera installation <em>Two-Man Rule [TMR]</em> (2012). <span className="text-neutral-600 italic">(Note: Oliver Pauk was the collective founder, not a formal referee).</span>
+                </p>
+              </div>
             </div>
 
             {/* Institutional Footnote */}
             <div className="p-4 bg-neutral-100 border border-neutral-250 rounded text-xs font-mono-code text-neutral-600 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <span>Verified Institutional Record · Singapore (2010 — 2026 Archive)</span>
-              <span>B.Sc. (Honours) in Applied Computing, SIT · Community Referees: Susan Stewart (Flick the Switch) & Oliver Pauk (Akin)</span>
+              <span>B.Sc. (Honours) in Applied Computing, SIT · Community Referee: Susan Stewart (Flick the Switch) · Formative Collective: Akin (#LOVELOCAL)</span>
             </div>
           </div>
         )}

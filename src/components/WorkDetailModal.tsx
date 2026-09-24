@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Artwork } from '../types/portfolio';
+import { ExternalLink, Code2 } from 'lucide-react';
+import { Artwork, ArchivalStudioPhoto } from '../types/portfolio';
 import { ArtworkVisualPlate } from './ArtworkVisualPlate';
 import { ClassicalArtworkMosaic } from './ClassicalArtworkMosaic';
 import { SystemSchematic } from './SystemSchematic';
+import { ArchivalPhotoGrid } from './ArchivalPhotoGrid';
+import { ArchivalPhotoLightboxModal } from './ArchivalPhotoLightboxModal';
 import { soundEngine } from '../utils/soundEngine';
 
 interface WorkDetailModalProps {
@@ -21,6 +24,8 @@ export const WorkDetailModal: React.FC<WorkDetailModalProps> = ({
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
   const [visualMode, setVisualMode] = useState<'photos' | 'simulation'>('photos');
   const [activeTab, setActiveTab] = useState<'statement' | 'schematic' | 'technical'>('statement');
+  const [selectedArchivalPhoto, setSelectedArchivalPhoto] = useState<ArchivalStudioPhoto | null>(null);
+  const [selectedArchivalDisplayUrl, setSelectedArchivalDisplayUrl] = useState<string>('');
 
   useEffect(() => {
     // Reset audio when artwork changes
@@ -76,6 +81,14 @@ export const WorkDetailModal: React.FC<WorkDetailModalProps> = ({
             <span className="text-xs font-mono-code text-neutral-700">
               {artwork.year} · {artwork.city}
             </span>
+            {artwork.year === 2026 && (
+              <>
+                <span className="text-neutral-300">·</span>
+                <span className="text-blue-700 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded text-[10px] font-mono-code font-bold uppercase">
+                  Future Work / Research Proposal
+                </span>
+              </>
+            )}
           </div>
 
           <div className="flex items-center gap-2">
@@ -107,13 +120,28 @@ export const WorkDetailModal: React.FC<WorkDetailModalProps> = ({
         <div className="p-5 sm:p-8 space-y-7 max-h-[80vh] overflow-y-auto bg-white">
           {/* Title Lockup */}
           <div className="space-y-3">
-            <div>
-              <h2 className="text-2xl sm:text-3xl font-serif-display font-medium text-neutral-950 tracking-tight">
-                {artwork.title}
-              </h2>
-              <p className="text-sm font-serif-display italic text-neutral-600 mt-1 max-w-3xl">
-                {artwork.subtitle}
-              </p>
+            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-serif-display font-medium text-neutral-950 tracking-tight">
+                  {artwork.title}
+                </h2>
+                <p className="text-sm font-serif-display italic text-neutral-600 mt-1 max-w-3xl">
+                  {artwork.subtitle}
+                </p>
+              </div>
+
+              {artwork.githubUrl && (
+                <a
+                  href={artwork.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-900 border border-blue-200 rounded text-xs font-mono-code transition-colors shrink-0 shadow-2xs"
+                >
+                  <Code2 className="w-3.5 h-3.5 text-blue-700" />
+                  <span className="font-semibold">GitHub: evecount/riemann_hypothesis</span>
+                  <ExternalLink className="w-3 h-3 text-blue-600 opacity-70" />
+                </a>
+              )}
             </div>
 
             {/* Studio Lineage & Production Provenance Callout */}
@@ -173,7 +201,20 @@ export const WorkDetailModal: React.FC<WorkDetailModalProps> = ({
             {/* Artwork Plate Container */}
             <div>
               {visualMode === 'photos' ? (
-                <ClassicalArtworkMosaic artwork={artwork} />
+                <div>
+                  <ClassicalArtworkMosaic artwork={artwork} />
+                  {artwork.archivalPhotos && artwork.archivalPhotos.length > 0 && (
+                    <ArchivalPhotoGrid
+                      artworkId={artwork.id}
+                      artworkTitle={artwork.title}
+                      photos={artwork.archivalPhotos}
+                      onOpenLightbox={(photo, displayUrl) => {
+                        setSelectedArchivalPhoto(photo);
+                        setSelectedArchivalDisplayUrl(displayUrl);
+                      }}
+                    />
+                  )}
+                </div>
               ) : (
                 <div className="bg-black rounded-lg overflow-hidden border border-neutral-800 shadow-md">
                   <ArtworkVisualPlate artwork={artwork} interactive={true} />
@@ -368,6 +409,25 @@ export const WorkDetailModal: React.FC<WorkDetailModalProps> = ({
           </div>
         </div>
       </div>
+
+      {/* Full-Resolution Archival Photo Lightbox Modal */}
+      {selectedArchivalPhoto && (
+        <ArchivalPhotoLightboxModal
+          photo={selectedArchivalPhoto}
+          displayUrl={selectedArchivalDisplayUrl}
+          allPhotos={artwork.archivalPhotos || []}
+          artworkTitle={artwork.title}
+          onClose={() => {
+            setSelectedArchivalPhoto(null);
+            setSelectedArchivalDisplayUrl('');
+          }}
+          onNavigate={(nextPhoto) => {
+            setSelectedArchivalPhoto(nextPhoto);
+            // check if there's local image or default
+            setSelectedArchivalDisplayUrl(nextPhoto.url);
+          }}
+        />
+      )}
     </div>
   );
 };

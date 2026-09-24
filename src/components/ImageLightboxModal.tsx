@@ -113,7 +113,7 @@ export const ImageLightboxModal: React.FC<ImageLightboxModalProps> = ({
             index={currentIndex}
             totalImages={images.length}
             compact={false}
-            allowReplace={true}
+            allowReplace={false}
           />
         </div>
       </div>

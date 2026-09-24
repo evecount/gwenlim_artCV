@@ -36,7 +36,7 @@ export const CuratorialAtAGlanceCard: React.FC<CuratorialAtAGlanceCardProps> = (
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
             <span className="text-[10px] font-mono-code uppercase tracking-widest text-cyan-300 font-bold">
-              Singapore Art Museum (SAM) · Curatorial Evaluation Brief
+              Curatorial Evaluation Brief · Institutional Review & Residencies
             </span>
             <span className="text-neutral-500 hidden sm:inline">|</span>
             <span className="text-[10px] font-mono-code text-blue-200 hidden sm:inline">
@@ -109,7 +109,7 @@ export const CuratorialAtAGlanceCard: React.FC<CuratorialAtAGlanceCardProps> = (
             <div className="p-3.5 rounded-lg border border-neutral-200 bg-neutral-50/70 space-y-2">
               <div className="flex items-center gap-1.5 text-xs font-mono-code text-cyan-900 font-bold">
                 <ShieldCheck className="w-4 h-4 text-cyan-700 shrink-0" />
-                <span>SAM Facility De-risking</span>
+                <span>Facility & Structural De-risking</span>
               </div>
               <ul className="text-xs space-y-1 text-neutral-700 font-sans">
                 <li><strong className="text-neutral-900 font-mono-code">Footprint:</strong> 100—140 sqm light-sealed black box</li>
@@ -129,7 +129,7 @@ export const CuratorialAtAGlanceCard: React.FC<CuratorialAtAGlanceCardProps> = (
                 <li><strong className="text-neutral-900 font-mono-code">Audience:</strong> 18,400+ public participants (MTCC)</li>
                 <li><strong className="text-neutral-900 font-mono-code">NAC Link:</strong> Noise Singapore Festival (2011/12)</li>
                 <li><strong className="text-neutral-900 font-mono-code">Facility:</strong> Motion and Still Inc. (10-yr studio)</li>
-                <li><strong className="text-neutral-900 font-mono-code">Referees:</strong> S. Stewart & O. Pauk</li>
+                <li><strong className="text-neutral-900 font-mono-code">Lineage:</strong> S. Stewart (Ref) · Akin (#LOVELOCAL)</li>
               </ul>
             </div>
 
@@ -139,10 +139,10 @@ export const CuratorialAtAGlanceCard: React.FC<CuratorialAtAGlanceCardProps> = (
           <div className="border-t border-neutral-200 pt-4 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
             <div className="space-y-1 max-w-3xl">
               <div className="text-[11px] font-mono-code text-neutral-500 uppercase tracking-wider font-semibold">
-                SAM Residencies Proposal Context:
+                Future Work & Research Proposal Context:
               </div>
               <p className="text-xs text-neutral-700 font-serif-display leading-relaxed">
-                Candidate proposes <span className="font-bold text-neutral-900">“The Malayan Topology”</span>: translating 16 years of hardware relay and optics interrogating observer bias into Singaporean socio-linguistic vernaculars (Singlish / Bazaar Malay cadences) mapped in real-time onto an offline obsidian plinth Riemannian manifold.
+                Candidate proposes <span className="font-bold text-neutral-900">“The Riemann Manifold: Quantum Chaos & Spectral Topology”</span> (live open-source repository: <code className="text-blue-700 font-mono-code font-bold">evecount/riemann_hypothesis</code>), in direct dialogue with curatorial inquiries on the <em>Beyond Human & Interdependence</em> by investigating non-human cosmic infrastructure, prime harmonics along the critical strip Re(s) = 1/2, and human-AI co-creation as two sides of the same coin.
               </p>
             </div>
 

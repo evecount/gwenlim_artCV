@@ -5,7 +5,7 @@ interface FooterProps {
   onSelectTab: (tab: 'works' | 'statement' | 'timeline' | 'cv' | 'sam-residency') => void;
   onOpenAppliedPractice: () => void;
   onOpenContact: () => void;
-  onTriggerPrint: () => void;
+  onTriggerPrint: (preset?: 'portfolio' | 'standard') => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({
@@ -76,7 +76,7 @@ export const Footer: React.FC<FooterProps> = ({
                   onClick={() => onSelectTab('sam-residency')}
                   className="text-blue-700 hover:text-blue-900 font-medium transition-colors cursor-pointer"
                 >
-                  SAM Residencies Proposal
+                  Future Work Proposal (2026)
                 </button>
               </li>
             </ul>
@@ -90,10 +90,18 @@ export const Footer: React.FC<FooterProps> = ({
             <ul className="space-y-1.5 text-neutral-700">
               <li>
                 <button
-                  onClick={onTriggerPrint}
+                  onClick={() => onTriggerPrint('portfolio')}
+                  className="hover:text-blue-700 text-blue-800 font-semibold transition-colors cursor-pointer"
+                >
+                  10-Page Landscape Portfolio (PDF)
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onTriggerPrint('standard')}
                   className="hover:text-neutral-950 transition-colors cursor-pointer"
                 >
-                  Print / Export Dossier PDF
+                  Institutional CV & Full Dossier
                 </button>
               </li>
               <li>

@@ -9,6 +9,10 @@ try {
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved) {
     customImagesMap = JSON.parse(saved);
+    // Clear any stale local override for two-man-rule main image so akin4.jpg takes effect immediately
+    if (customImagesMap['two-man-rule']?.['two-man-rule-img-1']) {
+      delete customImagesMap['two-man-rule']['two-man-rule-img-1'];
+    }
   }
 } catch (e) {
   console.warn('Could not read image overrides from localStorage:', e);

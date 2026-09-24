@@ -11,25 +11,33 @@ import { HeroSlidingGallery } from './components/HeroSlidingGallery';
 import { HeroStatement } from './components/HeroStatement';
 import { WorksGrid } from './components/WorksGrid';
 import { CurriculumVitae } from './components/CurriculumVitae';
+import { CleanTimeline } from './components/CleanTimeline';
+import { ExportBar } from './components/ExportBar';
 import { SamResidencyPanel } from './components/SamResidencyPanel';
-import { InteractiveTrajectoryTimeline } from './components/InteractiveTrajectoryTimeline';
 import { WorkDetailModal } from './components/WorkDetailModal';
 import { AppliedPracticeArchiveModal } from './components/AppliedPracticeArchiveModal';
 import { CuratorialContactModal } from './components/CuratorialContactModal';
 import { CuratorialDossierPdfModal, DossierPreset } from './components/CuratorialDossierPdfModal';
+import { LandscapePortfolioPdfModal } from './components/LandscapePortfolioPdfModal';
 import { Footer } from './components/Footer';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'statement' | 'works' | 'timeline' | 'cv' | 'sam-residency'>('statement');
+  // Default to 'works': Starts directly with the portfolio grid of plates!
+  const [activeTab, setActiveTab] = useState<'works' | 'cv' | 'timeline' | 'statement' | 'sam-residency'>('works');
   const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null);
   const [isAppliedPracticeOpen, setIsAppliedPracticeOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isDossierPdfOpen, setIsDossierPdfOpen] = useState(false);
+  const [isLandscapePdfOpen, setIsLandscapePdfOpen] = useState(false);
   const [dossierPreset, setDossierPreset] = useState<DossierPreset>('standard');
 
   const handleOpenDossierPdf = (preset: DossierPreset = 'standard') => {
-    setDossierPreset(preset);
-    setIsDossierPdfOpen(true);
+    if (preset === 'portfolio') {
+      setIsLandscapePdfOpen(true);
+    } else {
+      setDossierPreset(preset);
+      setIsDossierPdfOpen(true);
+    }
   };
 
   const handleSelectArtworkById = (id: string) => {
@@ -52,108 +60,53 @@ export default function App() {
 
       {/* Main Content Area */}
       <main className="flex-1">
-        {/* View 1: Primary Art Monograph & Statement Overview */}
-        {activeTab === 'statement' && (
+        {/* Global Export Bar (Top of Content) */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+          <ExportBar onExport={(preset) => handleOpenDossierPdf(preset)} />
+        </div>
+
+        {/* 1. Primary Portfolio of Plates (Starts directly with the Grid!) */}
+        {(activeTab === 'works' || activeTab === 'statement') && (
           <div>
-            {/* 1. Hero Sliding Visual Gallery (Immediate Visual Command - High-Fidelity Plates) */}
-            <HeroSlidingGallery
-              artworks={ARTWORKS}
-              onSelectArtwork={setSelectedArtwork}
-              onExploreCV={() => setActiveTab('cv')}
-            />
-
-            {/* 2. Artist Statement & Optics/Observer Bias Theoretical Inquiries */}
-            <HeroStatement
-              onExploreWorks={() => setActiveTab('works')}
-              onExploreSam={() => setActiveTab('sam-residency')}
-              onOpenAppliedPractice={() => setIsAppliedPracticeOpen(true)}
-              onExploreTimeline={() => setActiveTab('timeline')}
-              onOpenPdfModal={() => handleOpenDossierPdf('standard')}
-              onNavigateToTab={setActiveTab}
-            />
-
-            {/* 3. Filterable Catalog of Selected Works */}
             <WorksGrid
               artworks={ARTWORKS}
               onSelectArtwork={setSelectedArtwork}
+              onOpenPortfolioPdf={() => handleOpenDossierPdf('portfolio')}
             />
-
-            {/* 4. Curriculum Vitae & Institutional Provenance Flowing Seamlessly Below */}
-            <div id="cv-preview-flow" className="bg-[#fafaf9] border-t border-neutral-250 py-10">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4 border-b border-neutral-250">
-                  <div>
-                    <span className="text-xs font-mono-code uppercase tracking-widest text-neutral-500 font-semibold block mb-1">
-                      Institutional Record & Credentials
-                    </span>
-                    <h2 className="text-2xl sm:text-3xl font-serif-display font-medium text-neutral-950">
-                      Curriculum Vitae (2010 — 2026)
-                    </h2>
-                    <p className="text-xs text-neutral-600 font-mono-code mt-0.5">
-                      Akin Collective · Motion and Still · Flick the Switch · SIT Applied Computing · NTU PACE
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => setActiveTab('cv')}
-                      className="px-4 py-2 bg-neutral-950 hover:bg-neutral-800 text-white text-xs font-mono-code rounded font-semibold transition-colors cursor-pointer shadow-xs"
-                    >
-                      Focus CV Mode →
-                    </button>
-                    <button
-                      onClick={() => handleOpenDossierPdf('cv-only')}
-                      className="px-3.5 py-2 bg-white hover:bg-neutral-50 text-neutral-800 border border-neutral-300 text-xs font-mono-code rounded transition-colors cursor-pointer shadow-xs"
-                    >
-                      Export CV PDF
-                    </button>
-                  </div>
-                </div>
-
-                <CurriculumVitae
-                  onTriggerPrint={() => handleOpenDossierPdf('cv-only')}
-                  onOpenAppliedPractice={() => setIsAppliedPracticeOpen(true)}
-                  onOpenPdfModal={handleOpenDossierPdf}
-                />
-              </div>
-            </div>
           </div>
         )}
 
-        {/* View 2: Pure Selected Works Catalog */}
-        {activeTab === 'works' && (
-          <WorksGrid
-            artworks={ARTWORKS}
-            onSelectArtwork={setSelectedArtwork}
-            onOpenPortfolioPdf={() => handleOpenDossierPdf('portfolio')}
-          />
-        )}
-
-        {/* View 3: 16-Year Interactive Trajectory Timeline Scrubber */}
-        {activeTab === 'timeline' && (
-          <InteractiveTrajectoryTimeline
-            onSelectArtworkById={handleSelectArtworkById}
-            onOpenAppliedPractice={() => setIsAppliedPracticeOpen(true)}
-            onNavigateToTab={setActiveTab}
-          />
-        )}
-
-        {/* View 4: Curriculum Vitae (Art-Only Institutional CV) */}
+        {/* 2. Black and White CV (Museum-standard pure monochrome presentation) */}
         {activeTab === 'cv' && (
-          <CurriculumVitae
-            onTriggerPrint={() => handleOpenDossierPdf('cv-only')}
-            onOpenAppliedPractice={() => setIsAppliedPracticeOpen(true)}
-            onOpenPdfModal={handleOpenDossierPdf}
-          />
+          <div className="animate-fadeIn">
+            <CurriculumVitae
+              onTriggerPrint={() => handleOpenDossierPdf('cv-only')}
+              onOpenAppliedPractice={() => setIsAppliedPracticeOpen(true)}
+              onOpenPdfModal={handleOpenDossierPdf}
+            />
+          </div>
         )}
 
-        {/* View 5: Singapore Art Museum (SAM) Residencies Dossier */}
+        {/* 3. Clean Chronological Timeline (2010 to 2026 without complicated scrubbers) */}
+        {activeTab === 'timeline' && (
+          <div className="animate-fadeIn">
+            <CleanTimeline
+              onSelectArtworkById={handleSelectArtworkById}
+              onOpenAppliedPractice={() => setIsAppliedPracticeOpen(true)}
+            />
+          </div>
+        )}
+
+        {/* Future Work & Studio Research Proposal */}
         {activeTab === 'sam-residency' && (
-          <SamResidencyPanel
-            onSelectArtworkById={handleSelectArtworkById}
-            onOpenContact={() => setIsContactOpen(true)}
-            onOpenPdfModal={handleOpenDossierPdf}
-            onNavigateToTab={setActiveTab}
-          />
+          <div className="animate-fadeIn">
+            <SamResidencyPanel
+              onSelectArtworkById={handleSelectArtworkById}
+              onOpenContact={() => setIsContactOpen(true)}
+              onOpenPdfModal={handleOpenDossierPdf}
+              onNavigateToTab={setActiveTab}
+            />
+          </div>
         )}
       </main>
 
@@ -178,12 +131,23 @@ export default function App() {
         onClose={() => setIsContactOpen(false)}
       />
 
+      {/* Strict 10-Page Curatorial Review Monograph (Landscape PDF) */}
+      <LandscapePortfolioPdfModal
+        isOpen={isLandscapePdfOpen}
+        onClose={() => setIsLandscapePdfOpen(false)}
+        onOpenVerticalDossier={() => {
+          setDossierPreset('standard');
+          setIsDossierPdfOpen(true);
+        }}
+      />
+
       {/* Formatted Curatorial Dossier & CV PDF Generator Modal */}
       <CuratorialDossierPdfModal
         isOpen={isDossierPdfOpen}
         onClose={() => setIsDossierPdfOpen(false)}
         initialPreset={dossierPreset}
         onSelectArtworkById={handleSelectArtworkById}
+        onOpenLandscapePortfolio={() => setIsLandscapePdfOpen(true)}
       />
 
       {/* Footer */}
@@ -191,7 +155,7 @@ export default function App() {
         onSelectTab={setActiveTab}
         onOpenAppliedPractice={() => setIsAppliedPracticeOpen(true)}
         onOpenContact={() => setIsContactOpen(true)}
-        onTriggerPrint={() => handleOpenDossierPdf('standard')}
+        onTriggerPrint={(preset) => handleOpenDossierPdf(preset || 'portfolio')}
       />
     </div>
   );

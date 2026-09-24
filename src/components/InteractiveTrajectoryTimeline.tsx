@@ -369,7 +369,7 @@ export const InteractiveTrajectoryTimeline: React.FC<InteractiveTrajectoryTimeli
             <span className="text-cyan-300 font-bold tracking-wider">
               {currentMilestone.yearDisplay} // {currentMilestone.title}
             </span>
-            <span>2026 · Singapore SAM Candidate</span>
+            <span>2026 · Future Work & Research</span>
           </div>
 
           {/* Interactive Visual Scrubber Track */}
@@ -497,7 +497,7 @@ export const InteractiveTrajectoryTimeline: React.FC<InteractiveTrajectoryTimeli
                     onClick={() => onNavigateToTab('sam-residency')}
                     className="px-3 py-1.5 text-xs font-mono-code text-blue-300 bg-blue-950/40 hover:bg-blue-900/50 border border-blue-500/50 rounded transition-colors whitespace-nowrap cursor-pointer"
                   >
-                    <span>View SAM Proposal</span>
+                    <span>View Future Work Proposal</span>
                     <span>→</span>
                   </button>
                 )}
@@ -637,7 +637,7 @@ export const InteractiveTrajectoryTimeline: React.FC<InteractiveTrajectoryTimeli
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-neutral-200 pb-3">
           <div>
             <span className="text-[10px] font-mono-code text-cyan-700 uppercase tracking-widest block font-bold">
-              16-Year Longitudinal Synthesis · Singapore Art Museum Evaluation
+              16-Year Longitudinal Synthesis · Institutional & Curatorial Evaluation
             </span>
             <h3 className="text-base font-serif-display font-bold text-neutral-950 mt-1">
               From Participatory Camera Rigs to Zero-Knowledge Neural Topologies
@@ -663,16 +663,16 @@ export const InteractiveTrajectoryTimeline: React.FC<InteractiveTrajectoryTimeli
               Phase II: Spatial Sanctuaries & Solidarity (2014 — 2024)
             </span>
             <p className="text-neutral-700 leading-relaxed">
-              Operated daylight facilities and heavy lighting physics at <em>Motion and Still</em>, while sustaining 5-year longitudinal collective video advocacy at <em>Flick the Switch</em> with Susan Stewart and <em>Akin Collective</em> with Oliver Pauk.
+              Operated daylight facilities and heavy lighting physics at <em>Motion and Still</em>, while sustaining 5-year longitudinal collective video advocacy at <em>Flick the Switch</em> with Susan Stewart, preceded by formative studio work at <em>Akin Collective</em> with founder Oliver Pauk (holding the collaborative <em>#LOVELOCAL</em> showcase).
             </p>
           </div>
 
           <div className="p-3.5 bg-neutral-50 border border-neutral-200 rounded-lg space-y-1.5">
             <span className="text-[10px] font-mono-code text-sky-800 uppercase block font-bold">
-              Phase III: Sovereign Neural Topologies (2024 — 2026)
+              Phase III: Spectral Topologies & Quantum Chaos (2024 — 2026)
             </span>
             <p className="text-neutral-700 leading-relaxed">
-              Grounded sixteen years of hardware and optical inquiry into formal computer science honours at SIT, zero-knowledge non-human syntax (<em>The Klingon Topology</em>), and the SAM candidate proposal <em>The Malayan Topology</em>.
+              Grounded sixteen years of hardware and optical inquiry into formal computer science honours at SIT, quantum operator dynamics and Riemann zeta spectral topologies (<em>The Riemann Manifold</em> / <code>evecount/riemann_hypothesis</code>), and future studio proposals exploring <em>Beyond Human / Interdependence</em>.
             </p>
           </div>
         </div>

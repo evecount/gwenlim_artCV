@@ -28,9 +28,9 @@ export const ArtworkVisualPlate: React.FC<ArtworkVisualPlateProps> = ({
     };
   }, []);
 
-  // Custom canvas rendering for The Klingon Topology (Riemannian manifold)
+  // Custom canvas rendering for The Riemann Manifold (Riemannian manifold & quantum chaos)
   useEffect(() => {
-    if (artwork.id !== 'klingon-topology' || !canvasRef.current) return;
+    if ((artwork.id !== 'riemann-manifold' && artwork.id !== 'klingon-topology') || !canvasRef.current) return;
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
@@ -139,8 +139,8 @@ export const ArtworkVisualPlate: React.FC<ArtworkVisualPlateProps> = ({
         compact ? 'h-48 sm:h-56' : 'h-72 sm:h-96'
       }`}
     >
-      {/* 1. The Klingon Topology: Live Riemannian Vector Projection */}
-      {artwork.id === 'klingon-topology' && (
+      {/* 1. The Riemann Manifold: Live Riemannian Vector Projection & Quantum Chaos */}
+      {(artwork.id === 'riemann-manifold' || artwork.id === 'klingon-topology') && (
         <div className="relative w-full h-full">
           <canvas
             ref={canvasRef}
@@ -150,12 +150,12 @@ export const ArtworkVisualPlate: React.FC<ArtworkVisualPlateProps> = ({
           />
           <div className="absolute top-3 left-3 flex items-center gap-2 text-[10px] font-mono-code text-blue-300 bg-neutral-950/80 px-2.5 py-1 border border-blue-900/40 rounded">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-ping inline-block" />
-            <span>4096-DIM RIEMANNIAN MANIFOLD</span>
+            <span>RIEMANN SPECTRAL TOPOLOGY</span>
             <span className="text-neutral-500">·</span>
-            <span className="text-neutral-400">LATENT PROJECTION 60 FPS</span>
+            <span className="text-neutral-400">CRITICAL STRIP Re(s) = 1/2 · GUE QUANTUM CHAOS</span>
           </div>
           <div className="absolute bottom-3 right-3 text-[10px] font-mono-code text-neutral-400 bg-neutral-950/80 px-2 py-0.5 border border-neutral-800 rounded">
-            HOMOMORPHIC ZERO-KNOWLEDGE PROOF: VALID
+            EIGENVALUE SPECTRAL RESONANCE: VALID (evecount/riemann_hypothesis)
           </div>
         </div>
       )}
@@ -227,7 +227,7 @@ export const ArtworkVisualPlate: React.FC<ArtworkVisualPlateProps> = ({
       )}
 
       {/* 3. The Ultimate Selfie: Architectural Pavilion & Shutter Optocoupler */}
-      {artwork.id === 'ultimate-selfie-ids' && (
+      {(artwork.id === 'ultimate-selfie-ids' || artwork.id === 'the-ultimate-selfie') && (
         <div className="relative w-full h-full bg-[#0a0a0c] p-4 flex flex-col justify-between overflow-hidden">
           {/* Architectural timber pavilion lines */}
           <svg className="absolute inset-0 w-full h-full opacity-40 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
@@ -518,6 +518,55 @@ export const ArtworkVisualPlate: React.FC<ArtworkVisualPlateProps> = ({
           <div className="relative z-10 flex justify-between items-center text-[10px] font-mono-code text-neutral-400 border-t border-neutral-800 pt-2">
             <span>Curated Group Exhibition (Singapore)</span>
             <span className="text-slate-300">120 × 90 cm Archival Pigment Prints</span>
+          </div>
+        </div>
+      )}
+
+      {/* 9. Collective Infrastructure & Mutual Aid (2011–2024) */}
+      {artwork.id === 'collective-infrastructure' && (
+        <div className="relative w-full h-full bg-[#0c0a09] p-4 flex flex-col justify-between overflow-hidden">
+          {/* Architectural Studio Grid & Fenestration lines */}
+          <svg className="absolute inset-0 w-full h-full opacity-30 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="25%" x2="100%" y2="25%" stroke="#d97706" strokeWidth="1" strokeDasharray="4 4" />
+            <line x1="0" y1="65%" x2="100%" y2="65%" stroke="#d97706" strokeWidth="1" strokeDasharray="4 4" />
+            <line x1="25%" y1="0" x2="25%" y2="100%" stroke="#78716c" strokeWidth="1" />
+            <line x1="75%" y1="0" x2="75%" y2="100%" stroke="#78716c" strokeWidth="1" />
+          </svg>
+
+          <div className="relative z-10 flex justify-between items-center text-[10px] font-mono-code text-amber-300">
+            <span className="bg-amber-950/80 border border-amber-700/60 px-2 py-0.5 rounded">
+              STUDIO CONTINUUM: AKIN · MOTION & STILL · FLICK THE SWITCH
+            </span>
+            <span className="text-neutral-400">2011 — 2024</span>
+          </div>
+
+          <div className="relative z-10 my-auto flex flex-col items-center justify-center space-y-3">
+            <div className="grid grid-cols-3 gap-2 w-full max-w-sm text-center">
+              <div className="p-2 bg-amber-950/40 border border-amber-800/50 rounded">
+                <div className="text-[10px] font-mono-code font-bold text-amber-400">2011–2015</div>
+                <div className="text-[9px] text-neutral-300 mt-0.5">Akin Collective</div>
+                <div className="text-[8px] text-neutral-500 font-mono-code">#LOVELOCAL · TMR</div>
+              </div>
+              <div className="p-2 bg-amber-950/60 border border-amber-600/60 rounded">
+                <div className="text-[10px] font-mono-code font-bold text-amber-300">2014–2023</div>
+                <div className="text-[9px] text-neutral-200 mt-0.5">Motion & Still</div>
+                <div className="text-[8px] text-neutral-400 font-mono-code">3,200 sq.ft Daylight</div>
+              </div>
+              <div className="p-2 bg-amber-950/40 border border-amber-800/50 rounded">
+                <div className="text-[10px] font-mono-code font-bold text-amber-400">2019–2024</div>
+                <div className="text-[9px] text-neutral-300 mt-0.5">Flick the Switch</div>
+                <div className="text-[8px] text-neutral-500 font-mono-code">34 Stephanie St</div>
+              </div>
+            </div>
+
+            <p className="text-[10px] font-mono-code text-amber-200/90 text-center">
+              Spatial Interdependence · Pro Bono Media Archiving · Grassroots Cultural Stewardship
+            </p>
+          </div>
+
+          <div className="relative z-10 flex justify-between items-center text-[10px] font-mono-code text-neutral-400 border-t border-neutral-800 pt-2">
+            <span>Spatial Documentation Archive</span>
+            <span className="text-amber-400">100A 3-Phase Mains · Open Media Suite</span>
           </div>
         </div>
       )}

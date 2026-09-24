@@ -32,13 +32,15 @@ interface CuratorialDossierPdfModalProps {
   onClose: () => void;
   initialPreset?: DossierPreset;
   onSelectArtworkById?: (id: string) => void;
+  onOpenLandscapePortfolio?: () => void;
 }
 
 export const CuratorialDossierPdfModal: React.FC<CuratorialDossierPdfModalProps> = ({
   isOpen,
   onClose,
   initialPreset = 'portfolio',
-  onSelectArtworkById
+  onSelectArtworkById,
+  onOpenLandscapePortfolio
 }) => {
   // Section toggle state
   const [includeStatement, setIncludeStatement] = useState<boolean>(true);
@@ -303,7 +305,9 @@ export const CuratorialDossierPdfModal: React.FC<CuratorialDossierPdfModalProps>
     if (includeReferees) {
       lines.push(
         `\n[INSTITUTIONAL & ARTISTIC REFERENCES]`,
-        ...ARTISTIC_REFEREES.map(r => `• ${r.name} (${r.role}, ${r.affiliation}, ${r.address}) - Relationship: ${r.relationship} (${r.period}). Statement: ${r.institutionalStatement}`)
+        ...ARTISTIC_REFEREES.map(r => `• ${r.name} (${r.role}, ${r.affiliation}, ${r.address}) - Relationship: ${r.relationship} (${r.period}). Statement: ${r.institutionalStatement}`),
+        `\n[FORMATIVE ART COLLECTIVE AFFILIATION]`,
+        `• Akin Collective (Founder: Oliver Pauk, Toronto) - First art collective joined (2011–2015). Co-organized and held the collaborative community showcase #LOVELOCAL (2013) and fabricated Two-Man Rule [TMR] for TEDxToronto (2012).`
       );
     }
 
@@ -341,6 +345,20 @@ export const CuratorialDossierPdfModal: React.FC<CuratorialDossierPdfModalProps>
 
           {/* Action Buttons */}
           <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+            {onOpenLandscapePortfolio && (
+              <button
+                onClick={() => {
+                  onClose();
+                  onOpenLandscapePortfolio();
+                }}
+                className="px-3 py-2 bg-blue-950 hover:bg-blue-900 border border-blue-700 text-blue-200 rounded text-xs font-mono-code flex items-center gap-1.5 transition-colors cursor-pointer"
+                title="Switch to strict 10-Page Landscape Curatorial Monograph"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-blue-400" />
+                <span>10-Page Landscape Mode</span>
+              </button>
+            )}
+
             <button
               onClick={handlePrintPdf}
               className="px-4 py-2 bg-blue-700 hover:bg-blue-600 active:bg-blue-800 text-white font-semibold text-xs font-mono-code rounded shadow-lg flex items-center gap-2 transition-colors cursor-pointer"
@@ -430,7 +448,7 @@ export const CuratorialDossierPdfModal: React.FC<CuratorialDossierPdfModalProps>
                     : 'bg-neutral-900 border-neutral-800 text-neutral-400 hover:text-neutral-200'
                 }`}
               >
-                SAM Residency Package
+                Proposal & Future Work
               </button>
 
               <button
@@ -571,7 +589,7 @@ export const CuratorialDossierPdfModal: React.FC<CuratorialDossierPdfModalProps>
                 onChange={e => setIncludeSamProposal(e.target.checked)}
                 className="rounded border-neutral-700 text-blue-500 focus:ring-0"
               />
-              <span className="text-blue-400 font-medium">SAM Proposal Alignment</span>
+              <span className="text-blue-400 font-medium">Future Work & Research Proposal</span>
             </label>
           </div>
         </div>
@@ -1010,30 +1028,67 @@ export const CuratorialDossierPdfModal: React.FC<CuratorialDossierPdfModalProps>
                     </div>
                   ))}
                 </div>
+                <div className="p-3 bg-amber-50/70 border border-amber-200 rounded text-xs space-y-1 mt-3">
+                  <div className="font-bold text-amber-950 font-mono-code uppercase text-[10px]">
+                    Formative Art Collective Lineage
+                  </div>
+                  <p className="text-neutral-800 text-[11px]">
+                    <strong>Akin Collective (Founder: Oliver Pauk) · 2011–2015:</strong> The first art collective Lim joined. Together with founder Oliver Pauk, they co-organized and held the collaborative <strong>#LOVELOCAL</strong> community arts & music showcase (2013), alongside fabricating <em>Two-Man Rule [TMR]</em> (2012). <span className="text-neutral-600 italic">(Founder affiliation; not a formal referee).</span>
+                  </p>
+                </div>
               </div>
             )}
 
-            {/* 11. SAM Residency Alignment Proposal */}
+            {/* 11. Future Work & Studio Research Proposal */}
             {includeSamProposal && (
-              <div className="space-y-3 border-b border-neutral-300 pb-6 print-avoid-break bg-blue-50/50 p-4 rounded border border-blue-200">
+              <div className="space-y-4 border-b border-neutral-300 pb-6 print-avoid-break bg-blue-50/50 p-4 rounded border border-blue-200">
                 <div className="flex items-center justify-between">
                   <h2 className="text-xs font-mono-code font-bold uppercase tracking-widest text-blue-900">
-                    Appendix: Singapore Art Museum (SAM) Residencies Alignment
+                    Appendix: Future Work & Studio Research Proposal — The Riemann Manifold (2026)
                   </h2>
-                  <span className="text-[10px] font-mono-code bg-blue-100 text-blue-800 px-2 py-0.5 rounded">
-                    12-Month Proposal
+                  <span className="text-[10px] font-mono-code bg-blue-100 text-blue-800 px-2 py-0.5 rounded font-semibold">
+                    In-Development Studio Blueprint
                   </span>
                 </div>
 
-                <div className="space-y-2 text-xs font-sans text-neutral-800">
-                  <div className="font-serif-display text-sm font-semibold text-neutral-950">
-                    Research Inquiry: "{SAM_RESIDENCY_ALIGNMENT.proposalTitle}"
+                <div className="space-y-3 text-xs font-sans text-neutral-800">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-blue-250 pb-2">
+                    <div className="font-serif-display text-sm font-semibold text-neutral-950">
+                      Research Inquiry: "{SAM_RESIDENCY_ALIGNMENT.proposalTitle}"
+                    </div>
+                    <div className="text-[10px] font-mono-code text-blue-800 font-semibold">
+                      Open-Source Repo: {SAM_RESIDENCY_ALIGNMENT.githubUrl}
+                    </div>
                   </div>
 
                   <p className="text-[11px] leading-relaxed">
                     {SAM_RESIDENCY_ALIGNMENT.theoreticalFramework}
                   </p>
 
+                  {/* Curatorial Pillars including Human-AI Interdependence */}
+                  <div className="space-y-1.5 pt-1 font-serif-display text-neutral-800">
+                    <div className="text-[10px] font-mono-code uppercase tracking-wider text-blue-900 font-bold">
+                      Curatorial Pillars & Interdependence Strand:
+                    </div>
+                    {SAM_RESIDENCY_ALIGNMENT.curatorialPillars.map((p, idx) => (
+                      <div key={idx} className="text-[11px] leading-snug pl-2 border-l border-blue-300">
+                        <strong className="text-neutral-900 font-sans">{p.title}:</strong> {p.alignment}
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Statement of Intent Summary */}
+                  <div className="p-3 bg-white rounded border border-blue-200 space-y-1.5">
+                    <div className="flex items-center justify-between text-[10px] font-mono-code text-blue-900 font-bold uppercase">
+                      <span>Statement of Intent: The Human-AI Coin & Non-Human Substrate</span>
+                      <span>840 Words Available in Portal Workbench</span>
+                    </div>
+                    <p className="text-[10px] text-neutral-700 leading-relaxed font-serif-display">
+                      "Curatorial inquiries into the 'Beyond Human' frequently confine themselves to biological ecology. Yet for an artist working in the twenty-first century, interdependence defines the computational substrate of our own minds. In my daily studio practice, human intentionality and artificial intelligence are two sides of the same coin... Neither entity operates in isolation: human somatic perception, philosophical history, and moral grounding are symbiotically entangled with machine capacity for high-dimensional synthesis."
+                    </p>
+                  </div>
+
+                  {/* 12-Month Phases */}
                   <div className="grid grid-cols-1 sm:grid-cols-4 gap-2 pt-1 font-mono-code text-[10px]">
                     {SAM_RESIDENCY_ALIGNMENT.phases.map(p => (
                       <div key={p.quarter} className="p-2 bg-white rounded border border-blue-250">
@@ -1043,16 +1098,30 @@ export const CuratorialDossierPdfModal: React.FC<CuratorialDossierPdfModalProps>
                     ))}
                   </div>
 
-                  <div className="space-y-1 pt-1 font-serif-display text-neutral-800">
-                    {SAM_RESIDENCY_ALIGNMENT.curatorialPillars.map((p, idx) => (
-                      <div key={idx} className="text-[11px] leading-snug">
-                        <strong className="text-neutral-900">{p.title}:</strong> {p.alignment}
-                      </div>
-                    ))}
+                  {/* Technical Feasibility Rider Summary */}
+                  <div className="p-2.5 bg-neutral-50 rounded border border-neutral-250 text-[10px] font-mono-code space-y-1">
+                    <div className="font-bold text-neutral-900 uppercase tracking-wider text-[9px]">
+                      Technical Feasibility Rider Summary:
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1 text-neutral-700">
+                      <div><strong>Footprint:</strong> {SAM_RESIDENCY_ALIGNMENT.technicalRider.galleryFootprint}</div>
+                      <div><strong>Power:</strong> {SAM_RESIDENCY_ALIGNMENT.technicalRider.electricalPower}</div>
+                      <div><strong>Compute:</strong> {SAM_RESIDENCY_ALIGNMENT.technicalRider.computeArchitecture}</div>
+                      <div><strong>Optics:</strong> {SAM_RESIDENCY_ALIGNMENT.technicalRider.opticalRig}</div>
+                      <div><strong>Acoustics:</strong> {SAM_RESIDENCY_ALIGNMENT.technicalRider.acousticTransduction}</div>
+                      <div><strong>Plinth:</strong> {SAM_RESIDENCY_ALIGNMENT.technicalRider.structuralRigging}</div>
+                    </div>
                   </div>
 
-                  <div className="pt-1 font-mono-code text-[10px] text-blue-950">
-                    <strong>Feasibility Footprint:</strong> {SAM_RESIDENCY_ALIGNMENT.feasibilityFootprint}
+                  {/* Material & Equipment Feasibility Summary */}
+                  <div className="flex items-center justify-between p-2.5 bg-neutral-900 text-white rounded font-mono-code text-[10px]">
+                    <div>
+                      <span className="font-bold uppercase tracking-wider text-cyan-300">Resource & Equipment Feasibility:</span>
+                      <span className="ml-2 text-neutral-200 font-medium">6 De-Risked Hardware & Fabrication Categories</span>
+                    </div>
+                    <span className="text-[9px] text-neutral-400">
+                      Standard Fellowship Scope · Local Sovereign Compute & SIT Academic Anchor
+                    </span>
                   </div>
                 </div>
               </div>

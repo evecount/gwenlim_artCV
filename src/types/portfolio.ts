@@ -26,6 +26,9 @@ export interface ArtworkImage {
   caption: string;
   viewType: 'Installation View' | 'Apparatus Detail' | 'Participatory Action' | 'Spatial Context';
   placeholderType: 
+    | 'riemann-overview'
+    | 'riemann-apparatus'
+    | 'riemann-action'
     | 'klingon-overview'
     | 'klingon-apparatus'
     | 'klingon-action'
@@ -49,7 +52,10 @@ export interface ArtworkImage {
     | 'perfectworld-action'
     | 'noise-sg-overview'
     | 'noise-sg-apparatus'
-    | 'noise-sg-action';
+    | 'noise-sg-action'
+    | 'collective-overview'
+    | 'collective-apparatus'
+    | 'collective-action';
   captureMetadata?: {
     camera?: string;
     exposure?: string;
@@ -58,6 +64,19 @@ export interface ArtworkImage {
   };
   credit?: string;
   isCustom?: boolean;
+}
+
+export interface ArchivalStudioPhoto {
+  id: string;
+  filename: string;
+  url: string;
+  dateStr: string;
+  title: string;
+  context: string;
+  category: 'studio' | 'installation' | 'apparatus' | 'collective' | 'process' | 'performance';
+  metadataNote?: string;
+  location?: string;
+  aspectRatio?: 'landscape' | 'portrait' | 'square';
 }
 
 export interface Artwork {
@@ -71,7 +90,10 @@ export interface Artwork {
   category: WorkCategory;
   medium: string;
   dimensions: string;
+  provenance?: string;
+  focus?: string;
   images: ArtworkImage[];
+  archivalPhotos?: ArchivalStudioPhoto[];
   hardwareStack: string[];
   softwareStack: string[];
   summary: string;
@@ -89,6 +111,7 @@ export interface Artwork {
     freq: number;
     description: string;
   };
+  githubUrl?: string;
   visualPalette: {
     accent: string;
     bgStyle: string;

@@ -60,7 +60,7 @@ export const AppliedPracticeArchiveModal: React.FC<AppliedPracticeArchiveModalPr
               {APPLIED_PRACTICE_ARCHIVE.framingStatement}
             </div>
 
-            {/* Strategic Pillars for SAM Jury */}
+            {/* Strategic Pillars for Curatorial & Institutional Juries */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2 text-xs font-sans">
               <div className="p-3 bg-white border border-neutral-200 rounded-lg space-y-1 shadow-2xs">
                 <span className="font-mono-code text-[11px] text-amber-800 font-bold block">
