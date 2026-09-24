@@ -12,7 +12,6 @@ import { HeroStatement } from './components/HeroStatement';
 import { WorksGrid } from './components/WorksGrid';
 import { CurriculumVitae } from './components/CurriculumVitae';
 import { CleanTimeline } from './components/CleanTimeline';
-import { ExportBar } from './components/ExportBar';
 import { SamResidencyPanel } from './components/SamResidencyPanel';
 import { WorkDetailModal } from './components/WorkDetailModal';
 import { AppliedPracticeArchiveModal } from './components/AppliedPracticeArchiveModal';
@@ -60,11 +59,6 @@ export default function App() {
 
       {/* Main Content Area */}
       <main className="flex-1">
-        {/* Global Export Bar (Top of Content) */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-          <ExportBar onExport={(preset) => handleOpenDossierPdf(preset)} />
-        </div>
-
         {/* 1. Primary Portfolio of Plates (Starts directly with the Grid!) */}
         {(activeTab === 'works' || activeTab === 'statement') && (
           <div>

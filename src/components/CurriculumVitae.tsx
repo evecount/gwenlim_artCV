@@ -338,12 +338,36 @@ export const CurriculumVitae: React.FC<CurriculumVitaeProps> = ({
               <div className="space-y-3 font-sans text-xs">
                 <div className="space-y-0.5">
                   <p className="font-semibold text-neutral-950">
-                    • Lim, G. et al. (2026). <span className="font-normal italic">Open Quantum System Dynamics via Graph Neural Manifolds and Dissipative Decoupling Fields</span>. Technical Whitepaper / Research Pre-print.
+                    • Lim, G., Lim, B., & Antigravity (Google DeepMind) (2026).{' '}
+                    <span className="font-normal italic">
+                      Project Q-Rotate: Coordinate-Free Molecular Pose Search via Trapped-Ion Phase Synchronization and Lie Algebra Generators
+                    </span>
+                    . Technical Whitepaper & Computational Architecture, Quantinuum Singapore Grand Challenge 2026.{' '}
+                    <a
+                      href="https://github.com/evecount/quantum_rotation"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-mono text-[11px] text-blue-700 hover:text-blue-900 underline inline-flex items-center gap-1"
+                    >
+                      https://github.com/evecount/quantum_rotation
+                    </a>
                   </p>
                 </div>
                 <div className="space-y-0.5">
                   <p className="font-semibold text-neutral-950">
-                    • Lim, G. (2026). <span className="font-normal italic">The Riemann Manifold: Quantum Operator Eigenvalues and Spectral Invariance Along the Critical Strip</span>. SIT Architecture Series / evecount/riemann_hypothesis.
+                    • Lim, G. & Antigravity (Google DeepMind) (2026).{' '}
+                    <span className="font-normal italic">
+                      The Riemann Manifold: Quantum Operator Eigenvalues and Spectral Invariance Along the Critical Strip
+                    </span>
+                    . SIT Applied Computing Research Monograph & Open Academic Repository.{' '}
+                    <a
+                      href="https://github.com/evecount/riemann_hypothesis"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-mono text-[11px] text-blue-700 hover:text-blue-900 underline inline-flex items-center gap-1"
+                    >
+                      https://github.com/evecount/riemann_hypothesis
+                    </a>
                   </p>
                 </div>
               </div>
@@ -557,7 +581,21 @@ export const CurriculumVitae: React.FC<CurriculumVitaeProps> = ({
                       </p>
                       {entry.notes && (
                         <p className="text-xs text-neutral-700 leading-relaxed font-sans pt-1">
-                          {entry.notes}
+                          {entry.notes.split(/(https:\/\/[^\s]+)/g).map((part, i) =>
+                            part.startsWith('https://') ? (
+                              <a
+                                key={i}
+                                href={part}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-700 hover:text-blue-900 underline font-mono text-[11px] break-all inline-block"
+                              >
+                                {part}
+                              </a>
+                            ) : (
+                              part
+                            )
+                          )}
                         </p>
                       )}
                     </div>

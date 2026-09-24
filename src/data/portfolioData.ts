@@ -477,22 +477,22 @@ export const CV_DATA: CVEntry[] = [
   {
     id: 'paper-2026-1',
     year: 2026,
-    title: 'Open Quantum System Dynamics via Graph Neural Manifolds and Dissipative Decoupling Fields',
+    title: 'Project Q-Rotate: Coordinate-Free Molecular Pose Search via Trapped-Ion Phase Synchronization and Lie Algebra Generators',
     category: 'research',
-    venueOrPublisher: 'Technical Whitepaper / Research Pre-print',
+    venueOrPublisher: 'Quantinuum Singapore Grand Challenge 2026 / Technical Whitepaper & Computational Architecture',
     location: 'Singapore',
-    roleOrContext: 'Lead Author (Lim, G. et al.)',
-    notes: 'Technical paper investigating non-Markovian dissipative quantum environments, graph neural manifolds, and decoupling field dynamics.'
+    roleOrContext: 'Co-Author (Lim, G., Lim, B., & Antigravity [Google DeepMind])',
+    notes: 'Coordinate-free continuous Lie algebra rotation operator mapped to trapped-ion native gates (PhasedX, ZZPhase) with mid-circuit Repeat-Until-Success (RUS) phase synchronization. Verifiable open-source repository: https://github.com/evecount/quantum_rotation'
   },
   {
     id: 'paper-2026-2',
     year: 2026,
     title: 'The Riemann Manifold: Quantum Operator Eigenvalues and Spectral Invariance Along the Critical Strip',
     category: 'research',
-    venueOrPublisher: 'SIT Architecture Series / evecount/riemann_hypothesis',
+    venueOrPublisher: 'Applied Computing Research Series / Open Academic Repository',
     location: 'Singapore',
-    roleOrContext: 'Sole Author (Lim, G.)',
-    notes: 'Algorithmic investigation into the non-trivial zeros of the Riemann zeta function, prime distribution, and GUE random matrix spectral statistics in computational quantum systems.'
+    roleOrContext: 'Author (Lim, G. & Antigravity [Google DeepMind])',
+    notes: 'Algorithmic investigation into the non-trivial zeros of the Riemann zeta function, prime distribution, and GUE random matrix spectral statistics along the critical strip Re(s) = 1/2. Verifiable open-source repository: https://github.com/evecount/riemann_hypothesis'
   },
 
   // CIVIC PRACTICE, STEWARDSHIP & MUTUAL AID
