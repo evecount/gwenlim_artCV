@@ -62,7 +62,7 @@ const RAW_ARTWORKS: Artwork[] = [
     ],
     hardwareStack: [
       'High-key parabolic strobe reflector & beauty dish',
-      'Medium format digital back with prime portrait optic',
+      'Nikon D1X with prime portrait optic',
       'Specular silver foil bounce & calibrated diffusion scrims',
       'Archival rag fine art printing subsystem'
     ],
@@ -109,7 +109,7 @@ const RAW_ARTWORKS: Artwork[] = [
     id: 'a-perfect-world',
     accessionId: 'ACC.2011.02.GL',
     title: 'A Perfect World',
-    subtitle: 'Street-level relational intervention, field audio recordings, and medium-format portraiture',
+    subtitle: 'Street-level relational intervention, field audio recordings, and portraiture',
     year: 2011,
     venue: 'Kensington Market Cultural Commons',
     city: 'Toronto',
@@ -127,7 +127,7 @@ const RAW_ARTWORKS: Artwork[] = [
         title: 'Self-Portrait: The Artist as First Participant',
         caption: 'April 2010 self-portrait — Lim made herself the series\' first guinea pig, testing the participatory prompt before inviting Kensington Market passersby. The wider series of street portraits and oral-history recordings is lost to time; this is its only surviving image.',
         captureMetadata: {
-          camera: 'Hasselblad 500C/M (Medium Format 120)',
+          camera: 'Nikon D1X (Digital SLR)',
           exposure: 'Ilford HP5 Plus 400 · f/5.6 · 1/125s',
           lightingCondition: 'Open sky street daylight & ambient alley bounce',
           scale: 'Site-responsive street intervention'
@@ -136,19 +136,19 @@ const RAW_ARTWORKS: Artwork[] = [
       }
     ],
     hardwareStack: [
-      'Hasselblad 500C/M medium format mechanical camera body',
-      'Carl Zeiss Planar 80mm f/2.8 T* lens',
+      'Nikon D1X professional digital SLR camera',
+      'Nikkor 50mm prime lens',
       'Marantz solid-state field audio recorder with binaural lavaliers',
-      'Archival fiber-based silver gelatin darkroom processing kit'
+      'Digital audio and photographic documentation workflow'
     ],
     softwareStack: [
-      'Analogue darkroom chemistry & split-grade filtration',
+      'Field audio transcription & digital editing pipeline',
       'Open-source audio transcription & timeline mapping',
       'Audacity field audio restoration pipeline'
     ],
     summary: 'A street-level relational intervention engaging Kensington Market residents through medium-format portraiture and oral histories confronting urban anonymity and mutual trust.',
     curatorialStatement: 'Conceived during Lim’s residency with Akin Collective, A Perfect World operated as a street-level relational aesthetic intervention across Toronto\'s Kensington Market. Stepping out of traditional studio enclosures, Lim positioned an analog medium-format camera at public intersections, inviting passersby to pause, converse, and articulate their conception of collective human sanctuary. Rather than consuming subjects through surreptitious candid snapshots, each exposure was preceded by sustained dialogue, recasting the camera as a conversational catalyst.',
-    technicalDossier: 'Executed using manual medium-format film to enforce deliberate temporal pacing. Each subject was recorded on magnetic audio tape answering the single prompt: "What constitutes your sanctuary?" Photographs were developed by hand in collective darkroom facilities and re-exhibited in outdoor public alcoves where the encounters occurred.',
+    technicalDossier: 'Executed through intentional dialogue to establish deliberate relational pacing. Each subject was recorded on magnetic audio tape answering the single prompt: "What constitutes your sanctuary?" Portraits were printed and shared with the neighborhood commons where the encounters occurred.',
     installationFootprint: 'Site-responsive street installation, 8m running outdoor wall surface, outdoor weather-resistant casing.',
     collaborators: ['Kensington Market Cultural Commons', 'Akin Collective Community Network'],
     productionContext: 'Field-staged and developed while working out of Akin Collective in Kensington Market (Toronto).',
@@ -157,14 +157,14 @@ const RAW_ARTWORKS: Artwork[] = [
     schematicNodes: [
       { id: 'n1', label: 'Pedestrian Participant', type: 'participant', description: 'Neighborhood resident encountering street intervention', spec: 'Urban resident' },
       { id: 'n2', label: 'Oral Inquiry Dialogue', type: 'processing', description: 'Unscripted reciprocal conversation establishing mutual trust', spec: 'Field audio' },
-      { id: 'n3', label: 'Medium-Format Lens', type: 'optic', description: 'Hasselblad 500C/M manual shutter actuation with subject consent', spec: '120 Film / 6x6' },
-      { id: 'n4', label: 'Darkroom Alchemy', type: 'processing', description: 'Manual silver gelatin darkroom development in artist-run space', spec: 'Fiber print' },
+      { id: 'n3', label: 'Medium-Format Lens', type: 'optic', description: 'Nikon D1X manual shutter actuation with subject consent', spec: 'Digital SLR' },
+      { id: 'n4', label: 'Darkroom Alchemy', type: 'processing', description: 'Digital imaging workflow in artist-run space', spec: 'Archival print' },
       { id: 'n5', label: 'Public Street Wall', type: 'actuation', description: 'Direct restitution of portrait prints to neighborhood street site', spec: 'Public domain' }
     ],
     schematicConnections: [
       { from: 'n1', to: 'n2', protocol: 'Oral Resonance', latency: 'Real-time' },
       { from: 'n2', to: 'n3', protocol: 'Consensual Shutter Release', latency: '1/125s' },
-      { from: 'n3', to: 'n4', protocol: 'Chemical Latent Development', latency: 'Darkroom' },
+      { from: 'n3', to: 'n4', protocol: 'Digital Ingest & Review', latency: 'Darkroom' },
       { from: 'n4', to: 'n5', protocol: 'Physical Installation Repatriation', latency: 'Site-Specific' }
     ],
     soundProfile: {
@@ -659,7 +659,7 @@ const RAW_ARTWORKS: Artwork[] = [
     focus: 'Prime resonances, non-trivial zeros along the critical strip (Re(s) = 1/2), quantum operator dynamics, and autonomous non-human order.',
     images: [],
     hardwareStack: [
-      'Dual RTX 6000 Ada Generation compute node',
+      'GPU-accelerated Python scientific compute workstation',
       'Ultra-short-throw 4K laser projector',
       'Monolithic matte black obsidian projection pedestal (180 × 90 × 40 cm)',
       'Piezoelectric surface transducers',

@@ -26,7 +26,7 @@ export const ARCHIVAL_COLLECTIONS: Record<string, ArchivalStudioPhoto[]> = {
       title: 'White Geisha — Studio Portraiture & Origami Hair Architecture',
       context: 'Noise Singapore Festival Exhibition, curated by National Arts Council Singapore. Archival pigment series.',
       category: 'installation',
-      metadataNote: 'Medium format analog capture; Hasselblad 500C/M, 80mm Zeiss Planar; Kodak Portra 160',
+      metadataNote: 'Digital studio capture; Nikon D1X, 50mm lens; studio strobe illumination',
       location: 'Singapore',
       aspectRatio: 'portrait'
     },
@@ -54,7 +54,7 @@ export const ARCHIVAL_COLLECTIONS: Record<string, ArchivalStudioPhoto[]> = {
       title: 'In a Perfect World — Self-Portrait, the First Participant',
       context: 'Self-portrait made as the first guinea pig of the series, testing the participatory prompt on herself before opening it to market residents and vendors. The full series of street portraits and recordings is lost to time — this is its only surviving frame.',
       category: 'process',
-      metadataNote: 'Mamiya 7II, 65mm f/4; Ilford HP5+ 400 pushed to 800; ambient natural street light',
+      metadataNote: 'Digital street capture; Nikon D1X; ambient natural street light',
       location: 'Kensington Market, Toronto',
       aspectRatio: 'portrait'
     }
@@ -366,7 +366,7 @@ export const ARCHIVAL_COLLECTIONS: Record<string, ArchivalStudioPhoto[]> = {
       title: 'Motion & Still 3,200 sq.ft Daylight Studio Sanctuary',
       context: 'Panoramic view of the expansive daylight studio facility with continuous 60-foot industrial window bank.',
       category: 'studio',
-      metadataNote: '3,200 sq.ft open studio floor; polished hardwood; southern daylight exposure',
+      metadataNote: 'Open loft studio floor; polished hardwood; southern daylight exposure',
       location: 'Motion & Still (90 Ontario), Toronto',
       aspectRatio: 'landscape'
     },
