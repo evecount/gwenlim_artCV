@@ -20,8 +20,8 @@ const RAW_ARTWORKS: Artwork[] = [
     accessionId: 'ACC.2010.01.GL',
     title: 'White Geisha & Silver Aurelia',
     subtitle: 'Curated photographic series exploring surface ornamentation, persona, and human vulnerability under institutional observation',
-    year: 2011,
-    venue: 'Noise Singapore Festival Exhibition, National Arts Council (Singapore)',
+    year: 2012,
+    venue: 'Noise Singapore Festival Exhibition, ION Orchard (Basement 4), National Arts Council (Singapore)',
     city: 'Singapore',
     category: 'participatory-optics',
     medium: 'Curated photographic series, archival pigment prints',
@@ -31,7 +31,7 @@ const RAW_ARTWORKS: Artwork[] = [
     images: [
       {
         id: 'noise-sg-img-1',
-        url: '/assets/ART_Images/white_geisha.jpg',
+        url: '/assets/ART_Images/white_geisha.webp',
         placeholderType: 'noise-sg-overview',
         viewType: 'Installation View',
         title: 'Installation View: Noise Singapore Festival Exhibition (National Arts Council)',
@@ -46,19 +46,19 @@ const RAW_ARTWORKS: Artwork[] = [
       },
       {
         id: 'noise-sg-img-2',
-        url: '/assets/ART_Images/silver_aurelia.jpg',
+        url: '/assets/ART_Images/silver-aurelia_2011_ideas-portrait.webp',
         placeholderType: 'noise-sg-apparatus',
-        viewType: 'Silver Aurelia (Diptych Part II)',
-        title: 'Silver Aurelia: Metallic Specular Reflection & Tactile Ornamentation',
-        caption: 'Exhibition diptych counterpart investigating surface ornamentation, persona, and human vulnerability under high-key directional studio illumination.',
+        viewType: 'Apparatus Detail',
+        title: 'Apparatus Detail: High-Key Strobe & Contrast Masking Rig',
+        caption: 'Studio lighting apparatus isolating porcelain skin tones and surgical specular highlights across stylized face paint and ornamentation.',
         captureMetadata: {
           camera: '80mm Portrait Prime Optic',
           exposure: 'ISO 50 · f/11 · 1/250s sync',
           lightingCondition: 'Parabolic key strobe with silver bounce reflector',
-          scale: '120 × 90 cm archival display'
+          scale: 'High-contrast studio setup'
         },
-        credit: 'Documentation: Studio Gwendalynn Lim / Noise Singapore'
-      }
+        credit: 'Documentation: Studio Gwendalynn Lim'
+      },
     ],
     hardwareStack: [
       'High-key parabolic strobe reflector & beauty dish',
@@ -71,7 +71,7 @@ const RAW_ARTWORKS: Artwork[] = [
       'Sub-pixel luminance balancing',
       'Monochrome split-toning archival workflow'
     ],
-    summary: 'Curated photographic series for Noise Singapore Festival examining surface ornamentation, persona, and human vulnerability under institutional observation.',
+    summary: 'Invited by Hexogon Solution to exhibit at Noise Singapore 2012 (16 February – 4 March, ION Orchard Basement 4), alongside the presentation "Art Critic — Nadja Sayej" — a curated series examining surface ornamentation, persona, and human vulnerability under institutional observation.',
     curatorialStatement: 'Exhibited as part of the curated Noise Singapore Festival organized by the National Arts Council (2010–2012), White Geisha and Silver Aurelia marked Lim’s seminal institutional inquiry into the politics of public viewing. By constructing highly stylized, ornamental human personas through surgical lighting control, the series investigated how the camera’s gaze transforms human flesh into a social mask, anticipating Lim’s later physical computing apparatuses interrogating observer bias and the ethics of technological looking.',
     technicalDossier: 'Utilized precision high-key continuous and strobe lighting to sculpt stark porcelain tonal values and specular highlights across metallic and white pigment surfaces. The resulting prints interrogate how high-contrast optical capture either reinforces or subverts institutional classification and public observation.',
     installationFootprint: 'Gallery wall mounting, 6.0m continuous running meter installation, archival museum framing.',
@@ -121,11 +121,11 @@ const RAW_ARTWORKS: Artwork[] = [
     images: [
       {
         id: 'perfect-world-img-1',
-        url: '/assets/ART_Images/In a Perfest World April 2010.jpg',
+        url: '/assets/ART_Images/in-a-perfect-world_2010_self-portrait.webp',
         placeholderType: 'perfectworld-overview',
-        viewType: 'Installation View',
-        title: 'Installation View: Kensington Market Street Installation',
-        caption: 'Ephemeral street-corner portraiture installation at Kensington Market, featuring medium-format contact prints pinned to brick masonry with participatory inquiry transcripts.',
+        viewType: 'Self-Portrait',
+        title: 'Self-Portrait: The Artist as First Participant',
+        caption: 'April 2010 self-portrait — Lim made herself the series\' first guinea pig, testing the participatory prompt before inviting Kensington Market passersby. The wider series of street portraits and oral-history recordings is lost to time; this is its only surviving image.',
         captureMetadata: {
           camera: 'Hasselblad 500C/M (Medium Format 120)',
           exposure: 'Ilford HP5 Plus 400 · f/5.6 · 1/125s',
@@ -133,36 +133,6 @@ const RAW_ARTWORKS: Artwork[] = [
           scale: 'Site-responsive street intervention'
         },
         credit: 'Documentation: Gwendalynn Lim Studio Archive'
-      },
-      {
-        id: 'perfect-world-img-2',
-        url: '/assets/ART_Images/Bellwoods Studio-14.jpg',
-        placeholderType: 'perfectworld-apparatus',
-        viewType: 'Apparatus Detail',
-        title: 'Apparatus Detail: Field Tape Recorder & 80mm Zeiss Planar',
-        caption: 'Analogue field recorder and medium-format camera apparatus used to capture simultaneous oral histories alongside formal street portraits.',
-        captureMetadata: {
-          camera: '35mm Summicron f/2.0',
-          exposure: 'Tri-X 400 · f/4 · 1/60s',
-          lightingCondition: 'Sidewalk overcast ambient',
-          scale: 'Apparatus kit 35 × 25 cm'
-        },
-        credit: 'Documentation: Studio Gwendalynn Lim'
-      },
-      {
-        id: 'perfect-world-img-3',
-        url: '/assets/ART_Images/In a Perfest World April 2010.jpg',
-        placeholderType: 'perfectworld-action',
-        viewType: 'Participatory Action',
-        title: 'Participatory Encounter: Kensington Market Pedestrian Dialogue',
-        caption: 'Artist conducting open-ended oral inquiry with neighborhood residents regarding collective urban memory before engaging the lens shutter.',
-        captureMetadata: {
-          camera: 'Medium Format 6×6',
-          exposure: 'ISO 400 · f/4 · 1/125s',
-          lightingCondition: 'Natural urban alley ambient',
-          scale: 'Relational civic encounter'
-        },
-        credit: 'Documentation: Kensington Cultural Commons Archive'
       }
     ],
     hardwareStack: [
@@ -226,11 +196,11 @@ const RAW_ARTWORKS: Artwork[] = [
     images: [
       {
         id: 'two-man-rule-img-1',
-        url: '/assets/ART_Images/akin4.jpg',
+        url: '/assets/ART_Images/tedxtoronto_2012_final-exhibit-opening-night.webp',
         placeholderType: 'twoman-overview',
         viewType: 'Installation View',
-        title: 'Installation View: Geodesic Dome Monocoque & Chamber',
-        caption: 'Perspective of the 4-meter hand-spun transparent packing tape geodesic dome showing the interior chamber, structural tape ribbing, and illuminated light core aperture.',
+        title: 'The Final Exhibit in Real Life — TEDxToronto Opening Night',
+        caption: 'The completed Two-Man Rule dome as visitors encountered it in real life on TEDxToronto opening night: a giant transparent ball grown from 300 rolls of clear tape over its geodesic frame, with the interior chamber and illuminated light core visible through the entrance opening.',
         captureMetadata: {
           camera: 'Canon 5D Mark II (Full Frame)',
           exposure: 'ISO 640 · f/2.8 · 1/60s',
@@ -241,33 +211,18 @@ const RAW_ARTWORKS: Artwork[] = [
       },
       {
         id: 'two-man-rule-img-2',
-        url: '/assets/ART_Images/Two Man Rule button hardware.jpg',
-        placeholderType: 'twoman-apparatus',
-        viewType: 'Apparatus Detail',
-        title: 'Apparatus Detail: Dual Palm Actuator & Relay Interlock',
-        caption: 'Detail of machined dual brass/steel palm plates mounted at opposite perimeters, wired into a solid-state coincidence logic circuit.',
-        captureMetadata: {
-          camera: '50mm Prime f/1.8',
-          exposure: 'ISO 400 · f/4 · 1/125s',
-          lightingCondition: 'Point-source LED indicator beacon',
-          scale: 'Actuator terminal 25 × 25 cm'
-        },
-        credit: 'Documentation: Studio Gwendalynn Lim'
-      },
-      {
-        id: 'two-man-rule-img-3',
-        url: '/assets/ART_Images/TWO MAN RULE - Banner.png',
+        url: '/assets/ART_Images/two-man-rule_banner-linkedin.webp',
         placeholderType: 'twoman-action',
         viewType: 'Participatory Action',
-        title: 'Participatory Action: Two Strangers Actuating Consensus & Banner Protocol',
-        caption: 'Exhibition protocol banner and participants reaching across the spatial divide to maintain concurrent contact, fulfilling the two-man rule protocol.',
+        title: 'Exhibition Protocol Banner',
+        caption: 'Wide banner-format graphic of the two-operator consensus protocol: "TWO-MAN RULE [TMR] is a social media installation debuting at TEDx Toronto 2012." Shown on the live site only — omitted from the downloadable portfolio.',
         captureMetadata: {
-          camera: '35mm Prime f/1.4',
-          exposure: 'ISO 800 · f/2.0 · 1/80s',
-          lightingCondition: 'Strobe discharge through translucent tape skin',
+          camera: 'Graphic design asset',
+          exposure: 'Vector lettering, banner format',
+          lightingCondition: 'N/A — typographic banner',
           scale: 'Over 2,200 recorded consensus events'
         },
-        credit: 'Documentation: TEDxToronto'
+        credit: 'Design: Studio Gwendalynn Lim'
       }
     ],
     hardwareStack: [
@@ -332,7 +287,7 @@ const RAW_ARTWORKS: Artwork[] = [
     images: [
       {
         id: 'broadcast-people-img-1',
-        url: '/assets/ART_Images/FAT_01.jpg',
+        url: '/assets/ART_Images/fat-2012_participants-01.webp',
         placeholderType: 'broadcast-overview',
         viewType: 'Installation View',
         title: 'Installation View: |FAT| Opening & Audience Interaction',
@@ -347,7 +302,7 @@ const RAW_ARTWORKS: Artwork[] = [
       },
       {
         id: 'broadcast-people-img-2',
-        url: '/assets/ART_Images/FAT_02.jpg',
+        url: '/assets/ART_Images/fat-2012_participants-02.webp',
         placeholderType: 'broadcast-apparatus',
         viewType: 'Apparatus Detail',
         title: 'Apparatus Detail: Real-Time Closed-Circuit Delay Feed',
@@ -362,7 +317,7 @@ const RAW_ARTWORKS: Artwork[] = [
       },
       {
         id: 'broadcast-people-img-3',
-        url: '/assets/ART_Images/FAT_05.jpg',
+        url: '/assets/ART_Images/fat-2012_participants-05.webp',
         placeholderType: 'broadcast-action',
         viewType: 'Participatory Action',
         title: 'Participatory Action: Real-Time Delay Matrix Engagement',
@@ -436,11 +391,11 @@ const RAW_ARTWORKS: Artwork[] = [
     images: [
       {
         id: 'ultimate-selfie-img-1',
-        url: '/assets/ART_Images/Ultimate Selfie.jpg',
+        url: '/assets/ART_Images/motion-and-still_2013_todo-afterparty-poster.webp',
         placeholderType: 'selfie-overview',
         viewType: 'Installation View',
-        title: 'Installation View: Ultimate Selfie Interactive Pavilion',
-        caption: 'Exterior view of the interactive timber pavilion and camera rig projecting monumental inverted participant faces.',
+        title: 'Toronto Design Offsite (TO DO) — Ultimate Selfie Afterparty Poster',
+        caption: 'Poster for the Ultimate Selfie afterparty staged as part of the Toronto Design Offsite (TO DO) festival — a separate presentation from the IIDEX exhibition.',
         captureMetadata: {
           camera: 'Full-Frame 28mm f/2.8',
           exposure: 'ISO 800 · f/4 · 1/60s',
@@ -451,7 +406,7 @@ const RAW_ARTWORKS: Artwork[] = [
       },
       {
         id: 'ultimate-selfie-img-2',
-        url: '/assets/ART_Images/IIDEX Toronto event.jpg',
+        url: '/assets/ART_Images/IIDEX Toronto event.webp',
         placeholderType: 'selfie-apparatus',
         viewType: 'Apparatus Detail',
         title: 'Apparatus Detail: IIDEX Interactive Pavilion Architecture',
@@ -466,7 +421,7 @@ const RAW_ARTWORKS: Artwork[] = [
       },
       {
         id: 'ultimate-selfie-img-3',
-        url: '/assets/ART_Images/studio_20141118_112314.jpg',
+        url: '/assets/ART_Images/studio_20141118_112314.webp',
         placeholderType: 'pavilions-action',
         viewType: 'Participatory Action',
         title: 'Apparatus Bench: DSLR Shutter Actuation Bench & Custom Rig',
@@ -538,53 +493,7 @@ const RAW_ARTWORKS: Artwork[] = [
     dimensions: '1800 × 1200 × 420 cm (Multi-room warehouse conversion)',
     provenance: '52 St. Lawrence, Toronto',
     focus: 'Optical counter-surveillance, blinding automated capture, and carving physical privacy sanctuaries out of public space.',
-    images: [
-      {
-        id: 'deconstructing-capital-img-1',
-        url: '/assets/ART_Images/studio_20190527_201216.jpg',
-        placeholderType: 'deconstruct-overview',
-        viewType: 'Installation View',
-        title: 'Installation View: Neon Magenta Optical Flood Array (52 St. Lawrence)',
-        caption: 'Spatial overview of the warehouse installation showing suspended retroreflective scrims and directional high-lumen optical flood array.',
-        captureMetadata: {
-          camera: 'Full-Frame 24mm f/2.8',
-          exposure: 'ISO 200 · f/4 · 1/125s',
-          lightingCondition: '12kW Aggregate Directional Tungsten & Magenta Wash',
-          scale: '18 × 12 m Bay'
-        },
-        credit: 'Documentation: Studio Gwendalynn Lim'
-      },
-      {
-        id: 'deconstructing-capital-img-2',
-        url: '/assets/ART_Images/studio_20191101_201721.jpg',
-        placeholderType: 'deconstruct-apparatus',
-        viewType: 'Apparatus Detail',
-        title: 'Apparatus Detail: Optical Jamming Camera Rig & Specular Calibration',
-        caption: 'Optical jamming camera rig and specular reflection calibration engineered to reflect beam photons directly into camera irises.',
-        captureMetadata: {
-          camera: '85mm Prime f/1.4',
-          exposure: 'ISO 100 · f/5.6 · 1/250s',
-          lightingCondition: '45,000 Lux Incident Point Source',
-          scale: 'Detail 1:1'
-        },
-        credit: 'Documentation: Studio Gwendalynn Lim'
-      },
-      {
-        id: 'deconstructing-capital-img-3',
-        url: '/assets/ART_Images/concert_20200228_190337.jpg',
-        placeholderType: 'deconstruct-action',
-        viewType: 'Participatory Action',
-        title: 'Participatory Action: High-Lux Stage & Flood Counter-Optics',
-        caption: 'High-lux stage and flood lighting counter-optics research traversing the boundary between camera detection and complete whiteout clipping.',
-        captureMetadata: {
-          camera: '35mm Summicron',
-          exposure: 'ISO 400 · f/2.8 · 1/100s',
-          lightingCondition: 'Directional Chiaroscuro',
-          scale: 'Live performance sanctuary'
-        },
-        credit: 'Documentation: Studio Gwendalynn Lim'
-      }
-    ],
+    images: [],
     hardwareStack: [
       '6× Arri 2kW Fresnel high-directional wash lights',
       'Automated DMX-512 lighting console with custom micro-controller override',
@@ -646,7 +555,7 @@ const RAW_ARTWORKS: Artwork[] = [
     images: [
       {
         id: 'collective-img-1',
-        url: '/assets/ART_Images/studio_20141218_084153.jpg',
+        url: '/assets/ART_Images/studio_20141218_084153.webp',
         placeholderType: 'collective-overview',
         viewType: 'Installation View',
         title: 'Daylight Studio Sanctuary: 90 Ontario & Industrial Rigging',
@@ -661,7 +570,7 @@ const RAW_ARTWORKS: Artwork[] = [
       },
       {
         id: 'collective-img-2',
-        url: '/assets/ART_Images/motionandstill.jpg',
+        url: '/assets/ART_Images/motion-and-still_2015_crew-team.webp',
         placeholderType: 'collective-apparatus',
         viewType: 'Apparatus Detail',
         title: 'Motion & Still Creative Collective & Studio Family',
@@ -676,11 +585,11 @@ const RAW_ARTWORKS: Artwork[] = [
       },
       {
         id: 'collective-img-3',
-        url: '/assets/ART_Images/Flick the Switch event.jpg',
+        url: '/assets/ART_Images/flick-the-switch_2019_blitz-exterior.webp',
         placeholderType: 'collective-action',
         viewType: 'Participatory Action',
-        title: 'Flick the Switch Artists Collective & Community Showcase',
-        caption: 'Community cultural gathering and mutual aid exhibition organized with Susan Stewart and collective members.',
+        title: 'Flick the Switch Interactive Art Event at Blitz Art Gallery',
+        caption: 'Exterior of the Blitz Art Gallery show Lim volunteered at with Susan Stewart and collective members — an interactive art event with proceeds donated to SickKids Hospital.',
         captureMetadata: {
           camera: '28mm f/2.8',
           exposure: 'ISO 800 · f/2.8 · 1/60s',
@@ -748,53 +657,7 @@ const RAW_ARTWORKS: Artwork[] = [
     dimensions: '600 × 450 × 320 cm (Site-responsive spatial installation)',
     provenance: 'Independent Computational Practice / Sovereign Quantum Research (evecount/riemann_hypothesis)',
     focus: 'Prime resonances, non-trivial zeros along the critical strip (Re(s) = 1/2), quantum operator dynamics, and autonomous non-human order.',
-    images: [
-      {
-        id: 'riemann-manifold-img-1',
-        url: '',
-        placeholderType: 'riemann-overview',
-        viewType: 'Installation Concept',
-        title: 'Plate 01: Obsidian Plinth & 4096-Dim Laser Projection Manifold',
-        caption: 'Spatial conceptual blueprint showing the monolithic matte black obsidian pedestal casting 4096-dimensional Riemannian manifold projections onto suspended optical fibers.',
-        captureMetadata: {
-          camera: 'Computational Simulation',
-          exposure: 'GLSL / 60 FPS Engine',
-          lightingCondition: 'Direct 4K Laser Raster & Micro-Fiber Glow',
-          scale: '600 × 450 × 320 cm'
-        },
-        credit: 'Computational Blueprint: evecount/riemann_hypothesis (2026 Proposal)'
-      },
-      {
-        id: 'riemann-manifold-img-2',
-        url: '',
-        placeholderType: 'riemann-apparatus',
-        viewType: 'Apparatus Schematic',
-        title: 'Plate 02: Transducer Plinth & RTX 6000 Inference Node',
-        caption: 'Technical schematic of low-frequency surface transducers embedded within the basalt plinth, converting non-trivial zeta zero distributions into 38Hz–94Hz acoustic vibrations.',
-        captureMetadata: {
-          camera: 'Hardware Schematic',
-          exposure: 'Piezoelectric / 45Hz',
-          lightingCondition: 'Sub-surface LED diagnostic channel',
-          scale: '180 × 90 cm plinth detail'
-        },
-        credit: 'Technical Architecture: evecount/riemann_hypothesis'
-      },
-      {
-        id: 'riemann-manifold-img-3',
-        url: '',
-        placeholderType: 'riemann-action',
-        viewType: 'Participatory Encounter',
-        title: 'Plate 03: Spectator at the Critical Strip (Re(s) = 1/2)',
-        caption: 'Visitor navigating the acoustic perimeter, observing generative prime interference patterns converge along the critical line Re(s) = 1/2.',
-        captureMetadata: {
-          camera: 'Spatial Encounter',
-          exposure: 'Quantum Chaos Resonances',
-          lightingCondition: 'Laser bounce ambient',
-          scale: 'Human scale interaction'
-        },
-        credit: 'Spatial Modeling: Studio Gwendalynn Lim'
-      }
-    ],
+    images: [],
     hardwareStack: [
       'Dual RTX 6000 Ada Generation compute node',
       'Ultra-short-throw 4K laser projector',

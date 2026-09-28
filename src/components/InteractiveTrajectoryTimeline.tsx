@@ -36,14 +36,14 @@ export const InteractiveTrajectoryTimeline: React.FC<InteractiveTrajectoryTimeli
     setActiveMilestoneIndex(0);
   }, [activeCategory]);
 
-  const currentMilestone: TrajectoryMilestone = filteredMilestones[activeMilestoneIndex] || filteredMilestones[0];
+  const currentMilestone = (filteredMilestones[activeMilestoneIndex] || filteredMilestones[0]) as TrajectoryMilestone;
 
   // Identify current epoch based on active milestone year
-  const currentEpoch: TrajectoryEpoch = useMemo(() => {
+  const currentEpoch: TrajectoryEpoch = useMemo((): TrajectoryEpoch => {
     const year = currentMilestone?.year || 2010;
     return (
-      TRAJECTORY_EPOCHS.find(e => year >= e.startYear && year <= e.endYear) ||
-      TRAJECTORY_EPOCHS[0]
+      (TRAJECTORY_EPOCHS.find(e => year >= e.startYear && year <= e.endYear) ||
+      TRAJECTORY_EPOCHS[0]!) as TrajectoryEpoch
     );
   }, [currentMilestone]);
 

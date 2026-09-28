@@ -25,6 +25,8 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
   const [individualPlateModes, setIndividualPlateModes] = useState<Record<string, 'photos' | 'schematics'>>({});
   const [imageFitMode, setImageFitMode] = useState<'fit' | 'fill'>('fill');
   const [individualFitModes, setIndividualFitModes] = useState<Record<string, 'fit' | 'fill'>>({});
+  const [isExporting, setIsExporting] = useState<boolean>(false);
+  const [copiedNotification, setCopiedNotification] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const printRef = useRef<HTMLDivElement>(null);
 
@@ -54,7 +56,8 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
 
   // Reset page and lock body scroll when opened
   useEffect(() => {
-    if (isOpen) {
+    if (!isOpen) return undefined;
+    {
       setCurrentPage(1);
       const origBodyOverflow = document.body.style.overflow;
       const origHtmlOverflow = document.documentElement.style.overflow;
@@ -532,8 +535,7 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
               ========================================================================= */}
           {ARTWORKS.map((art, idx) => {
             const pageNum = idx + 2;
-            const isRiemann = art.id === 'riemann-manifold';
-            const effectiveMode = individualPlateModes[art.id] || (isRiemann ? 'blueprint' : plateVisualMode);
+            const effectiveMode = individualPlateModes[art.id] || plateVisualMode;
             const effectiveFit = getEffectiveFitMode(art.id);
             const heroImg = art.images[0];
             const detailImg1 = art.images[1];
@@ -560,20 +562,14 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
 
                   {/* Discrete switcher for individual plate (no-print) */}
                   <div className="flex items-center gap-2 no-print">
-                    {isRiemann ? (
-                      <span className="px-2 py-0.5 rounded-xs text-[10px] bg-neutral-950 text-cyan-300 border border-neutral-800 font-mono-code font-semibold">
-                        📐 Proposal Blueprint (2026)
-                      </span>
-                    ) : (
-                      <button
-                        onClick={() => toggleIndividualPlateMode(art.id)}
-                        className="px-2.5 py-1 rounded-xs text-[10px] bg-neutral-100 hover:bg-neutral-200 border border-neutral-300 text-neutral-800 transition-colors flex items-center gap-1.5 cursor-pointer font-medium"
-                        title="Toggle between archival photograph and blueprint schematic"
-                      >
-                        <span>{effectiveMode === 'photos' ? '📷 Photo' : '📐 Blueprint'}</span>
-                        <span className="text-[10px] text-neutral-900 font-bold border-b border-neutral-900">Flip ⇄</span>
-                      </button>
-                    )}
+                    <button
+                      onClick={() => toggleIndividualPlateMode(art.id)}
+                      className="px-2.5 py-1 rounded-xs text-[10px] bg-neutral-100 hover:bg-neutral-200 border border-neutral-300 text-neutral-800 transition-colors flex items-center gap-1.5 cursor-pointer font-medium"
+                      title="Toggle between archival photograph and blueprint schematic"
+                    >
+                      <span>{effectiveMode === 'photos' ? '📷 Photo' : '📐 Blueprint'}</span>
+                      <span className="text-[10px] text-neutral-900 font-bold border-b border-neutral-900">Flip ⇄</span>
+                    </button>
 
                     <button
                       onClick={() => toggleIndividualFitMode(art.id)}
@@ -652,76 +648,10 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
                       </div>
                     </div>
 
-                    {/* Inset Stills (Lower 32%): Dual Inset Stills OR Single Companion Diptych Panel */}
-                    {detailImg2 ? (
-                      <div className="grid grid-cols-2 gap-3 h-28 sm:h-32 shrink-0">
-                        {/* Inset Detail 1: Apparatus / Mechanical Core */}
-                        <div className="bg-black rounded-xs overflow-hidden border border-neutral-800 flex flex-col justify-between relative">
-                          <div className="relative flex flex-col items-center justify-center w-full h-full overflow-hidden bg-neutral-950">
-                            {effectiveMode === 'photos' && detailImg1?.url ? (
-                              <>
-                                <img
-                                  src={resolveAsset(detailImg1.url)}
-                                  alt=""
-                                  aria-hidden="true"
-                                  className="absolute inset-0 w-full h-full object-cover blur-xl opacity-30 scale-110 pointer-events-none select-none"
-                                />
-                                <img
-                                  src={resolveAsset(detailImg1.url)}
-                                  alt={detailImg1.title || 'Apparatus Detail'}
-                                  className={`relative z-1 ${
-                                    effectiveFit === 'fill'
-                                      ? 'w-full h-full object-cover object-center'
-                                      : 'max-h-full w-auto max-w-full object-contain mx-auto'
-                                  }`}
-                                />
-                              </>
-                            ) : (
-                              <div className="w-full h-full flex items-center justify-center">
-                                <PlaceholderGraphic plateType={detailImg1?.placeholderType || 'riemann-apparatus'} />
-                              </div>
-                            )}
-                          </div>
-                          <div className="p-1 bg-neutral-900 text-white text-[8px] font-mono-code border-t border-neutral-800 truncate shrink-0 z-10">
-                            <span className="font-bold text-neutral-300">INSET 1:</span> {detailImg1?.title || 'Apparatus Detail'}
-                          </div>
-                        </div>
-
-                        {/* Inset Detail 2: Action / Relational Co-presence */}
-                        <div className="bg-black rounded-xs overflow-hidden border border-neutral-800 flex flex-col justify-between relative">
-                          <div className="relative flex flex-col items-center justify-center w-full h-full overflow-hidden bg-neutral-950">
-                            {effectiveMode === 'photos' && detailImg2?.url ? (
-                              <>
-                                <img
-                                  src={resolveAsset(detailImg2.url)}
-                                  alt=""
-                                  aria-hidden="true"
-                                  className="absolute inset-0 w-full h-full object-cover blur-xl opacity-30 scale-110 pointer-events-none select-none"
-                                />
-                                <img
-                                  src={resolveAsset(detailImg2.url)}
-                                  alt={detailImg2.title || 'Participatory Action'}
-                                  className={`relative z-1 ${
-                                    effectiveFit === 'fill'
-                                      ? 'w-full h-full object-cover object-center'
-                                      : 'max-h-full w-auto max-w-full object-contain mx-auto'
-                                  }`}
-                                />
-                              </>
-                            ) : (
-                              <div className="w-full h-full flex items-center justify-center">
-                                <PlaceholderGraphic plateType={detailImg2?.placeholderType || 'riemann-action'} />
-                              </div>
-                            )}
-                          </div>
-                          <div className="p-1 bg-neutral-900 text-white text-[8px] font-mono-code border-t border-neutral-800 truncate shrink-0 z-10">
-                            <span className="font-bold text-neutral-300">INSET 2:</span> {detailImg2?.title || 'Participatory Action'}
-                          </div>
-                        </div>
-                      </div>
-                    ) : detailImg1 ? (
-                      /* Single Full-Width Diptych Companion Panel (e.g. Plate 01: Silver Aurelia) */
-                      <div className="h-28 sm:h-32 shrink-0 bg-black rounded-xs overflow-hidden border border-neutral-800 flex flex-col justify-between relative">
+                    {/* Inset Stills (Lower 32%): Apparatus Detail & Participatory Encounter */}
+                    <div className="grid grid-cols-2 gap-3 h-28 sm:h-32 shrink-0">
+                      {/* Inset Detail 1: Apparatus / Mechanical Core */}
+                      <div className="bg-black rounded-xs overflow-hidden border border-neutral-800 flex flex-col justify-between relative">
                         <div className="relative flex flex-col items-center justify-center w-full h-full overflow-hidden bg-neutral-950">
                           {effectiveMode === 'photos' && detailImg1?.url ? (
                             <>
@@ -729,11 +659,11 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
                                 src={resolveAsset(detailImg1.url)}
                                 alt=""
                                 aria-hidden="true"
-                                className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-35 scale-110 pointer-events-none select-none"
+                                className="absolute inset-0 w-full h-full object-cover blur-xl opacity-30 scale-110 pointer-events-none select-none"
                               />
                               <img
                                 src={resolveAsset(detailImg1.url)}
-                                alt={detailImg1.title || 'Diptych Companion'}
+                                alt={detailImg1.title || 'Apparatus Detail'}
                                 className={`relative z-1 ${
                                   effectiveFit === 'fill'
                                     ? 'w-full h-full object-cover object-center'
@@ -747,17 +677,43 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
                             </div>
                           )}
                         </div>
-                        <div className="p-1.5 bg-neutral-900 text-white text-[9px] font-mono-code border-t border-neutral-800 flex items-center justify-between shrink-0 z-10">
-                          <div className="truncate pr-2">
-                            <span className="font-bold text-neutral-300">DIPTYCH COUNTERPART:</span>{' '}
-                            <span>{detailImg1?.title || 'Silver Aurelia'}</span>
-                          </div>
-                          <span className="text-neutral-400 text-[8px] shrink-0 font-mono-code">
-                            {effectiveMode === 'photos' ? (detailImg1?.captureMetadata?.scale || '120 × 90 cm') : 'Technical Schema'}
-                          </span>
+                        <div className="p-1 bg-neutral-900 text-white text-[8px] font-mono-code border-t border-neutral-800 truncate shrink-0 z-10">
+                          <span className="font-bold text-neutral-300">INSET 1:</span> {detailImg1?.title || 'Apparatus Detail'}
                         </div>
                       </div>
-                    ) : null}
+
+                      {/* Inset Detail 2: Action / Relational Co-presence */}
+                      <div className="bg-black rounded-xs overflow-hidden border border-neutral-800 flex flex-col justify-between relative">
+                        <div className="relative flex flex-col items-center justify-center w-full h-full overflow-hidden bg-neutral-950">
+                          {effectiveMode === 'photos' && detailImg2?.url ? (
+                            <>
+                              <img
+                                src={resolveAsset(detailImg2.url)}
+                                alt=""
+                                aria-hidden="true"
+                                className="absolute inset-0 w-full h-full object-cover blur-xl opacity-30 scale-110 pointer-events-none select-none"
+                              />
+                              <img
+                                src={resolveAsset(detailImg2.url)}
+                                alt={detailImg2.title || 'Participatory Action'}
+                                className={`relative z-1 ${
+                                  effectiveFit === 'fill'
+                                    ? 'w-full h-full object-cover object-center'
+                                    : 'max-h-full w-auto max-w-full object-contain mx-auto'
+                                }`}
+                              />
+                            </>
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center">
+                              <PlaceholderGraphic plateType={detailImg2?.placeholderType || 'riemann-action'} />
+                            </div>
+                          )}
+                        </div>
+                        <div className="p-1 bg-neutral-900 text-white text-[8px] font-mono-code border-t border-neutral-800 truncate shrink-0 z-10">
+                          <span className="font-bold text-neutral-300">INSET 2:</span> {detailImg2?.title || 'Participatory Action'}
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
                   {/* RIGHT COLUMN (40% WIDTH): Title, Metadata, Theoretical Inquiry, Stack */}

@@ -14,6 +14,7 @@ import { ARTWORKS } from '../data/portfolioData';
 import { Artwork } from '../types/portfolio';
 import { DocumentaryImagePlate } from './DocumentaryImagePlate';
 import { getArtworkImages } from '../utils/imageStore';
+import type { ArtworkImage } from '../types/portfolio';
 
 interface HeroSlidingGalleryProps {
   artworks?: Artwork[];
@@ -38,9 +39,9 @@ export const HeroSlidingGallery: React.FC<HeroSlidingGalleryProps> = ({
   // If currentIndex === 0, it is the Overview Grid (01/09).
   // If currentIndex >= 1, it is artwork at index (currentIndex - 1).
   const isOverviewSlide = currentIndex === 0;
-  const activeArtwork = isOverviewSlide ? artworks[0] : (artworks[currentIndex - 1] || artworks[0]);
+  const activeArtwork = (isOverviewSlide ? artworks[0] : (artworks[currentIndex - 1] || artworks[0])) as Artwork;
   const activeImages = getArtworkImages(activeArtwork.id, activeArtwork.images);
-  const currentImage = activeImages[activePlateIndex] || activeImages[0];
+  const currentImage = (activeImages[activePlateIndex] || activeImages[0]) as ArtworkImage;
 
   // Reset active plate sub-index when slide advances
   useEffect(() => {
@@ -212,7 +213,7 @@ export const HeroSlidingGallery: React.FC<HeroSlidingGalleryProps> = ({
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                   {artworks.map((art, idx) => {
                     const artImgs = getArtworkImages(art.id, art.images);
-                    const thumb = artImgs[0];
+                    const thumb = artImgs[0] as ArtworkImage;
                     return (
                       <div
                         key={art.id}
@@ -246,7 +247,7 @@ export const HeroSlidingGallery: React.FC<HeroSlidingGalleryProps> = ({
                         {/* Minimalist gallery bottom label */}
                         <div className="relative z-10 bg-gradient-to-t from-black/95 via-black/75 to-transparent p-2 pt-4 -mx-2 -mb-2 pointer-events-none">
                           <p className="text-[11px] font-serif-display font-medium text-white line-clamp-1 group-hover/tile:text-blue-300 transition-colors">
-                            {art.title.split('(')[0].trim()}
+                            {art.title.split('(')[0]!.trim()}
                           </p>
                         </div>
                       </div>
@@ -632,11 +633,11 @@ export const HeroSlidingGallery: React.FC<HeroSlidingGalleryProps> = ({
                   </div>
 
                   <p className="text-xs font-serif-display font-medium line-clamp-1 leading-snug">
-                    {art.title.split('(')[0].trim()}
+                    {art.title.split('(')[0]!.trim()}
                   </p>
 
                   <div className="mt-1 text-[9px] font-mono-code text-neutral-500 truncate">
-                    {art.studioLineage?.split('(')[0].trim() || art.venue}
+                    {art.studioLineage?.split('(')[0]!.trim() || art.venue}
                   </div>
 
                   {isSelected && (

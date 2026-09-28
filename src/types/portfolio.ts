@@ -24,7 +24,7 @@ export interface ArtworkImage {
   url?: string;
   title: string;
   caption: string;
-  viewType: 'Installation View' | 'Apparatus Detail' | 'Participatory Action' | 'Spatial Context';
+  viewType: 'Installation View' | 'Apparatus Detail' | 'Participatory Action' | 'Spatial Context' | 'Self-Portrait';
   placeholderType: 
     | 'riemann-overview'
     | 'riemann-apparatus'

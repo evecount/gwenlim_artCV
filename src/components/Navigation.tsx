@@ -1,192 +1,66 @@
 import React, { useState } from 'react';
-import { FileText, Menu, X, Sparkles, Printer } from 'lucide-react';
-import { DossierPreset } from './CuratorialDossierPdfModal';
+import { Menu, X, Download } from 'lucide-react';
+import { Link } from '@tanstack/react-router';
 
 interface NavigationProps {
-  activeTab: 'works' | 'statement' | 'timeline' | 'cv' | 'sam-residency';
-  onSelectTab: (tab: 'works' | 'statement' | 'timeline' | 'cv' | 'sam-residency') => void;
   onOpenAppliedPractice: () => void;
   onOpenContact: () => void;
-  onTriggerPrint: (preset?: DossierPreset) => void;
+  onTriggerPrint: () => void;
 }
 
-export const Navigation: React.FC<NavigationProps> = ({
-  activeTab,
-  onSelectTab,
-  onOpenAppliedPractice,
-  onOpenContact,
-  onTriggerPrint
-}) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+const NAV_LINKS = [
+  { to: '/cv', label: 'CV' },
+  { to: '/timeline', label: 'Timeline' },
+  { to: '/statement', label: 'Statement' },
+  { to: '/residency', label: 'Residency' },
+] as const;
 
-  const handleTabClick = (tab: 'works' | 'statement' | 'timeline' | 'cv' | 'sam-residency') => {
-    onSelectTab(tab);
-    setMobileMenuOpen(false);
-  };
+export const Navigation: React.FC<NavigationProps> = () => {
+  const [open, setOpen] = useState(false);
+  const linkCls = 'font-mono-code text-[11px] uppercase tracking-[0.18em] text-muted-foreground hover:text-foreground transition-colors';
+  const active = { className: 'text-foreground' };
 
   return (
-    <header className="sticky top-0 z-40 bg-[#F3EDE2]/95 backdrop-blur-md border-b border-[#E2D7C3] shadow-[0_2px_12px_rgba(40,30,20,0.03)] transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
-        
-        {/* Zone 1: Wordmark */}
-        <button
-          onClick={() => handleTabClick('statement')}
-          className="text-left group cursor-pointer focus:outline-none shrink-0"
-        >
-          <div className="flex items-baseline gap-2 whitespace-nowrap">
-            <span className="text-base sm:text-lg font-bold tracking-tight text-neutral-950 group-hover:text-neutral-700 transition-colors">
-              Gwendalynn Lim
-            </span>
-            <span className="text-xs font-medium text-neutral-500 hidden sm:inline-block">
-              林婉婷
-            </span>
-            <span className="text-[11px] text-neutral-400 tracking-wider hidden lg:inline-block font-medium">
-              · 2010—2026
-            </span>
-          </div>
-          <div className="text-[10px] text-neutral-500 tracking-wider uppercase block font-medium">
-            Installation, Physical Computing, and Media-Arts Practice
-          </div>
-        </button>
+    <header className="sticky top-0 z-40 bg-background/95 backdrop-blur border-b border-border">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between gap-6">
+        <Link to="/" onClick={() => setOpen(false)} className="flex items-baseline gap-2">
+          <span className="font-serif-display text-xl text-foreground">Gwendalynn Lim</span>
+          <span className="text-xs text-muted-foreground">林婉婷</span>
+        </Link>
 
-        {/* Zone 2: Three Main Elements Navigation Links */}
-        <nav className="hidden md:flex items-center gap-6 text-xs tracking-wider uppercase text-neutral-600 font-medium">
-          <button
-            onClick={() => handleTabClick('works')}
-            className={`transition-colors py-1 cursor-pointer flex items-center gap-1.5 ${
-              activeTab === 'works' || activeTab === 'statement' ? 'text-neutral-950 font-bold border-b-2 border-neutral-950' : 'hover:text-neutral-950'
-            }`}
+        <nav className="hidden md:flex items-center gap-8">
+          {NAV_LINKS.map((l) => (
+            <Link key={l.to} to={l.to} className={linkCls} activeProps={active}>
+              {l.label}
+            </Link>
+          ))}
+          <Link
+            to="/portfolio"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-mono-code text-[11px] uppercase tracking-[0.18em] hover:bg-highlight transition-colors"
           >
-            <span>Portfolio</span>
-          </button>
-          
-          <button
-            onClick={() => handleTabClick('cv')}
-            className={`transition-colors py-1 cursor-pointer flex items-center gap-1.5 ${
-              activeTab === 'cv' ? 'text-neutral-950 font-bold border-b-2 border-neutral-950' : 'hover:text-neutral-950'
-            }`}
-          >
-            <span>Black & White CV</span>
-          </button>
-
-          <button
-            onClick={() => handleTabClick('timeline')}
-            className={`transition-colors py-1 cursor-pointer flex items-center gap-1.5 ${
-              activeTab === 'timeline' ? 'text-neutral-950 font-bold border-b-2 border-neutral-950' : 'hover:text-neutral-950'
-            }`}
-          >
-            <span>Timeline</span>
-          </button>
+            <Download className="w-3.5 h-3.5" /> Portfolio PDF
+          </Link>
         </nav>
 
-        {/* Zone 3: Direct Actions & Export */}
-        <div className="flex items-center gap-2 shrink-0">
-          <a
-            href="mailto:gwenlynn.lim@gmail.com"
-            className="hidden sm:inline-flex px-3 py-1.5 text-xs font-semibold text-neutral-700 hover:text-neutral-950 bg-neutral-100 hover:bg-neutral-200 border border-neutral-300 rounded-lg transition-colors items-center gap-1.5"
-            title="Email Gwen directly"
-          >
-            <span>✉️ Contact</span>
-          </a>
-
-          <button
-            onClick={() => onTriggerPrint('portfolio')}
-            className="px-3.5 py-1.5 text-xs font-mono-code text-white bg-neutral-950 hover:bg-neutral-800 active:bg-black rounded-lg transition-all whitespace-nowrap cursor-pointer flex items-center gap-1.5 font-semibold shadow-xs"
-            title="Download 10-Page Curatorial Portfolio (PDF)"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-blue-300" />
-            <span>Export Portfolio</span>
-          </button>
-          {/* Mobile / Compact Menu Toggle Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-1.5 text-neutral-700 hover:text-neutral-950 hover:bg-neutral-100 rounded border border-neutral-250 transition-colors cursor-pointer"
-            aria-label="Toggle navigation menu"
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
-        </div>
-
+        <button className="md:hidden p-2 text-foreground" onClick={() => setOpen(!open)} aria-label="Toggle menu">
+          {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
       </div>
 
-      {/* Mobile / Compact Dropdown Navigation Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-neutral-200 bg-white/98 backdrop-blur-md px-4 py-4 space-y-3 shadow-lg">
-          <div className="flex flex-col space-y-2 text-xs font-mono-code uppercase tracking-wider text-neutral-700">
-            <button
-              onClick={() => handleTabClick('statement')}
-              className={`text-left py-2 px-3 rounded transition-colors ${
-                activeTab === 'statement' ? 'bg-neutral-950 text-white font-bold' : 'hover:bg-neutral-100'
-              }`}
-            >
-              Exhibition & Selected Works
-            </button>
-            <button
-              onClick={() => handleTabClick('works')}
-              className={`text-left py-2 px-3 rounded transition-colors ${
-                activeTab === 'works' ? 'bg-neutral-950 text-white font-bold' : 'hover:bg-neutral-100'
-              }`}
-            >
-              Selected Works (8 Major Works)
-            </button>
-            <button
-              onClick={() => handleTabClick('timeline')}
-              className={`text-left py-2 px-3 rounded transition-colors flex items-center justify-between ${
-                activeTab === 'timeline' ? 'bg-cyan-800 text-white font-bold' : 'hover:bg-neutral-100'
-              }`}
-            >
-              <span>Trajectory Timeline</span>
-              <span className="text-[10px] px-1.5 py-0.2 rounded bg-neutral-200/50 text-neutral-900">16 Yrs</span>
-            </button>
-            <button
-              onClick={() => handleTabClick('cv')}
-              className={`text-left py-2 px-3 rounded transition-colors ${
-                activeTab === 'cv' ? 'bg-neutral-950 text-white font-bold' : 'hover:bg-neutral-100'
-              }`}
-            >
-              Curriculum Vitae
-            </button>
-            <button
-              onClick={() => handleTabClick('sam-residency')}
-              className={`text-left py-2 px-3 rounded transition-colors flex items-center justify-between ${
-                activeTab === 'sam-residency' ? 'bg-blue-700 text-white font-bold' : 'hover:bg-neutral-100 text-blue-700'
-              }`}
-            >
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse inline-block" />
-                <span>Future Work</span>
-              </div>
-              <span className={`text-[10px] px-1.5 py-0.2 rounded font-mono-code font-bold ${
-                activeTab === 'sam-residency' ? 'bg-white/20 text-white' : 'bg-blue-50 text-blue-800'
-              }`}>
-                2026
-              </span>
-            </button>
-          </div>
-
-          {/* Quick Export Action in Mobile Menu */}
-          <div className="pt-2 border-t border-neutral-200 flex flex-col gap-2">
-            <button
-              onClick={() => {
-                onTriggerPrint('portfolio');
-                setMobileMenuOpen(false);
-              }}
-              className="w-full py-2 px-3 bg-neutral-950 text-white rounded text-xs font-mono-code font-bold flex items-center justify-center gap-2 shadow-sm"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-blue-300" />
-              <span>Export Portfolio (PDF)</span>
-            </button>
-
-            <button
-              onClick={() => {
-                onOpenAppliedPractice();
-                setMobileMenuOpen(false);
-              }}
-              className="w-full py-1.5 text-center text-xs font-mono-code text-neutral-500 hover:text-neutral-800"
-            >
-              Archive: Applied Commercial Practice (2014–2020)
-            </button>
-          </div>
+      {open && (
+        <div className="md:hidden border-t border-border px-5 py-4 flex flex-col gap-4 bg-background">
+          {NAV_LINKS.map((l) => (
+            <Link key={l.to} to={l.to} onClick={() => setOpen(false)} className={linkCls} activeProps={active}>
+              {l.label}
+            </Link>
+          ))}
+          <Link
+            to="/portfolio"
+            onClick={() => setOpen(false)}
+            className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-primary text-primary-foreground font-mono-code text-[11px] uppercase tracking-[0.18em]"
+          >
+            <Download className="w-3.5 h-3.5" /> Portfolio PDF
+          </Link>
         </div>
       )}
     </header>

@@ -28,10 +28,10 @@ export const ArchivalPhotoLightboxModal: React.FC<ArchivalPhotoLightboxModalProp
         onClose();
       } else if (e.key === 'ArrowLeft') {
         const idx = allPhotos.findIndex(p => p.id === photo.id);
-        if (idx > 0) onNavigate(allPhotos[idx - 1]);
+        if (idx > 0) onNavigate(allPhotos[idx - 1]!);
       } else if (e.key === 'ArrowRight') {
         const idx = allPhotos.findIndex(p => p.id === photo.id);
-        if (idx < allPhotos.length - 1) onNavigate(allPhotos[idx + 1]);
+        if (idx < allPhotos.length - 1) onNavigate(allPhotos[idx + 1]!);
       }
     };
 
@@ -78,7 +78,7 @@ export const ArchivalPhotoLightboxModal: React.FC<ArchivalPhotoLightboxModalProp
         {/* Previous Button */}
         {currentIndex > 0 && (
           <button
-            onClick={() => onNavigate(allPhotos[currentIndex - 1])}
+            onClick={() => onNavigate(allPhotos[currentIndex - 1]!)}
             className="absolute left-2 sm:left-4 z-10 w-10 h-10 rounded-full bg-neutral-900/80 hover:bg-blue-600 text-white flex items-center justify-center transition-all cursor-pointer shadow-lg"
             title="Previous photograph (Left Arrow)"
           >
@@ -89,7 +89,7 @@ export const ArchivalPhotoLightboxModal: React.FC<ArchivalPhotoLightboxModalProp
         {/* Next Button */}
         {currentIndex < allPhotos.length - 1 && (
           <button
-            onClick={() => onNavigate(allPhotos[currentIndex + 1])}
+            onClick={() => onNavigate(allPhotos[currentIndex + 1]!)}
             className="absolute right-2 sm:right-4 z-10 w-10 h-10 rounded-full bg-neutral-900/80 hover:bg-blue-600 text-white flex items-center justify-center transition-all cursor-pointer shadow-lg"
             title="Next photograph (Right Arrow)"
           >
@@ -156,12 +156,7 @@ const LightboxImage: React.FC<{ photo: ArchivalStudioPhoto; displayUrl: string }
     const cleanName = photo.filename.trim();
     return [
       resolveAsset(displayUrl),
-      resolveAsset(`/assets/ART_Images/${cleanName}.jpg`),
-      resolveAsset(`/assets/ART_Images/${cleanName}.JPG`),
-      resolveAsset(`/assets/ART_Images/${cleanName}.png`),
-      resolveAsset(`/assets/ART_Images/${cleanName}.PNG`),
-      resolveAsset(`/assets/ART_Images/${cleanName}.jpeg`),
-      resolveAsset(`/assets/ART_Images/${cleanName}`),
+      resolveAsset(`/assets/ART_Images/${cleanName}.webp`),
       resolveAsset(photo.url)
     ].filter((v, i, a) => Boolean(v) && a.indexOf(v) === i);
   }, [displayUrl, photo.filename, photo.url]);

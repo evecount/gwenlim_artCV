@@ -59,7 +59,7 @@ export const TRAJECTORY_EPOCHS: TrajectoryEpoch[] = [
     startYear: 2014,
     endYear: 2023,
     tagline: 'Directing Motion and Still Inc., continuous lighting physics & cultural sanctuaries',
-    description: 'Founded and operated a multi-camera daylight facility at 90 Ontario; hosted Sofar Sounds acoustic concerts, funded indie filmmakers, and executed material redistribution.'
+    description: 'Founded and operated a network of overlapping Toronto live/work studios for photography, art, pop-ups, classes, performances, and community resource-sharing.'
   },
   {
     id: 'epoch-4',
@@ -82,6 +82,46 @@ export const TRAJECTORY_EPOCHS: TrajectoryEpoch[] = [
 ];
 
 export const TRAJECTORY_MILESTONES: TrajectoryMilestone[] = [
+  {
+    id: 'm-2008-studio-incubator',
+    year: 2008,
+    yearDisplay: '2008 — 2010',
+    title: 'Studio Apprenticeship: The Lens Factory & Westside Studio',
+    category: 'studio-infrastructure',
+    categoryLabel: 'Formative Studio Strategy & Operations',
+    venueOrContext: 'The Lens Factory / Westside Studio',
+    location: 'Toronto, Canada',
+    role: 'Business Planning / Full-Time Studio Assistant',
+    summary: 'While navigating the Canadian immigration process, Lim used the waiting period as a two-year creative incubator: improving the business plan for Leonard van Bruggen’s photographic art gallery while assisting Shanghoon full-time at Westside Studio.',
+    technicalDossier: [
+      'The Lens Factory, 2008–2009: photographic gallery business planning with Leonard van Bruggen',
+      'Westside Studio, 2008–2010: full-time studio assistance and marketing strategy with Shanghoon',
+      'Creative concepts developed during the Westside period were published'
+    ],
+    significance: 'Established the operational and strategic foundation for the independent studios Lim would later build and direct.',
+    associatedLinkType: 'cv',
+    badgeColor: 'border-emerald-500/40 text-emerald-400 bg-emerald-950/20'
+  },
+  {
+    id: 'm-2010-press-assignments',
+    year: 2010,
+    yearDisplay: 'June — October 2010',
+    title: 'Three Landmark Toronto Press Assignments',
+    category: 'civic-advocacy',
+    categoryLabel: 'Accredited Photojournalism',
+    venueOrContext: 'G20 Toronto Summit / Royal Tour / Dalai Lama Toronto Visit',
+    location: 'Toronto, Canada',
+    role: 'Press Photographer',
+    summary: 'Within five months, Lim photographed three major international visits in Toronto: President Barack Obama at the G20 Summit, Queen Elizabeth II during her 22nd Royal Tour, and His Holiness the 14th Dalai Lama during his three-day visit.',
+    technicalDossier: [
+      'June 2010 — President Barack Obama at the G20 Toronto Summit',
+      'July 2010 — Queen Elizabeth II during a dense Toronto programme spanning St. James Cathedral, Woodbine Racetrack, Queen’s Park, and a dinner hosted by Prime Minister Stephen Harper at Pinewood Toronto Studios',
+      'October 2010 — His Holiness the 14th Dalai Lama during the visit that included an address to 18,000 people at Rogers Centre and the inauguration of the Tibetan Canadian Cultural Centre'
+    ],
+    significance: 'These surviving photographs document the scale and access of Lim’s early field practice before she moved into editorial leadership at Toronto Social Review.',
+    associatedLinkType: 'cv',
+    badgeColor: 'border-purple-500/40 text-purple-400 bg-purple-950/20'
+  },
   {
     id: 'm-2010-perfect-world',
     year: 2010,
@@ -123,6 +163,27 @@ export const TRAJECTORY_MILESTONES: TrajectoryMilestone[] = [
     associatedArtworkId: 'noise-singapore',
     associatedLinkType: 'artwork',
     badgeColor: 'border-amber-500/40 text-amber-400 bg-amber-950/20'
+  },
+  {
+    id: 'm-2011-toronto-social-review',
+    year: 2011,
+    yearDisplay: '2011 — 2014',
+    title: 'Toronto Social Review: Editorial Leadership',
+    category: 'studio-infrastructure',
+    categoryLabel: 'Editorial Systems & Cultural Documentation',
+    venueOrContext: 'Toronto Social Review',
+    location: 'Toronto, Canada',
+    role: 'Editor in Chief',
+    summary: 'Built and directed an editorial operation covering approximately 350 events across Toronto’s film, art, gallery, gala, and charity circuits, evolving earlier field photojournalism into a coordinated cultural media system.',
+    technicalDossier: [
+      'Directed correspondent logistics across TIFF, Fashion Art Toronto, CBCMusic.ca Festival, The Pages Festival, theatre premieres, Nuit Blanche, and civic galas',
+      'Managed complex media accreditation, exclusive access, and business development',
+      'Developed interactive editorial formats that increased readership and revenue by 30%',
+      'Built on 60–80 earlier SNAP Downtown Toronto field assignments, including JUNO Week and Bloor Street Entertains'
+    ],
+    significance: 'Connected on-the-ground cultural documentation with large-scale editorial direction, audience growth, and sustainable media operations.',
+    associatedLinkType: 'cv',
+    badgeColor: 'border-emerald-500/40 text-emerald-400 bg-emerald-950/20'
   },
   {
     id: 'm-2012-akin-collective',
@@ -236,23 +297,44 @@ export const TRAJECTORY_MILESTONES: TrajectoryMilestone[] = [
   {
     id: 'm-2014-motion-and-still',
     year: 2014,
-    yearDisplay: '2014 — 2023',
-    title: 'Motion and Still Inc.: Daylight Facility & Production Sanctuary',
+    yearDisplay: '2014 — 2024',
+    title: 'Motion and Still: A Network of Live/Work Studios',
     category: 'studio-infrastructure',
     categoryLabel: 'Spatial Infrastructure & Optical Cinematography',
-    venueOrContext: '90 Ontario Street Studio Facility',
+    venueOrContext: '90 Ontario · 77 Florence · 52 St Lawrence · 53 Gladstone',
     location: 'Toronto, Canada',
     role: 'Founder & Creative Director',
-    summary: 'Directed a multi-disciplinary visual production studio and spatial facility specializing in high-end optical cinematography, continuous lighting physics, and interactive brand activations.',
+    summary: 'Directed several overlapping Toronto studios rather than a single fixed facility. Each was a working home for photography, content production, art, classes, pop-ups, performances, and the informal life between them.',
     technicalDossier: [
-      '3,500 sq ft daylight studio with 18-foot ceilings & 3-phase 100A camlock power',
-      'Arri HMI continuous lighting, precision camera track dollies & optical gantry',
-      'Hosted Sofar Sounds acoustic salon series & pro bono indie film residencies',
-      'Redistributed staging assets to 101 Ontario Refugee Network & Nellie’s Shelter'
+      '403–90 Ontario Street: primary address by February 2019; redevelopment later forced a move in which the full artist catalogue was lost',
+      'Unit 301, 77 Florence Street: skylit studio opened in March 2020 and renewed in 2021 despite the difficult timing',
+      'Unit 308, 52 St Lawrence Street: 2020–2024, the final Toronto studio, filled with plants and the accumulated joys of earlier spaces',
+      '53 Gladstone Avenue: overlapping live/work studio, April 2022–April 2023'
     ],
-    significance: 'Proved operational scale, physical build mastery, and heavy electrical engineering, establishing an independent resource engine for the Toronto arts community.',
+    significance: 'Together, the studios formed a flexible cultural infrastructure for making, paid production, gatherings, mutual aid, and shared access across a decade of Toronto practice.',
     associatedLinkType: 'applied-practice',
     badgeColor: 'border-emerald-500/40 text-emerald-400 bg-emerald-950/20'
+  },
+  {
+    id: 'm-2014-community-stewardship',
+    year: 2014,
+    yearDisplay: '2014 — 2024',
+    title: 'Community Stewardship & Pro Bono Production',
+    category: 'civic-advocacy',
+    categoryLabel: 'Direct Aid · Non-Profit Production · Grassroots Incubation',
+    venueOrContext: 'Motion and Still Studio Network',
+    location: 'Toronto, Canada',
+    role: 'Studio Steward & Pro Bono Production Lead',
+    summary: 'Converted commercial studio infrastructure into a sustained mutual-aid resource, donating space, furniture, equipment, and production services across Toronto’s shelter, non-profit, refugee-support, and grassroots arts networks.',
+    technicalDossier: [
+      'Direct community aid to Nellie’s Shelter, Toronto Humane Society, and the Salvation Army through furniture, equipment, and production-service donations',
+      'Pro bono visual and production support for Kerry’s Place Autism Services and Habitat for Humanity',
+      'Fundraisers, refugee-support activity, and professional studio access for communities and organizers otherwise priced out of commercial production',
+      'Equipment redistribution to Charles Street Video, extending studio assets into accessible community media production'
+    ],
+    significance: 'Made community stewardship an operational practice rather than a side program: the same infrastructure that served major commercial clients also remained available for direct aid, advocacy, and grassroots incubation.',
+    associatedLinkType: 'cv',
+    badgeColor: 'border-purple-500/40 text-purple-400 bg-purple-950/20'
   },
   {
     id: 'm-2019-flick-the-switch',
@@ -398,6 +480,28 @@ export const TRAJECTORY_MILESTONES: TrajectoryMilestone[] = [
     significance: 'Bridges deep speculative theory with industrial hardware realization, placing Lim at the frontier of sovereign post-cloud computational design.',
     associatedLinkType: 'cv',
     badgeColor: 'border-cyan-500/40 text-cyan-400 bg-cyan-950/20'
+  },
+  {
+    id: 'm-2026-hackathon-recognition',
+    year: 2026,
+    yearDisplay: '2026',
+    title: 'Current AI Architecture & Community Systems: AICO First Place & SAIA Best UX',
+    category: 'civic-advocacy',
+    categoryLabel: 'Applied AI · Community Technology & Agentic Frameworks',
+    venueOrContext: 'Microsoft AICO 2026 Ideathon / Singapore AI Association (SAIA) Hack for Humanity',
+    location: 'Singapore',
+    role: 'Systems Architect & UX Lead',
+    summary: 'Two 2026 hackathon recognitions: First Place at the Microsoft AICO Ideathon for a dual-agent, open-data financial-literacy system (with Nadeetha Wahalathanthri), and Honorable Mention (Best UX) at SAIA Hack for Humanity for LobangKaki (甘榜通) — a voice-first, no-sign-in community assistant bridging technological access gaps across four languages.',
+    technicalDossier: [
+      'Microsoft AICO 2026 Ideathon (First Place): dual-agent system integrated with open data for financial literacy',
+      'LobangKaki (SAIA, Best UX): voice-first Web Speech interface with spoken replies in English/Singlish, Mandarin, Malay, and Tamil',
+      'No account, no download, zero PII — designed for seniors excluded by app stores, logins, and English-only portals',
+      '"No phantom deals" trust model: physical stall grounding (~100 m), volunteer community chop, automatic anomaly withdrawal',
+      'Hyperlocal grounding to 123 real hawker centres from Data.gov.sg; React 19 + TanStack Start (Repo: evecount/lobangkaki)'
+    ],
+    significance: 'Directly translates a decade-long ethos of community mutual aid into modern agentic frameworks — technology judged first by how tactile and usable it is for the people it serves.',
+    associatedLinkType: 'cv',
+    badgeColor: 'border-purple-500/40 text-purple-400 bg-purple-950/20'
   },
   {
     id: 'm-2026-sam-proposal',

@@ -20,8 +20,7 @@ export const ClassicalArtworkMosaic: React.FC<ClassicalArtworkMosaicProps> = ({
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [imgError, setImgError] = useState(false);
-  const isFutureProject = artwork.id === 'riemann-manifold' || !artwork.images.some(img => img.url);
-  const [viewMode, setViewMode] = useState<'photo' | 'plate'>(isFutureProject ? 'plate' : 'photo');
+  const [viewMode, setViewMode] = useState<'photo' | 'plate'>('photo');
   const [imageFitMode, setImageFitMode] = useState<'fit' | 'fill'>('fill');
 
   // Sync with imageStore updates
@@ -38,7 +37,7 @@ export const ClassicalArtworkMosaic: React.FC<ClassicalArtworkMosaicProps> = ({
     setImgError(false);
   }, [activeImageIndex]);
 
-  const activeImage = images[activeImageIndex] || images[0];
+  const activeImage = (images[activeImageIndex] || images[0]) as ArtworkImage;
 
   const handleOpenLightbox = (index: number) => {
     if (onOpenLightboxExternal) {
@@ -55,7 +54,7 @@ export const ClassicalArtworkMosaic: React.FC<ClassicalArtworkMosaicProps> = ({
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
           <span className="font-semibold text-neutral-900 uppercase tracking-wide">
-            {isFutureProject ? 'Research Blueprint Plates & Structural Context' : 'Installation Plates & Visual Context'}
+            Installation Plates & Visual Context
           </span>
           <span className="text-neutral-400">·</span>
           <span className="text-neutral-600">
@@ -63,36 +62,29 @@ export const ClassicalArtworkMosaic: React.FC<ClassicalArtworkMosaicProps> = ({
           </span>
         </div>
         <div className="flex items-center gap-2 text-[11px] text-neutral-600">
-          {isFutureProject ? (
-            <div className="flex items-center gap-1.5 px-2.5 py-1 bg-cyan-950 text-cyan-300 border border-cyan-800/70 rounded text-[10px] font-mono-code font-semibold">
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-              <span>Architectural Blueprint Plate (Project In Progress · 2026)</span>
-            </div>
-          ) : (
-            /* Toggle between Real Photograph and Structural Plate */
-            <div className="flex items-center bg-neutral-100 p-0.5 rounded border border-neutral-250">
-              <button
-                onClick={() => setViewMode('photo')}
-                className={`px-2.5 py-0.5 rounded text-[10px] font-mono-code transition-colors cursor-pointer flex items-center gap-1 ${
-                  viewMode === 'photo'
-                    ? 'bg-neutral-950 text-white font-bold shadow-xs'
-                    : 'text-neutral-600 hover:text-neutral-900'
-                }`}
-              >
-                <span>📷 Real Photograph</span>
-              </button>
-              <button
-                onClick={() => setViewMode('plate')}
-                className={`px-2.5 py-0.5 rounded text-[10px] font-mono-code transition-colors cursor-pointer flex items-center gap-1 ${
-                  viewMode === 'plate'
-                    ? 'bg-cyan-500 text-black font-bold shadow-xs'
-                    : 'text-neutral-600 hover:text-neutral-900'
-                }`}
-              >
-                <span>📐 Structural Plate</span>
-              </button>
-            </div>
-          )}
+          {/* Toggle between Real Photograph and Structural Plate */}
+          <div className="flex items-center bg-neutral-100 p-0.5 rounded border border-neutral-250">
+            <button
+              onClick={() => setViewMode('photo')}
+              className={`px-2.5 py-0.5 rounded text-[10px] font-mono-code transition-colors cursor-pointer flex items-center gap-1 ${
+                viewMode === 'photo'
+                  ? 'bg-neutral-950 text-white font-bold shadow-xs'
+                  : 'text-neutral-600 hover:text-neutral-900'
+              }`}
+            >
+              <span>📷 Real Photograph</span>
+            </button>
+            <button
+              onClick={() => setViewMode('plate')}
+              className={`px-2.5 py-0.5 rounded text-[10px] font-mono-code transition-colors cursor-pointer flex items-center gap-1 ${
+                viewMode === 'plate'
+                  ? 'bg-cyan-500 text-black font-bold shadow-xs'
+                  : 'text-neutral-600 hover:text-neutral-900'
+              }`}
+            >
+              <span>📐 Structural Plate</span>
+            </button>
+          </div>
         </div>
       </div>
 

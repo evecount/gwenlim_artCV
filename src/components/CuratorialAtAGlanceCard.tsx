@@ -16,9 +16,9 @@ import {
 import { ARTIST_INFO, SAM_RESIDENCY_ALIGNMENT } from '../data/portfolioData';
 
 interface CuratorialAtAGlanceCardProps {
-  onNavigateToTab?: (tab: 'statement' | 'works' | 'timeline' | 'cv' | 'sam-residency') => void;
-  onOpenPdfModal?: (preset?: 'residency' | 'standard' | 'cv-only' | 'full') => void;
-  onOpenAppliedPractice?: () => void;
+  onNavigateToTab?: ((tab: 'statement' | 'works' | 'timeline' | 'cv' | 'sam-residency') => void) | undefined;
+  onOpenPdfModal?: ((preset?: 'residency' | 'standard' | 'cv-only' | 'full') => void) | undefined;
+  onOpenAppliedPractice?: (() => void) | undefined;
 }
 
 export const CuratorialAtAGlanceCard: React.FC<CuratorialAtAGlanceCardProps> = ({

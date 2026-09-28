@@ -545,7 +545,7 @@ export const ArtworkVisualPlate: React.FC<ArtworkVisualPlateProps> = ({
               <div className="p-2 bg-amber-950/40 border border-amber-800/50 rounded">
                 <div className="text-[10px] font-mono-code font-bold text-amber-400">2011–2015</div>
                 <div className="text-[9px] text-neutral-300 mt-0.5">Akin Collective</div>
-                <div className="text-[8px] text-neutral-500 font-mono-code">#LOVELOCAL · TMR</div>
+                <div className="text-[8px] text-neutral-500 font-mono-code">TMR</div>
               </div>
               <div className="p-2 bg-amber-950/60 border border-amber-600/60 rounded">
                 <div className="text-[10px] font-mono-code font-bold text-amber-300">2014–2023</div>

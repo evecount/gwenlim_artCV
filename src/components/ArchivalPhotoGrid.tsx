@@ -193,12 +193,7 @@ const ArchivalPhotoCard: React.FC<ArchivalPhotoCardProps> = ({
     const cleanName = photo.filename.trim();
     return [
       resolveAsset(displayUrl),
-      resolveAsset(`/assets/ART_Images/${cleanName}.jpg`),
-      resolveAsset(`/assets/ART_Images/${cleanName}.JPG`),
-      resolveAsset(`/assets/ART_Images/${cleanName}.png`),
-      resolveAsset(`/assets/ART_Images/${cleanName}.PNG`),
-      resolveAsset(`/assets/ART_Images/${cleanName}.jpeg`),
-      resolveAsset(`/assets/ART_Images/${cleanName}`),
+      resolveAsset(`/assets/ART_Images/${cleanName}.webp`),
       resolveAsset(photo.url)
     ].filter((v, i, a) => Boolean(v) && a.indexOf(v) === i);
   }, [displayUrl, hasCustomUpload, photo.filename, photo.url]);

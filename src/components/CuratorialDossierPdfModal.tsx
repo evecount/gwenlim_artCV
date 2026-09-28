@@ -10,6 +10,7 @@ import {
 } from '../data/portfolioData';
 import { Artwork } from '../types/portfolio';
 import { getArtworkImages } from '../utils/imageStore';
+import type { ArtworkImage } from '../types/portfolio';
 import { DocumentaryImagePlate } from './DocumentaryImagePlate';
 import {
   Printer,
@@ -136,7 +137,8 @@ export const CuratorialDossierPdfModal: React.FC<CuratorialDossierPdfModalProps>
 
   // Sync with initialPreset whenever opened and lock background scroll
   useEffect(() => {
-    if (isOpen) {
+    if (!isOpen) return undefined;
+    {
       handleApplyPreset(initialPreset);
       const origBodyOverflow = document.body.style.overflow;
       const origHtmlOverflow = document.documentElement.style.overflow;
@@ -802,7 +804,7 @@ export const CuratorialDossierPdfModal: React.FC<CuratorialDossierPdfModalProps>
                 <div className="space-y-8">
                   {ARTWORKS.map((art, index) => {
                     const artImages = getArtworkImages(art.id, art.images);
-                    const primaryImage = artImages[0];
+                    const primaryImage = artImages[0] as ArtworkImage;
                     return (
                       <article
                         key={art.id}
