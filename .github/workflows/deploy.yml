@@ -35,7 +35,16 @@ jobs:
         run: npm ci
 
       - name: Build application
-        run: npm run build
+        run: |
+          npm run build
+          mkdir -p ./dist
+          if [ -d "./.output/public" ]; then
+            cp -r ./.output/public/. ./dist/
+          fi
+          if [ -f "./dist/index.html" ]; then
+            cp ./dist/index.html ./dist/404.html
+          fi
+          touch ./dist/.nojekyll
         env:
           NODE_ENV: production
 
