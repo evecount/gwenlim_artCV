@@ -24,34 +24,42 @@ export const DocumentaryImagePlate: React.FC<DocumentaryImagePlateProps> = ({
 
   return (
     <div
-      className={`relative group bg-[#070709] border border-neutral-800 rounded-lg overflow-hidden transition-all ${
-        compact ? 'hover:border-neutral-700' : 'border-neutral-800'
+      className={`relative group ${
+        compact
+          ? 'bg-[#1F1B17] border-0 rounded-t-xl overflow-hidden transition-all'
+          : 'bg-[#070709] border border-neutral-800 rounded-lg overflow-hidden transition-all'
       }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Archival Frame Header Bar */}
-      <div className="flex items-center justify-between px-3.5 py-2 bg-[#09090c] border-b border-neutral-850 text-[10px] font-mono-code text-neutral-400 select-none">
+      <div
+        className={`flex items-center justify-between px-3.5 py-1.5 ${
+          compact
+            ? 'bg-[#26211C] border-b border-[#3D352D] text-[10px] font-mono-code text-[#B8AA96]'
+            : 'bg-[#09090c] border-b border-neutral-850 text-[10px] font-mono-code text-neutral-400'
+        } select-none`}
+      >
         <div className="flex items-center gap-2">
-          <span className="text-neutral-300 font-semibold">
+          <span className={compact ? 'text-[#EDE5D8] font-bold tracking-wider' : 'text-neutral-300 font-semibold'}>
             PLATE 0{index + 1}
           </span>
-          <span className="text-neutral-600">/</span>
-          <span className="text-neutral-400 uppercase tracking-wider">
+          <span className={compact ? 'text-[#6E6455]' : 'text-neutral-600'}>/</span>
+          <span className={`${compact ? 'text-[#C2B5A3]' : 'text-neutral-400'} uppercase tracking-wider`}>
             {image.viewType}
           </span>
         </div>
 
         <div className="flex items-center gap-2.5">
           {preferPlateGraphic ? (
-            <span className="text-cyan-400/90 text-[9px] uppercase tracking-wider flex items-center gap-1 font-medium">
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+            <span className="text-amber-400/90 text-[9px] uppercase tracking-wider flex items-center gap-1 font-medium">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
               Structural Plate
             </span>
           ) : (
-            <span className="text-blue-400/90 text-[9px] uppercase tracking-wider flex items-center gap-1 font-medium">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-              Curatorial Archive
+            <span className="text-emerald-400/90 text-[9px] uppercase tracking-wider flex items-center gap-1 font-medium">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              Archival View
             </span>
           )}
         </div>
@@ -59,61 +67,65 @@ export const DocumentaryImagePlate: React.FC<DocumentaryImagePlateProps> = ({
 
       {/* Main Image or Documentary Placeholder Visual Canvas */}
       <div
-        className="relative w-full aspect-[16/10] sm:aspect-[16/9] bg-[#050507] cursor-pointer overflow-hidden flex items-center justify-center select-none"
+        className={`relative w-full aspect-[16/10] sm:aspect-[16/9] ${
+          compact ? 'bg-[#141210]' : 'bg-[#050507]'
+        } cursor-pointer overflow-hidden flex items-center justify-center select-none`}
         onClick={() => onOpenLightbox && onOpenLightbox(index)}
       >
         {!preferPlateGraphic && image.url && !imgError ? (
           /* Real Image Display with Archival Mount (Prevents low-res stretching) */
-          <div className="relative w-full h-full flex items-center justify-center bg-[#060608] p-1 sm:p-2 overflow-hidden">
-            {/* Soft blurred background to frame non-16:9 images gracefully without harsh black bars */}
+          <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+            {/* Luminous soft background to frame non-16:9 images gracefully without harsh black bars */}
             <img
               src={image.url}
               alt=""
               aria-hidden="true"
-              className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-15 scale-110 pointer-events-none"
+              className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 scale-125 pointer-events-none"
             />
             {/* The crisp, un-stretched original photograph */}
             <img
               src={image.url}
               alt={image.title}
               onError={() => setImgError(true)}
-              className="relative max-h-full max-w-full object-contain z-10 rounded shadow-md group-hover:scale-[1.01] transition-transform duration-300"
+              className="relative max-h-full max-w-full object-contain z-10 rounded shadow-md group-hover:scale-105 transition-transform duration-500 ease-out"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none z-20" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/10 pointer-events-none z-20" />
           </div>
         ) : (
           /* Museum-Grade Documentary Technical Graphic Placeholder (Provides Portfolio Structure) */
           <PlaceholderGraphic plateType={image.placeholderType} />
         )}
 
-        {/* Viewfinder Overlay Markings (Corner Crop & Center Crosshair) */}
-        <div className="absolute inset-0 pointer-events-none p-3 flex flex-col justify-between opacity-40 group-hover:opacity-75 transition-opacity">
-          <div className="flex justify-between items-start">
-            <div className="w-3.5 h-3.5 border-t border-l border-neutral-400" />
-            <div className="text-[9px] font-mono-code text-neutral-500 tracking-widest uppercase">
-              16:9 35mm
+        {/* Viewfinder Overlay Markings (Corner Crop & Center Crosshair) - Shown only in expanded view */}
+        {!compact && (
+          <div className="absolute inset-0 pointer-events-none p-3 flex flex-col justify-between opacity-40 group-hover:opacity-75 transition-opacity">
+            <div className="flex justify-between items-start">
+              <div className="w-3.5 h-3.5 border-t border-l border-neutral-400" />
+              <div className="text-[9px] font-mono-code text-neutral-500 tracking-widest uppercase">
+                16:9 35mm
+              </div>
+              <div className="w-3.5 h-3.5 border-t border-r border-neutral-400" />
             </div>
-            <div className="w-3.5 h-3.5 border-t border-r border-neutral-400" />
-          </div>
 
-          {/* Subtle center crosshairs */}
-          <div className="self-center flex items-center justify-center">
-            <div className="w-4 h-[1px] bg-neutral-600/70" />
-            <div className="w-[1px] h-4 bg-neutral-600/70 -ml-2" />
-          </div>
-
-          <div className="flex justify-between items-end">
-            <div className="w-3.5 h-3.5 border-b border-l border-neutral-400" />
-            <div className="text-[9px] font-mono-code text-neutral-500">
-              FRAME REF: 0{index + 1}
+            {/* Subtle center crosshairs */}
+            <div className="self-center flex items-center justify-center">
+              <div className="w-4 h-[1px] bg-neutral-600/70" />
+              <div className="w-[1px] h-4 bg-neutral-600/70 -ml-2" />
             </div>
-            <div className="w-3.5 h-3.5 border-b border-r border-neutral-400" />
+
+            <div className="flex justify-between items-end">
+              <div className="w-3.5 h-3.5 border-b border-l border-neutral-400" />
+              <div className="text-[9px] font-mono-code text-neutral-500">
+                FRAME REF: 0{index + 1}
+              </div>
+              <div className="w-3.5 h-3.5 border-b border-r border-neutral-400" />
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Click to Enlarge / Lightbox Trigger hint */}
-        <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-neutral-900/90 text-neutral-200 text-[10px] font-mono-code px-2.5 py-1 rounded border border-neutral-700/80 backdrop-blur-sm pointer-events-none">
-          Click to Expand Plate ↗
+        <div className="absolute bottom-2.5 left-2.5 opacity-0 group-hover:opacity-100 transition-opacity bg-[#1C1917]/90 text-[#F3EDE2] text-[10px] font-mono-code px-2 py-0.5 rounded border border-[#443E37] backdrop-blur-md pointer-events-none z-30 flex items-center gap-1 shadow-sm">
+          <span>Expand Plate ↗</span>
         </div>
       </div>
 

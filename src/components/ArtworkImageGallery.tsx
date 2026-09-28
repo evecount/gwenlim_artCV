@@ -33,7 +33,7 @@ export const ArtworkImageGallery: React.FC<ArtworkImageGalleryProps> = ({
   const activeImage = images[activeImageIndex] || images[0];
 
   if (compact) {
-    // Compact card preview with 1-3 image thumbnail cycle (uses structural plate graphics on grid)
+    // Compact card preview with real photographic plates and multi-image switcher
     return (
       <div className="relative group">
         <DocumentaryImagePlate
@@ -43,47 +43,36 @@ export const ArtworkImageGallery: React.FC<ArtworkImageGalleryProps> = ({
           totalImages={images.length}
           compact={true}
           allowReplace={false}
-          preferPlateGraphic={preferPlateGraphic !== undefined ? preferPlateGraphic : true}
+          preferPlateGraphic={preferPlateGraphic !== undefined ? preferPlateGraphic : false}
           onOpenLightbox={(idx) => setLightboxIndex(idx)}
         />
 
         {/* Thumbnail switcher pills on card */}
-        <div
-          className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between pointer-events-auto"
-          onClick={e => e.stopPropagation()}
-        >
-          {images.length > 1 ? (
-            <div className="flex items-center gap-1.5 bg-black/85 backdrop-blur-sm px-2 py-1 rounded border border-neutral-800 text-[10px] font-mono-code text-neutral-300">
-              <span className="text-neutral-400">Plate:</span>
-              {images.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setActiveImageIndex(i);
-                  }}
-                  className={`w-4 h-4 rounded text-[9px] flex items-center justify-center transition-all cursor-pointer ${
-                    i === activeImageIndex
-                      ? 'bg-cyan-400 text-black font-bold'
-                      : 'bg-neutral-800 text-neutral-400 hover:text-white'
-                  }`}
-                  aria-label={`View plate 0${i + 1}`}
-                >
-                  {i + 1}
-                </button>
-              ))}
-            </div>
-          ) : (
-            <span className="bg-black/85 backdrop-blur-sm px-2 py-0.5 rounded border border-neutral-800 text-[9px] font-mono-code text-cyan-300">
-              Structural Plate 01
-            </span>
-          )}
-
-          <span className="bg-black/85 backdrop-blur-sm px-2 py-1 rounded border border-neutral-800 text-[9px] font-mono-code text-neutral-300 flex items-center gap-1">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-            <span>Photos Inside →</span>
-          </span>
-        </div>
+        {images.length > 1 && (
+          <div
+            className="absolute bottom-2.5 right-2.5 flex items-center gap-1 bg-[#1C1917]/85 backdrop-blur-md px-2 py-1 rounded-md border border-[#3E3830] text-[10px] font-mono-code text-[#E8DFD1] pointer-events-auto shadow-sm"
+            onClick={e => e.stopPropagation()}
+          >
+            <span className="text-[#A89C8A] text-[9px] uppercase tracking-wider mr-0.5">Plate</span>
+            {images.map((_, i) => (
+              <button
+                key={i}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveImageIndex(i);
+                }}
+                className={`w-4 h-4 rounded text-[9px] flex items-center justify-center transition-all cursor-pointer ${
+                  i === activeImageIndex
+                    ? 'bg-[#EAE1D2] text-[#1C1917] font-bold shadow-xs'
+                    : 'bg-[#2E2822] text-[#A89C8A] hover:text-[#FDFAF5]'
+                }`}
+                aria-label={`View plate 0${i + 1}`}
+              >
+                {i + 1}
+              </button>
+            ))}
+          </div>
+        )}
 
         {lightboxIndex !== null && (
           <ImageLightboxModal
