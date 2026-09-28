@@ -79,11 +79,19 @@ export const Navigation: React.FC<NavigationProps> = ({
           </button>
         </nav>
 
-        {/* Zone 3: Single Direct Export Button */}
-        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+        {/* Zone 3: Direct Actions & Export */}
+        <div className="flex items-center gap-2 shrink-0">
+          <a
+            href="mailto:gwenlynn.lim@gmail.com"
+            className="hidden sm:inline-flex px-3 py-1.5 text-xs font-semibold text-neutral-700 hover:text-neutral-950 bg-neutral-100 hover:bg-neutral-200 border border-neutral-300 rounded-lg transition-colors items-center gap-1.5"
+            title="Email Gwen directly"
+          >
+            <span>✉️ Contact</span>
+          </a>
+
           <button
             onClick={() => onTriggerPrint('portfolio')}
-            className="px-3.5 py-1.5 text-xs font-mono-code text-white bg-neutral-950 hover:bg-neutral-800 active:bg-black rounded transition-all whitespace-nowrap cursor-pointer flex items-center gap-1.5 font-semibold shadow-xs"
+            className="px-3.5 py-1.5 text-xs font-mono-code text-white bg-neutral-950 hover:bg-neutral-800 active:bg-black rounded-lg transition-all whitespace-nowrap cursor-pointer flex items-center gap-1.5 font-semibold shadow-xs"
             title="Download 10-Page Curatorial Portfolio (PDF)"
           >
             <Sparkles className="w-3.5 h-3.5 text-blue-300" />

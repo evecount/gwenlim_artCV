@@ -39,7 +39,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fafaf9] text-neutral-900 flex flex-col font-sans selection:bg-neutral-900 selection:text-white">
+    <div className="min-h-screen bg-[#FAF8F5] text-neutral-900 flex flex-col font-sans selection:bg-neutral-900 selection:text-white">
       {/* Primary Top Bar Navigation */}
       <Navigation
         activeTab={activeTab}
@@ -58,6 +58,7 @@ export default function App() {
               artworks={ARTWORKS}
               onSelectArtwork={setSelectedArtwork}
               onOpenPortfolioPdf={() => handleOpenPortfolioPdf()}
+              onNavigateToCv={() => setActiveTab('cv')}
             />
           </div>
         )}
