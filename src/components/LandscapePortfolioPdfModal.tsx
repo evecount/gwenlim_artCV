@@ -532,7 +532,8 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
               ========================================================================= */}
           {ARTWORKS.map((art, idx) => {
             const pageNum = idx + 2;
-            const effectiveMode = individualPlateModes[art.id] || plateVisualMode;
+            const isRiemann = art.id === 'riemann-manifold';
+            const effectiveMode = individualPlateModes[art.id] || (isRiemann ? 'blueprint' : plateVisualMode);
             const effectiveFit = getEffectiveFitMode(art.id);
             const heroImg = art.images[0];
             const detailImg1 = art.images[1];
@@ -559,14 +560,20 @@ export const LandscapePortfolioPdfModal: React.FC<LandscapePortfolioPdfModalProp
 
                   {/* Discrete switcher for individual plate (no-print) */}
                   <div className="flex items-center gap-2 no-print">
-                    <button
-                      onClick={() => toggleIndividualPlateMode(art.id)}
-                      className="px-2.5 py-1 rounded-xs text-[10px] bg-neutral-100 hover:bg-neutral-200 border border-neutral-300 text-neutral-800 transition-colors flex items-center gap-1.5 cursor-pointer font-medium"
-                      title="Toggle between archival photograph and blueprint schematic"
-                    >
-                      <span>{effectiveMode === 'photos' ? '📷 Photo' : '📐 Blueprint'}</span>
-                      <span className="text-[10px] text-neutral-900 font-bold border-b border-neutral-900">Flip ⇄</span>
-                    </button>
+                    {isRiemann ? (
+                      <span className="px-2 py-0.5 rounded-xs text-[10px] bg-neutral-950 text-cyan-300 border border-neutral-800 font-mono-code font-semibold">
+                        📐 Proposal Blueprint (2026)
+                      </span>
+                    ) : (
+                      <button
+                        onClick={() => toggleIndividualPlateMode(art.id)}
+                        className="px-2.5 py-1 rounded-xs text-[10px] bg-neutral-100 hover:bg-neutral-200 border border-neutral-300 text-neutral-800 transition-colors flex items-center gap-1.5 cursor-pointer font-medium"
+                        title="Toggle between archival photograph and blueprint schematic"
+                      >
+                        <span>{effectiveMode === 'photos' ? '📷 Photo' : '📐 Blueprint'}</span>
+                        <span className="text-[10px] text-neutral-900 font-bold border-b border-neutral-900">Flip ⇄</span>
+                      </button>
+                    )}
 
                     <button
                       onClick={() => toggleIndividualFitMode(art.id)}

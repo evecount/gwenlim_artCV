@@ -13,6 +13,10 @@ try {
     if (customImagesMap['two-man-rule']?.['two-man-rule-img-1']) {
       delete customImagesMap['two-man-rule']['two-man-rule-img-1'];
     }
+    // Clear any stale local override for riemann-manifold so blueprint plates always take effect
+    if (customImagesMap['riemann-manifold']) {
+      delete customImagesMap['riemann-manifold'];
+    }
   }
 } catch (e) {
   console.warn('Could not read image overrides from localStorage:', e);

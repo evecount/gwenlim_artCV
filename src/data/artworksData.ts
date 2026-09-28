@@ -751,48 +751,48 @@ const RAW_ARTWORKS: Artwork[] = [
     images: [
       {
         id: 'riemann-manifold-img-1',
-        url: '/assets/artworks/08-riemann-manifold/plate-08-hero.jpg',
+        url: '',
         placeholderType: 'riemann-overview',
-        viewType: 'Installation View',
-        title: 'Installation View: Obsidian Plinth & Laser Projection',
-        caption: 'Wide perspective of darkened black-box gallery showing the monolithic matte black obsidian pedestal casting 4096-dimensional Riemannian manifold projections onto suspended optical fibers.',
+        viewType: 'Installation Concept',
+        title: 'Plate 01: Obsidian Plinth & 4096-Dim Laser Projection Manifold',
+        caption: 'Spatial conceptual blueprint showing the monolithic matte black obsidian pedestal casting 4096-dimensional Riemannian manifold projections onto suspended optical fibers.',
         captureMetadata: {
-          camera: 'Hasselblad H6D-100c',
-          exposure: 'ISO 400 · f/5.6 · 1/4s',
+          camera: 'Computational Simulation',
+          exposure: 'GLSL / 60 FPS Engine',
           lightingCondition: 'Direct 4K Laser Raster & Micro-Fiber Glow',
           scale: '600 × 450 × 320 cm'
         },
-        credit: 'Documentation: Studio Gwendalynn Lim / ICA Research Pavilion'
+        credit: 'Computational Blueprint: evecount/riemann_hypothesis (2026 Proposal)'
       },
       {
         id: 'riemann-manifold-img-2',
-        url: '/assets/artworks/08-riemann-manifold/plate-08-detail-1.jpg',
+        url: '',
         placeholderType: 'riemann-apparatus',
-        viewType: 'Apparatus Detail',
-        title: 'Apparatus Detail: Transducer Plinth & Inference Node',
-        caption: 'Detail of low-frequency surface transducers embedded within the basalt plinth, converting non-trivial zeta zero distributions into 38Hz–94Hz acoustic vibrations.',
+        viewType: 'Apparatus Schematic',
+        title: 'Plate 02: Transducer Plinth & RTX 6000 Inference Node',
+        caption: 'Technical schematic of low-frequency surface transducers embedded within the basalt plinth, converting non-trivial zeta zero distributions into 38Hz–94Hz acoustic vibrations.',
         captureMetadata: {
-          camera: '90mm Macro f/2.8',
-          exposure: 'ISO 800 · f/8 · 1/30s',
+          camera: 'Hardware Schematic',
+          exposure: 'Piezoelectric / 45Hz',
           lightingCondition: 'Sub-surface LED diagnostic channel',
           scale: '180 × 90 cm plinth detail'
         },
-        credit: 'Documentation: Studio Gwendalynn Lim'
+        credit: 'Technical Architecture: evecount/riemann_hypothesis'
       },
       {
         id: 'riemann-manifold-img-3',
-        url: '/assets/artworks/08-riemann-manifold/plate-08-detail-2.jpg',
+        url: '',
         placeholderType: 'riemann-action',
-        viewType: 'Participatory Action',
-        title: 'Participatory Encounter: Spectator at the Critical Strip',
+        viewType: 'Participatory Encounter',
+        title: 'Plate 03: Spectator at the Critical Strip (Re(s) = 1/2)',
         caption: 'Visitor navigating the acoustic perimeter, observing generative prime interference patterns converge along the critical line Re(s) = 1/2.',
         captureMetadata: {
-          camera: '50mm Prime f/1.4',
-          exposure: 'ISO 1600 · f/2.0 · 1/60s',
+          camera: 'Spatial Encounter',
+          exposure: 'Quantum Chaos Resonances',
           lightingCondition: 'Laser bounce ambient',
           scale: 'Human scale interaction'
         },
-        credit: 'Documentation: Studio Gwendalynn Lim'
+        credit: 'Spatial Modeling: Studio Gwendalynn Lim'
       }
     ],
     hardwareStack: [

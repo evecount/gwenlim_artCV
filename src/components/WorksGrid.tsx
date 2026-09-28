@@ -274,9 +274,9 @@ export const WorksGrid: React.FC<WorksGridProps> = ({
               className="group bg-[#FDFAF5] border border-[#E2D7C3] hover:border-[#B5A893] hover:shadow-[0_16px_36px_rgba(40,30,20,0.10)] rounded-xl overflow-hidden transition-all duration-300 cursor-pointer flex flex-col justify-between shadow-[0_2px_12px_rgba(40,30,20,0.03)] hover:-translate-y-1"
             >
               <div>
-                {/* Visual Photographic Plate Preview (Shows real high-res photographs) */}
+                {/* Visual Photographic Plate Preview (Shows real high-res photographs for completed works, blueprints for Riemann Manifold) */}
                 <div className="relative bg-[#1F1B17] border-b border-[#E2D7C3]">
-                  <ArtworkImageGallery artwork={artwork} compact={true} preferPlateGraphic={false} />
+                  <ArtworkImageGallery artwork={artwork} compact={true} preferPlateGraphic={artwork.id === 'riemann-manifold'} />
                 </div>
 
                 {/* Card Content & Metadata (Museum Monograph Plate Format) */}
