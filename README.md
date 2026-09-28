@@ -59,6 +59,7 @@ I investigate how cameras and observation systems shape human behavior, how we i
 ### 2011–2024 · Motion and Still & Studio Stewardship
 * **Context:** Toronto Studio Network (Gladstone, Midcentury, Plant Paradise, 90 Ontario, Florence) & Flick the Switch Collective
 * **Focus:** Over a decade of grassroots artist-run infrastructure. Directed *Motion and Still* across four overlapping live/work loft studios, providing shared production resources, hosting community acoustic sessions (Sofar Sounds), and delivering commercial production for 39 selected clients across 6 sectors. Served as long-term media and documentation lead for *Flick the Switch Artists' Collective*.
+* **Archival Dossier:** Complete studio network locations, client roster, pro bono mutual aid, and foundational operations (2008–2024) are documented in [`MOTION_AND_STILL_INC.md`](MOTION_AND_STILL_INC.md).
 
 ### 2026 · The Riemann Manifold
 * **Context:** Independent Computational Practice
