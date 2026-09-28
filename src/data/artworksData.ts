@@ -48,28 +48,13 @@ const RAW_ARTWORKS: Artwork[] = [
         id: 'noise-sg-img-2',
         url: '/assets/ART_Images/silver_aurelia.jpg',
         placeholderType: 'noise-sg-apparatus',
-        viewType: 'Apparatus Detail',
-        title: 'Apparatus Detail: High-Key Strobe & Contrast Masking Rig',
-        caption: 'Studio lighting apparatus isolating porcelain skin tones and surgical specular highlights across stylized face paint and ornamentation.',
+        viewType: 'Silver Aurelia (Diptych Part II)',
+        title: 'Silver Aurelia: Metallic Specular Reflection & Tactile Ornamentation',
+        caption: 'Exhibition diptych counterpart investigating surface ornamentation, persona, and human vulnerability under high-key directional studio illumination.',
         captureMetadata: {
           camera: '80mm Portrait Prime Optic',
           exposure: 'ISO 50 · f/11 · 1/250s sync',
           lightingCondition: 'Parabolic key strobe with silver bounce reflector',
-          scale: 'High-contrast studio setup'
-        },
-        credit: 'Documentation: Studio Gwendalynn Lim'
-      },
-      {
-        id: 'noise-sg-img-3',
-        url: '/assets/ART_Images/silver_aurelia.jpg',
-        placeholderType: 'noise-sg-action',
-        viewType: 'Participatory Action',
-        title: 'Participatory Action: Silver Aurelia & The Public Gaze',
-        caption: 'Investigation of visual ornamentation and the performative tension between the interior human subject and external societal persona.',
-        captureMetadata: {
-          camera: 'Studio Monorail System',
-          exposure: 'ISO 100 · f/8 · 1/160s',
-          lightingCondition: 'Radial metallic specular reflections',
           scale: '120 × 90 cm archival display'
         },
         credit: 'Documentation: Studio Gwendalynn Lim / Noise Singapore'
