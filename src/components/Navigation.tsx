@@ -25,7 +25,7 @@ export const Navigation: React.FC<NavigationProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-neutral-200 shadow-xs transition-colors">
+    <header className="sticky top-0 z-40 bg-[#F3EDE2]/95 backdrop-blur-md border-b border-[#E2D7C3] shadow-[0_2px_12px_rgba(40,30,20,0.03)] transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
         
         {/* Zone 1: Wordmark */}

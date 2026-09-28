@@ -39,7 +39,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-neutral-900 flex flex-col font-sans selection:bg-neutral-900 selection:text-white">
+    <div className="min-h-screen bg-[#F3EDE2] text-[#1C1917] flex flex-col font-sans selection:bg-[#1C1917] selection:text-[#F3EDE2]">
       {/* Primary Top Bar Navigation */}
       <Navigation
         activeTab={activeTab}
